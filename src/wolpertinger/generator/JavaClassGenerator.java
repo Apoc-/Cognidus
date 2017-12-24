@@ -35,17 +35,17 @@ public class JavaClassGenerator {
 		JavaClassFile fm = new JavaClassFile();
 
 		new JavaClassVisitor().visit(cu, fm);
-		new JavaClassFieldVisitor().visit(cu, fm.classModel);
+		new JavaClassFieldVisitor().visit(cu, fm.model);
 
 		GenerateJavaFileFromModel(fm);
 	}
 
 	private void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException, ClassNotFoundException {
-		JavaClass cm = fm.classModel;
-		Modifier[] classModifiers = getModifierArrayFromSet(cm.classModifiers);
-		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.javaFields);
+		JavaClass cm = fm.model;
+		Modifier[] classModifiers = getModifierArrayFromSet(cm.modifiers);
+		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);
 
-		TypeSpec generatedClass = TypeSpec.classBuilder(cm.className)
+		TypeSpec generatedClass = TypeSpec.classBuilder(cm.name)
 				.addModifiers(classModifiers)
 				.addFields(fieldSpecs)
 				.build();

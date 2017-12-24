@@ -30,7 +30,7 @@ public class JavaClassFieldVisitor extends VoidVisitorAdapter<JavaClass> {
 		jfm.isArray = isArrayType(varDeclaration.getType());
 		jfm.type = getFieldType(varDeclaration);
 
-		classModel.javaFields.add(jfm);
+		classModel.fields.add(jfm);
 	}
 
 	private String getFieldName(VariableDeclarator vd) {

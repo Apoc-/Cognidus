@@ -6,5 +6,5 @@
 package wolpertinger.javamodel;
 
 public class JavaClassFile {
-	public JavaClass classModel;
+	public JavaClass model;
 }
