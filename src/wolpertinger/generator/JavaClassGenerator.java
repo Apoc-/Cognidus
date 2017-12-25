@@ -12,7 +12,7 @@ import wolpertinger.javamodel.JavaClass;
 import wolpertinger.javamodel.JavaClassFile;
 import wolpertinger.javamodel.JavaField;
 import wolpertinger.javamodel.JavaModifier;
-import wolpertinger.visitors.JavaClassFieldVisitor;
+import wolpertinger.visitors.JavaFieldVisitor;
 import wolpertinger.visitors.JavaClassVisitor;
 
 import javax.lang.model.element.Modifier;
@@ -35,7 +35,7 @@ public class JavaClassGenerator {
 		JavaClassFile fm = new JavaClassFile();
 
 		new JavaClassVisitor().visit(cu, fm);
-		new JavaClassFieldVisitor().visit(cu, fm.model);
+		new JavaFieldVisitor().visit(cu, fm.model);
 
 		GenerateJavaFileFromModel(fm);
 	}

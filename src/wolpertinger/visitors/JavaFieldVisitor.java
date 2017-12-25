@@ -17,7 +17,7 @@ import wolpertinger.javamodel.JavaModifier;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class JavaClassFieldVisitor extends VoidVisitorAdapter<JavaClass> {
+public class JavaFieldVisitor extends VoidVisitorAdapter<JavaClass> {
 	//TODO: Only supports field declaration that declare a single variable
 	//No "public int a, b, c;" allowed
 	@Override
