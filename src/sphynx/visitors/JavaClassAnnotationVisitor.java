@@ -38,7 +38,7 @@ public class JavaClassAnnotationVisitor extends VoidVisitorAdapter<Composite> {
 			cd.changeable = true;
 		}
 
-		cmpt.componentData.put(cd.type,cd);
+		cmpt.componentData.put(cd.typeName,cd);
 		cmps.components.add(cmpt);
 	}
 }

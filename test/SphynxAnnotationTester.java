@@ -6,6 +6,7 @@
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import sphynx.generator.CompositeBuilder;
 import sphynx.visitors.JavaClassAnnotationVisitor;
 
 import java.io.File;
@@ -24,5 +25,6 @@ public class SphynxAnnotationTester {
 		}
 
 		new JavaClassAnnotationVisitor().visit(cu, null);
+
 	}
 }

@@ -6,17 +6,14 @@
 
 package sphynx.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ComponentDatum {
-	public String type;
-	public String[] values;
-	public boolean changeable;
+	public String typeName;
+	public String[] data;
 
-	public ComponentDatum(String type, String... values) {
-		this.type = type;
-		this.values = values;
-		this.changeable = false;
+	public ComponentDatum(String typeName, String... data) {
+		this.typeName = typeName;
+		this.data = data;
 	}
 }

@@ -10,8 +10,6 @@ import sphynx.annotations.Renamable;
 @Component("POJO")
 @Renamable
 public abstract class ReferencePOJO {
-	public float val;
-	protected String name;
 	int id;
-	private String[] secrets;
+	@Component("StringField") @Renamable String name;
 }
