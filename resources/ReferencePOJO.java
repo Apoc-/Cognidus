@@ -6,10 +6,12 @@
 
 import sphynx.annotations.Component;
 import sphynx.annotations.Renamable;
+import sphynx.annotations.VariableModifier;
+import sphynx.annotations.VariableType;
 
-@Component("POJO")
-@Renamable
+@CodeUnit("POJO")
+@VariableModifier()
 public abstract class ReferencePOJO {
 	int id;
-	@Component("StringField") @Renamable String name;
+	@Unit("StringField") @Renamable String name;
 }

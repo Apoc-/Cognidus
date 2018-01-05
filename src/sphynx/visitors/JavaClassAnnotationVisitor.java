@@ -8,37 +8,57 @@ package sphynx.visitors;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import sphynx.model.Component;
-import sphynx.model.ComponentDatum;
-import sphynx.model.Composite;
+import sphynx.ubgenerator.UBMethodSpec;
+import sphynx.ubmodel.UnitBuilderModel;
+import sphynx.unitmodel.CodeUnit;
+import sphynx.unitmodel.CodeUnitType;
 
 import java.util.Optional;
 
-public class JavaClassAnnotationVisitor extends VoidVisitorAdapter<Composite> {
+public class JavaClassAnnotationVisitor extends VoidVisitorAdapter<UnitBuilderModel> {
 	@Override
-	public void visit(ClassOrInterfaceDeclaration coid, Composite cmps) {
-		Component cmpt = new Component();
-		cmpt.type = "class";
+	public void visit(ClassOrInterfaceDeclaration declaration, UnitBuilderModel model) {
+		CodeUnit cu = new CodeUnit(CodeUnitType.CLASS);
 
-		Optional<AnnotationExpr> ae = coid.getAnnotationByClass(sphynx.annotations.Component.class);
+		boolean hasCodeUnitAnnotation = ParseCodeUnitAnnotiation(declaration, model);
+
+		//
+		if(hasCodeUnitAnnotation) {
+			//AddSubCodeUnitMethod(model);
+			ParseVariableModifierAnnotation(declaration, model);
+		}
+	}
+
+	private boolean ParseCodeUnitAnnotiation(ClassOrInterfaceDeclaration declaration, UnitBuilderModel model) {
+		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.CodeUnit.class);
 		if(ae.isPresent()) {
 			AnnotationExpr anno = ae.get();
 
-			cmpt.identifier = anno
+			String identifier = anno
 					.asSingleMemberAnnotationExpr()
 					.getMemberValue()
 					.asStringLiteralExpr()
 					.getValue();
+
+			model.setIdentifier(identifier);
+			return true;
 		}
 
-		ae = coid.getAnnotationByClass(sphynx.annotations.Renamable.class);
-		ComponentDatum cd = new ComponentDatum("name", coid.getName().asString());
+		return false;
+	}
 
+	//TODO Move to FieldAnnotationVisitor
+	private void ParseVariableTypeAnnotation(ClassOrInterfaceDeclaration declaration, UnitBuilderModel model) {
+		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.VariableType.class);
 		if(ae.isPresent()) {
-			cd.changeable = true;
+			model.addBuilderMethod(UBMethodSpec.WITH_DATA_TYPE);
 		}
+	}
 
-		cmpt.componentData.put(cd.typeName,cd);
-		cmps.components.add(cmpt);
+	private void ParseVariableModifierAnnotation(ClassOrInterfaceDeclaration declaration, UnitBuilderModel model) {
+		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.VariableModifier.class);
+		if(ae.isPresent()) {
+			model.addBuilderMethod(UBMethodSpec.WITH_MODIFIERS);
+		}
 	}
 }

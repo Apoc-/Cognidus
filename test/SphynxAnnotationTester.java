@@ -6,13 +6,12 @@
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import sphynx.generator.CompositeBuilder;
-import sphynx.visitors.JavaClassAnnotationVisitor;
+//import sphynx.visitors.JavaClassAnnotationVisitor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class SphynxAnnotationTester {
+/*public class SphynxAnnotationTester {
 	File testFile = new File("resources/ReferencePOJO.java");
 
 	@org.junit.jupiter.api.Test
@@ -25,6 +24,5 @@ public class SphynxAnnotationTester {
 		}
 
 		new JavaClassAnnotationVisitor().visit(cu, null);
-
 	}
-}
+}*/
