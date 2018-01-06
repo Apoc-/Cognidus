@@ -4,7 +4,7 @@
  * File last modfied: 05.01.18 18:33
  */
 
-package sphynx.ubgenerator;
+package sphynx.generator;
 
 public enum UBMethodSpec {
 	WITH_MODIFIERS("withModifiers"),

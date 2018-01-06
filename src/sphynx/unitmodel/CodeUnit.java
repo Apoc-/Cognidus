@@ -32,4 +32,12 @@ public class CodeUnit {
 	public void addSubCodeUnit(CodeUnit subCodeUnit) {
 		subCodeUnits.add(subCodeUnit);
 	}
+
+	public CodeUnitType getType() {
+		return type;
+	}
+
+	public void setType(CodeUnitType type) {
+		this.type = type;
+	}
 }

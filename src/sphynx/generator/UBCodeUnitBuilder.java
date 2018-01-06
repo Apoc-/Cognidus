@@ -3,7 +3,7 @@
  *
  * File last modfied: 26.12.17 21:14
  */
-package sphynx.ubgenerator;
+package sphynx.generator;
 
 import sphynx.unitmodel.CodeUnit;
 import sphynx.unitmodel.CodeUnitModifier;
@@ -24,12 +24,18 @@ public class UBCodeUnitBuilder {
 		return cb;
 	}
 
+	//Has to be able to set codeUnitType to be used to describe FixedCodeUnits
+	public UBCodeUnitBuilder setCodeUnityType(CodeUnitType type) {
+		this.codeUnit.setType(type);
+		return this;
+	}
+
 	public UBCodeUnitBuilder withModifiers(CodeUnitModifier... modifiers) {
 		this.codeUnit.addCodeUnitDatum("modifier", modifiers);
 		return this;
 	}
 
-	public UBCodeUnitBuilder withDataType(Type dataType) {
+	public UBCodeUnitBuilder withDataType(Class dataType) {
 		this.codeUnit.addCodeUnitDatum("dataType",dataType);
 		return this;
 	}

@@ -1,23 +1,22 @@
 /*
  * Copyright (c) Apoc- 2018
  *
- * File last modfied: 05.01.18 18:20
+ * File last modfied: 05.01.18 21:47
  */
 
-package sphynx.ubmodel;
+package sphynx.generator;
 
-import sphynx.ubgenerator.UBMethodSpec;
 import sphynx.unitmodel.CodeUnit;
 
 import java.util.EnumSet;
 
-public class UnitBuilderModel {
+public class UBModel {
 	private String identifier;
 	private EnumSet<UBMethodSpec> builderMethods;
 	private CodeUnit defaultCodeUnit;
 
-	public UnitBuilderModel() {
-		this.identifier = null;
+	public UBModel() {
+		builderMethods = EnumSet.noneOf(UBMethodSpec.class);
 	}
 
 	public String getIdentifier() {

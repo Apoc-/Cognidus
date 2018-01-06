@@ -9,9 +9,9 @@ package CodeUnitBuilderGeneratorTests;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
-import sphynx.ubgenerator.UBCodeUnitBuilder;
-import sphynx.ubgenerator.UBMethodSpec;
-import sphynx.ubgenerator.UBMethodSpecFactory;
+import sphynx.generator.UBCodeUnitBuilder;
+import sphynx.generator.UBMethodSpec;
+import sphynx.generator.UBMethodSpecFactory;
 
 public class UBMethodSpecFactoryTests {
 	@org.junit.jupiter.api.Test

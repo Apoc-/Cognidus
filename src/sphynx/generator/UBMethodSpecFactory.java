@@ -4,7 +4,7 @@
  * File last modfied: 05.01.18 19:44
  */
 
-package sphynx.ubgenerator;
+package sphynx.generator;
 
 import com.squareup.javapoet.ArrayTypeName;
 import com.squareup.javapoet.MethodSpec;
@@ -68,7 +68,7 @@ public class UBMethodSpecFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
-				.addParameter(Type.class, "dataType")
+				.addParameter(Class.class, "dataType")
 				.addStatement("this.codeUnit.addCodeUnitDatum($S, dataType)", "dataType")
 				.addStatement("return this")
 				.build();
