@@ -14,7 +14,6 @@ import wolpertinger.javamodel.JavaClass;
 import wolpertinger.javamodel.JavaField;
 import wolpertinger.javamodel.JavaModifier;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -25,19 +24,18 @@ public class CodeUnitTransformator {
 	public JavaClass transformClassCodeUnit(CodeUnit cu) {
 		JavaClass clazz = new JavaClass();
 
-
-		clazz.name = this.parseIdentifier(cu);
-		clazz.modifiers = this.parseModifier(cu);
-		clazz.fields = this.parseFields(cu);
+		clazz.name = this.transformIdentifier(cu);
+		clazz.modifiers = this.transformModifier(cu);
+		clazz.fields = this.transformFields(cu);
 
 		return clazz;
 	}
 
-	private String parseIdentifier(CodeUnit cu) {
+	private String transformIdentifier(CodeUnit cu) {
 		return (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 	}
 
-	private Set<JavaModifier> parseModifier(CodeUnit cu) {
+	private Set<JavaModifier> transformModifier(CodeUnit cu) {
 		CodeUnitModifier[] cm = (CodeUnitModifier[]) cu.getCodeUnitDatum(CodeUnitDatumType.MODIFIER).getDatumData();
 		return Arrays
 				.stream(cm)
@@ -45,24 +43,24 @@ public class CodeUnitTransformator {
 				.collect(Collectors.toSet());
 	}
 
-	private List<JavaField> parseFields(CodeUnit cu) {
+	private List<JavaField> transformFields(CodeUnit cu) {
 		 return cu.getSubCodeUnits()
 				.stream()
 				.filter(unit -> unit.getType() == CodeUnitType.FIELD)
-				.map(fieldUnit -> parseField(fieldUnit))
+				.map(fieldUnit -> transformField(fieldUnit))
 				.collect(Collectors.toList());
 	}
 
-	private JavaField parseField(CodeUnit cu) {
+	private JavaField transformField(CodeUnit cu) {
 		JavaField jField = new JavaField();
-		jField.modifiers = this.parseModifier(cu);
-		jField.name = this.parseIdentifier(cu);
-		jField.type = this.parseType(cu);
+		jField.modifiers = this.transformModifier(cu);
+		jField.name = this.transformIdentifier(cu);
+		jField.type = this.transformType(cu);
 
 		return jField;
 	}
 
-	private String parseType(CodeUnit cu) {
+	private String transformType(CodeUnit cu) {
 		Class c = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 		return c.getName();
 	}

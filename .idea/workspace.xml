@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/kitsune/transformator/CodeUnitTransformatorTester.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/PublicIntUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/StringUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" afterPath="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaClass.java" afterPath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaField.java" afterPath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaField.java" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratorTests/GeneratedBuilderTester.class" afterPath="$PROJECT_DIR$/target/test-classes/GeneratorTests/GeneratedBuilderTester.class" />
-      <change beforePath="$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java" afterPath="$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java" />
+      <change beforePath="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java" afterPath="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeUnitTransformator.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CodeUnitTransformator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            <state relative-caret-position="440">
+              <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReferencePOJO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReferencePOJO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/ReferencePOJO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+            <state relative-caret-position="176">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -167,9 +153,12 @@
       <find>Type</find>
       <find>get</find>
       <find>get(</find>
+      <find>parse</find>
     </findStrings>
     <replaceStrings>
       <replace>builderClassIdentifierLiteral</replace>
+      <replace>transform</replace>
+      <replace>transform</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -236,9 +225,9 @@
         <option value="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitDataTypeMapper.java" />
         <option value="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaClass.java" />
         <option value="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaField.java" />
-        <option value="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java" />
         <option value="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" />
         <option value="$PROJECT_DIR$/test/kitsune/transformator/CodeUnitTransformatorTester.java" />
+        <option value="$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java" />
       </list>
     </option>
   </component>
@@ -380,28 +369,7 @@
               <item name="Cognidus" type="b2602c69:ProjectViewProjectNode" />
               <item name="Cognidus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sphynx" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cognidus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cognidus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="sphynx" type="462c0819:PsiDirectoryNode" />
-              <item name="unitmodel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cognidus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cognidus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="wolpertinger" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Cognidus" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Cognidus" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="wolpertinger" type="462c0819:PsiDirectoryNode" />
-              <item name="javamodel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Cognidus" type="b2602c69:ProjectViewProjectNode" />
@@ -666,7 +634,7 @@
       <workItem from="1515267909083" duration="6595000" />
       <workItem from="1515318637565" duration="13904000" />
       <workItem from="1515337909183" duration="8586000" />
-      <workItem from="1515348634739" duration="9694000" />
+      <workItem from="1515348634739" duration="10772000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -735,9 +703,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CodeUnitTransformatorTester_test - 2018.01.07 at 22h 38m 12s.xml">
-      <configuration name="CodeUnitTransformatorTester.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CodeUnitTransformatorTester_test - 2018.01.07 at 22h 38m 14s.xml">
       <configuration name="CodeUnitTransformatorTester.test" configurationId="JUnit" />
     </history-entry>
@@ -762,12 +727,15 @@
     <history-entry file="CodeUnitTransformatorTester_test - 2018.01.07 at 22h 47m 54s.xml">
       <configuration name="CodeUnitTransformatorTester.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CodeUnitTransformatorTester_test - 2018.01.07 at 23h 16m 43s.xml">
+      <configuration name="CodeUnitTransformatorTester.test" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="GeneratedBuilderTester - 2018.01.07 at 22h 40m 45s.xml">
       <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180520000" />
+    <option name="totallyTimeSpent" value="181598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1207,16 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="23" column="36" lean-forward="true" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/kitsune/transformator/CodeUnitTransformatorTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
@@ -1229,9 +1187,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/ReferencePOJO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        <state relative-caret-position="176">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kitsune/transformator/CodeUnitTransformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="24" column="24" lean-forward="false" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
