@@ -23,13 +23,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//TODO Tasks:
-// Do over Warnings and Todos,
-// Types for mappers;
-// Transformator to JavaCodeModel!
-// Arrays!
-// Generics?
-// Methods?
+//Tasks Todo
+// Transformator to JavaCodeModel
+// Arrays
+// Generics
+// Methods
 public class UBGenerator {
 	private static UBGenerator instance;
 	private final List<UBModel> models;
@@ -127,6 +125,7 @@ public class UBGenerator {
 				.replace("]","}");
 
 		return MethodSpec.methodBuilder("initializeDefaultCodeUnit")
+				.addComment("Initializes this builder's data with default data encoded into a byte[]")
 				.addModifiers(Modifier.PRIVATE)
 				.addStatement("byte[] serializedCodeUnit = new byte[] $L", codeUnitArrayLiteral)
 				.addStatement("this.codeUnit = $T.deserialize(serializedCodeUnit)", SerializationUtils.class)

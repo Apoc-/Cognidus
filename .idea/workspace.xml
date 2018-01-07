@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/PublicIntUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/StringUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpec.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpec.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/visitors/JavaFieldAnnotationVisitor.java" afterPath="$PROJECT_DIR$/src/sphynx/visitors/JavaFieldAnnotationVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" afterPath="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/generator/JavaPoetTypeMapper.java" afterPath="$PROJECT_DIR$/src/wolpertinger/generator/JavaPoetTypeMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaClass.java" afterPath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaField.java" afterPath="$PROJECT_DIR$/src/wolpertinger/javamodel/JavaField.java" />
-      <change beforePath="$PROJECT_DIR$/src/wolpertinger/visitors/JavaFieldVisitor.java" afterPath="$PROJECT_DIR$/src/wolpertinger/visitors/JavaFieldVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CodeUnitBuilderGeneratorTests/UBMethodSpecFactoryTests.class" afterPath="$PROJECT_DIR$/target/test-classes/CodeUnitBuilderGeneratorTests/UBMethodSpecFactoryTests.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CodeUnitBuilderGeneratorTests/UBModelGeneratorTests.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" />
-      <change beforePath="$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBMethodSpecFactoryTests.java" afterPath="$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBMethodSpecFactoryTests.java" />
-      <change beforePath="$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBModelGeneratorTests.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" afterPath="$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java" />
-      <change beforePath="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" afterPath="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" />
-      <change beforePath="$PROJECT_DIR$/wolpertinger.iml" afterPath="$PROJECT_DIR$/wolpertinger.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,8 +29,8 @@
       <file leaf-file-name="UBAnnotationParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="168" column="20" lean-forward="false" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
+            <state relative-caret-position="857">
+              <caret line="167" column="6" lean-forward="false" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
               <folding>
                 <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
                 <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
@@ -74,12 +49,32 @@
       <file leaf-file-name="UBGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state relative-caret-position="365">
+              <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
               <folding>
                 <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
                 <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="POJOUnitBuilder.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaLangClassMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -107,14 +102,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneratedBuilderTester.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GeneratedBuilderTester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="37" column="53" lean-forward="true" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
+            <state relative-caret-position="814">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaFieldVisitor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wolpertinger/visitors/JavaFieldVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,41 +141,12 @@
       <file leaf-file-name="CodeUnitDatum.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="132">
+              <caret line="11" column="99" lean-forward="false" selection-start-line="11" selection-start-column="99" selection-end-line="11" selection-end-column="99" />
               <folding>
-                <element signature="e#399#400#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeUnitDatumType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JavaClassGeneratorTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/JavaClassGeneratorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JavaClassGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="55" column="55" lean-forward="false" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -250,14 +226,12 @@
         <option value="$PROJECT_DIR$/test/sphynx/generated/POJOUnitBuilderTest.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java" />
         <option value="$PROJECT_DIR$/resources/ReferencePOJO.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" />
         <option value="$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java" />
         <option value="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" />
@@ -266,6 +240,8 @@
         <option value="$PROJECT_DIR$/test/GeneratorTests/GeneratedUBTester.java" />
         <option value="$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java" />
       </list>
     </option>
   </component>
@@ -399,6 +375,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sphynx" type="462c0819:PsiDirectoryNode" />
               <item name="annotations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wolpertinger" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wolpertinger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sphynx" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wolpertinger" type="b2602c69:ProjectViewProjectNode" />
@@ -678,7 +661,7 @@
       <workItem from="1515260563028" duration="670000" />
       <workItem from="1515267909083" duration="6595000" />
       <workItem from="1515318637565" duration="13904000" />
-      <workItem from="1515337909183" duration="6815000" />
+      <workItem from="1515337909183" duration="8343000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -747,12 +730,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GeneratedBuilderTester - 2018.01.07 at 18h 15m 55s.xml">
-      <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GeneratedBuilderTester - 2018.01.07 at 18h 16m 52s.xml">
-      <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GeneratedBuilderTester - 2018.01.07 at 18h 17m 09s.xml">
       <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
     </history-entry>
@@ -777,9 +754,15 @@
     <history-entry file="GeneratedBuilderTester - 2018.01.07 at 18h 22m 58s.xml">
       <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GeneratedBuilderTester - 2018.01.07 at 19h 01m 21s.xml">
+      <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GeneratedBuilderTester - 2018.01.07 at 19h 01m 57s.xml">
+      <configuration name="GeneratedBuilderTester" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169055000" />
+    <option name="totallyTimeSpent" value="170583000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -795,15 +778,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.3251599" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3652174" sideWeight="0.23987207" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.23240939" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.7707889" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.76759064" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -817,7 +800,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3652174" sideWeight="0.7601279" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3652174" sideWeight="0.7601279" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -856,7 +839,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/DefaultCodeUnit.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/javapoet/1.9.0/javapoet-1.9.0.jar!/com/squareup/javapoet/CodeBlock.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -967,14 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBMethodSpec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1011,14 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="269" column="6" lean-forward="false" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1063,24 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="168" column="20" lean-forward="false" selection-start-line="168" selection-start-column="20" selection-end-line="168" selection-end-column="20" />
-          <folding>
-            <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="e#5204#5205#0" expanded="true" />
-            <element signature="e#5238#5239#0" expanded="true" />
-            <element signature="method#SetIdentifier#0;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="e#5532#5533#0" expanded="true" />
-            <element signature="e#5593#5594#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
-            <element signature="e#5696#5697#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/wolpertinger/generator/JavaClassGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1102,27 +1050,6 @@
         <state relative-caret-position="154">
           <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding>
-            <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
-            <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#399#400#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1167,11 +1094,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/GeneratorTests/GeneratedBuilderTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="37" column="53" lean-forward="true" selection-start-line="37" selection-start-column="53" selection-end-line="37" selection-end-column="53" />
+        <state relative-caret-position="814">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wolpertinger/visitors/JavaFieldVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="99" lean-forward="false" selection-start-line="11" selection-start-column="99" selection-end-line="11" selection-end-column="99" />
+          <folding>
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="857">
+          <caret line="167" column="6" lean-forward="false" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
+          <folding>
+            <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="e#5204#5205#0" expanded="true" />
+            <element signature="e#5238#5239#0" expanded="true" />
+            <element signature="method#SetIdentifier#0;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="e#5532#5533#0" expanded="true" />
+            <element signature="e#5593#5594#0" expanded="true" />
+            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#5696#5697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="125" column="0" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+          <folding>
+            <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
+            <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
