@@ -22,6 +22,7 @@ import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 import sphynx.unitmodel.CodeUnit;
+import sphynx.unitmodel.CodeUnitDatumType;
 import sphynx.unitmodel.CodeUnitModifier;
 import sphynx.unitmodel.CodeUnitType;
 import sphynx.visitors.JavaFixedFieldAnnotationVisitor;
@@ -40,8 +41,7 @@ public class UBAnnotationParser {
 		return instance;
 	}
 
-	private UBAnnotationParser() {
-	}
+	private UBAnnotationParser()  { }
 
 	//public methods
 	public void ParseCodeUnitAnnotiation(ClassOrInterfaceDeclaration declaration, List<UBModel> models) {
@@ -80,7 +80,6 @@ public class UBAnnotationParser {
 	public void ParseFixedCodeUnitAnnotiation(FieldDeclaration declaration, UBModel model) {
 		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.FixedCodeUnit.class);
 		if(ae.isPresent()) {
-			//Add to model as def cu
 			CodeUnit cu = model.getDefaultCodeUnit();
 
 			VariableDeclarator vd = declaration.getVariable(0);
@@ -104,7 +103,7 @@ public class UBAnnotationParser {
 			model.addBuilderMethod(UBMethodSpec.WITH_MODIFIERS);
 		} else {
 			//add default modifiers
-			model.getDefaultCodeUnit().addCodeUnitDatum("modifiers", getModifier(declaration));
+			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.MODIFIER, getModifier(declaration));
 		}
 	}
 
@@ -114,7 +113,7 @@ public class UBAnnotationParser {
 			model.addBuilderMethod(UBMethodSpec.WITH_MODIFIERS);
 		} else {
 			//add default modifiers
-			model.getDefaultCodeUnit().addCodeUnitDatum("modifiers", getModifier(declaration));
+			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.MODIFIER, getModifier(declaration));
 		}
 	}
 
@@ -123,7 +122,7 @@ public class UBAnnotationParser {
 		if(ae.isPresent()) {
 			model.addBuilderMethod(UBMethodSpec.WITH_DATA_TYPE);
 		} else {
-			model.getDefaultCodeUnit().addCodeUnitDatum("dataType", getFieldType(declaration.getVariable(0)));
+			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, getFieldType(declaration.getVariable(0)));
 		}
 	}
 

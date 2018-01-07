@@ -11,24 +11,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CodeUnitDatum<T> implements Serializable {
-	private String datumName; //as in "identifier", "modifier", "dataType" //TODO Maybe make enum
 	private List<T> datumData;
 
-	CodeUnitDatum(String datumName, List<T> datumData) {
-		this.datumName = datumName;
+	CodeUnitDatum(List<T> datumData) {
 		this.datumData = new LinkedList<>();
 		this.datumData.addAll(datumData);
 	}
 
-	CodeUnitDatum(String datumName, T datumData) {
-		this.datumName = datumName;
+	CodeUnitDatum(T datumData) {
 		this.datumData = new LinkedList<>();
 		this.datumData.add(datumData);
 	}
-
-	String getDatumName() {
-		return datumName;
-	}
-
-
 }

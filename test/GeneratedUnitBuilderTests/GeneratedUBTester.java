@@ -11,9 +11,6 @@ import sphynx.generated.VarUnitBuilder;
 import sphynx.unitmodel.CodeUnit;
 import sphynx.unitmodel.CodeUnitModifier;
 
-import java.lang.reflect.Modifier;
-import java.util.List;
-
 public class GeneratedUBTester {
 	@org.junit.jupiter.api.Test
 	void testBuilders() {

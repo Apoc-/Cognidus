@@ -10,6 +10,7 @@ import com.squareup.javapoet.ArrayTypeName;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeName;
 import sphynx.unitmodel.CodeUnit;
+import sphynx.unitmodel.CodeUnitDatumType;
 import sphynx.unitmodel.CodeUnitModifier;
 
 import javax.lang.model.element.Modifier;
@@ -47,7 +48,7 @@ public class UBMethodSpecFactory {
 				.returns(builderType)
 				.addParameter(String.class, "identifier")
 				.addStatement("$T cub = new $T()", builderType, builderType)
-				.addStatement("cub.codeUnit.addCodeUnitDatum($S, identifier)", "identifier")
+				.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, identifier)", CodeUnitDatumType.class, "IDENTIFIER")
 				.addStatement("return cub")
 				.build();
 	}
@@ -58,7 +59,7 @@ public class UBMethodSpecFactory {
 				.returns(builderType)
 				.addParameter(ArrayTypeName.get(CodeUnitModifier[].class), "modifiers")
 				.varargs()
-				.addStatement("this.codeUnit.addCodeUnitDatum($S, modifiers)", "modifier")
+				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, modifiers)", CodeUnitDatumType.class, "MODIFIER")
 				.addStatement("return this")
 				.build();
 	}
@@ -68,7 +69,7 @@ public class UBMethodSpecFactory {
 				.addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
 				.addParameter(Class.class, "dataType")
-				.addStatement("this.codeUnit.addCodeUnitDatum($S, dataType)", "dataType")
+				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, dataType)", CodeUnitDatumType.class, "DATA_TYPE")
 				.addStatement("return this")
 				.build();
 	}

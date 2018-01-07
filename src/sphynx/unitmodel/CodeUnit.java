@@ -11,7 +11,7 @@ import java.util.*;
 
 public class CodeUnit implements Serializable {
 	private CodeUnitType type;
-	private Map<String, CodeUnitDatum> data;
+	private Map<CodeUnitDatumType, CodeUnitDatum> data;
 	private List<CodeUnit> subCodeUnits;
 
 	public CodeUnit(CodeUnitType type) {
@@ -30,17 +30,17 @@ public class CodeUnit implements Serializable {
 				.forEach(cu -> this.addSubCodeUnit(new CodeUnit(cu)));
 	}
 
-	public <T> void addCodeUnitDatum(String datumName, List<T> datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , datumData);
-		data.put(datum.getDatumName(),datum);
+	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, List<T> datumData) {
+		CodeUnitDatum datum = new CodeUnitDatum<>(datumData);
+		data.put(datumType,datum);
 	}
 
-	public <T> void addCodeUnitDatum(String datumName, T datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , datumData);
-		data.put(datum.getDatumName(),datum);
+	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, T datumData) {
+		CodeUnitDatum datum = new CodeUnitDatum<>(datumData);
+		data.put(datumType,datum);
 	}
 
-	public Map<String, CodeUnitDatum> getData() {
+	public Map<CodeUnitDatumType, CodeUnitDatum> getData() {
 		return data;
 	}
 

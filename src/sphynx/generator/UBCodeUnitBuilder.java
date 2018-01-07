@@ -6,6 +6,7 @@
 package sphynx.generator;
 
 import sphynx.unitmodel.CodeUnit;
+import sphynx.unitmodel.CodeUnitDatumType;
 import sphynx.unitmodel.CodeUnitModifier;
 import sphynx.unitmodel.CodeUnitType;
 
@@ -20,23 +21,22 @@ public class UBCodeUnitBuilder {
 
 	public static UBCodeUnitBuilder createWithIdentifier(String identifier) {
 		UBCodeUnitBuilder cb = new UBCodeUnitBuilder();
-		cb.codeUnit.addCodeUnitDatum("identifier", identifier);
+		cb.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
 		return cb;
 	}
 
-	//Has to be able to set codeUnitType to be used to describe FixedCodeUnits
 	public UBCodeUnitBuilder setCodeUnityType(CodeUnitType type) {
 		this.codeUnit.setType(type);
 		return this;
 	}
 
 	public UBCodeUnitBuilder withModifiers(CodeUnitModifier... modifiers) {
-		this.codeUnit.addCodeUnitDatum("modifier", modifiers);
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.MODIFIER, modifiers);
 		return this;
 	}
 
 	public UBCodeUnitBuilder withDataType(Class dataType) {
-		this.codeUnit.addCodeUnitDatum("dataType",dataType);
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE,dataType);
 		return this;
 	}
 
