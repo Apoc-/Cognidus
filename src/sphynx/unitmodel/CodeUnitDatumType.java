@@ -9,5 +9,10 @@ package sphynx.unitmodel;
 public enum CodeUnitDatumType {
 	MODIFIER,
 	IDENTIFIER,
-	DATA_TYPE
+	DATA_TYPE;
+
+	@Override
+	public String toString() {
+		return this.name();
+	}
 }

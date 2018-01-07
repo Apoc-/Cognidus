@@ -13,5 +13,10 @@ public enum CodeUnitModifier {
 	PROTECTED,
 	PRIVATE,
 	STATIC,
-	TRANSIENT
+	TRANSIENT;
+
+	@Override
+	public String toString() {
+		return this.name();
+	}
 }

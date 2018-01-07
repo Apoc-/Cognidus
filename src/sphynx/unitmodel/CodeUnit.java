@@ -30,11 +30,6 @@ public class CodeUnit implements Serializable {
 				.forEach(cu -> this.addSubCodeUnit(new CodeUnit(cu)));
 	}
 
-	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, List<T> datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumData);
-		data.put(datumType,datum);
-	}
-
 	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, T datumData) {
 		CodeUnitDatum datum = new CodeUnitDatum<>(datumData);
 		data.put(datumType,datum);

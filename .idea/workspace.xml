@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" line="19" />
+    <bookmark url="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" line="21" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="Introduced CodeUnitDatumType enum, which replaces String namings for DatumType entries">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generated/PublicIntUnitBuilder.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generated/StringUnitBuilder.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
       <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" />
+      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
+      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" />
+      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" />
       <change beforePath="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" afterPath="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" />
-      <change beforePath="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" afterPath="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,11 +38,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="UBAnnotationParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="105" column="39" lean-forward="false" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+              <folding>
+                <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
+                <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
+                <element signature="e#5460#5461#0" expanded="true" />
+                <element signature="e#5494#5495#0" expanded="true" />
+                <element signature="method#SetIdentifier#0;class#UBAnnotationParser#0" expanded="false" />
+                <element signature="e#5788#5789#0" expanded="true" />
+                <element signature="e#5849#5850#0" expanded="true" />
+                <element signature="e#5916#5917#0" expanded="true" />
+                <element signature="e#5952#5953#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeneratedUBTester.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UBGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="98" column="62" lean-forward="false" selection-start-line="98" selection-start-column="62" selection-end-line="98" selection-end-column="70" />
+            <state relative-caret-position="1638">
+              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
               <folding>
                 <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
                 <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
@@ -52,52 +83,70 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UBMethodSpecFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java">
+      <file leaf-file-name="CodeUnitDatum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1148">
-              <caret line="71" column="117" lean-forward="false" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
+            <state relative-caret-position="220">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#452#453#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JavaClassGeneratorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/JavaClassGeneratorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="POJOUnitBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
+      <file leaf-file-name="CodeUnit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="594">
+              <caret line="32" column="49" lean-forward="true" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PublicIntUnitBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/generated/PublicIntUnitBuilder.java">
+      <file leaf-file-name="UBModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+            <state relative-caret-position="132">
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUnitBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/generated/StringUnitBuilder.java">
+      <file leaf-file-name="CodeUnitModifier.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="44" />
-              <folding />
+            <state relative-caret-position="308">
+              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+              <folding>
+                <element signature="e#268#269#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VarUnitBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java">
+      <file leaf-file-name="CodeUnitType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="242">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <element signature="e#184#185#0" expanded="true" />
+                <element signature="e#209#210#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,38 +156,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
               <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeUnitModifier.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeUnitType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeneratedUBTester.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#209#210#0" expanded="true" />
+                <element signature="e#234#235#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/sphynx/unitbuilder/UnitBuilderMethodSpecFactory.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitbuilder/UBMethodSpec.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifiers.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitbuilder/CodeUnitBuilder.java" />
         <option value="$PROJECT_DIR$/src/sphynx/unitbuildermodel/UnitBuilderModel.java" />
         <option value="$PROJECT_DIR$/test/CompositeBuilderTester.java" />
@@ -214,7 +233,6 @@
         <option value="$PROJECT_DIR$/src/sphynx/visitors/JavaClassAnnotationVisitor.java" />
         <option value="$PROJECT_DIR$/src/sphynx/visitors/JavaFieldAnnotationVisitor.java" />
         <option value="$PROJECT_DIR$/src/sphynx/visitors/JavaFixedFieldAnnotationVisitor.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/DefaultCodeUnit.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBModel.java" />
@@ -226,14 +244,16 @@
         <option value="$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBModelGeneratorTests.java" />
         <option value="$PROJECT_DIR$/resources/ReferencePOJO.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
         <option value="$PROJECT_DIR$/test/JavaClassGeneratorTest.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" />
-        <option value="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java" />
         <option value="$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
+        <option value="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
         <option value="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" />
       </list>
     </option>
@@ -381,6 +401,13 @@
               <item name="wolpertinger" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sphynx" type="462c0819:PsiDirectoryNode" />
+              <item name="generator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wolpertinger" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wolpertinger" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="sphynx" type="462c0819:PsiDirectoryNode" />
               <item name="unitmodel" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -444,13 +471,13 @@
       <recent name="sphynx.generated" />
       <recent name="" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="sphynx.visitors" />
       <recent name="sphynx.unitmodel" />
       <recent name="sphynx.annotations" />
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -494,6 +521,31 @@
       <module name="" />
       <envs />
     </configuration>
+    <configuration name="GeneratedUBTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="GeneratedUnitBuilderTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="wolpertinger" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="GeneratedUnitBuilderTests" />
+      <option name="MAIN_CLASS_NAME" value="GeneratedUnitBuilderTests.GeneratedUBTester" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="GeneratedUBTester.testBuilders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -519,27 +571,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="SphynxAnnotationTester" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="wolpertinger" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SphynxAnnotationTester" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="UBMethodSpecFactoryTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UBModelGeneratorTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="CodeUnitBuilderGeneratorTests.*" />
@@ -550,34 +582,9 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="CodeUnitBuilderGeneratorTests" />
-      <option name="MAIN_CLASS_NAME" value="CodeUnitBuilderGeneratorTests.UBMethodSpecFactoryTests" />
+      <option name="MAIN_CLASS_NAME" value="CodeUnitBuilderGeneratorTests.UBModelGeneratorTests" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="UBMethodSpecFactoryTests.WithModifiersMethodSpecFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="CodeUnitBuilderGeneratorTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="wolpertinger" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="CodeUnitBuilderGeneratorTests" />
-      <option name="MAIN_CLASS_NAME" value="CodeUnitBuilderGeneratorTests.UBMethodSpecFactoryTests" />
-      <option name="METHOD_NAME" value="WithModifiersMethodSpecFactoryTest" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -674,20 +681,18 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.SphynxAnnotationTester" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.UBMethodSpecFactoryTests.WithModifiersMethodSpecFactoryTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UBMethodSpecFactoryTests" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UBModelGeneratorTests.GenerateJavaFilesFromReference" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GeneratedUBTester.testBuilders" />
+    <list size="4">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.UBModelGeneratorTests" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GeneratedUBTester" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UBModelGeneratorTests.GenerateJavaFilesFromReference" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GeneratedUBTester.testBuilders" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="JUnit.GeneratedUBTester.testBuilders" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.UBModelGeneratorTests.GenerateJavaFilesFromReference" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UBMethodSpecFactoryTests" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.UBMethodSpecFactoryTests.WithModifiersMethodSpecFactoryTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.SphynxAnnotationTester" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GeneratedUBTester" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UBModelGeneratorTests" />
       </list>
     </recent_temporary>
   </component>
@@ -723,7 +728,7 @@
       <workItem from="1515260563028" duration="670000" />
       <workItem from="1515267909083" duration="6595000" />
       <workItem from="1515318637565" duration="13904000" />
-      <workItem from="1515337909183" duration="1275000" />
+      <workItem from="1515337909183" duration="4825000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -760,43 +765,50 @@
       <option name="project" value="LOCAL" />
       <updated>1514307055348</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Introduced CodeUnitDatumType enum, which replaces String namings for DatumType entries">
+      <created>1515339208290</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1515339208290</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 16h 32m 55s.xml">
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 42m 06s.xml">
       <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_FillModelFromAnnotatedFile - 2018.01.07 at 12h 22m 55s.xml">
-      <configuration name="UBModelGeneratorTests.FillModelFromAnnotatedFile" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 42m 09s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_FillModelFromAnnotatedFile - 2018.01.07 at 12h 23m 38s.xml">
-      <configuration name="UBModelGeneratorTests.FillModelFromAnnotatedFile" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 43m 57s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_FillModelFromAnnotatedFile - 2018.01.07 at 12h 28m 17s.xml">
-      <configuration name="UBModelGeneratorTests.FillModelFromAnnotatedFile" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 48m 24s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_FillModelFromAnnotatedFile - 2018.01.07 at 12h 36m 17s.xml">
-      <configuration name="UBModelGeneratorTests.FillModelFromAnnotatedFile" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 48m 26s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 12h 37m 16s.xml">
-      <configuration name="UBModelGeneratorTests.GenerateJavaFilesFromReference" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 48m 35s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 13h 32m 11s.xml">
-      <configuration name="UBModelGeneratorTests.GenerateJavaFilesFromReference" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 48m 44s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 16h 23m 38s.xml">
-      <configuration name="UBModelGeneratorTests.GenerateJavaFilesFromReference" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 48m 46s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 16h 29m 51s.xml">
-      <configuration name="UBModelGeneratorTests.GenerateJavaFilesFromReference" configurationId="JUnit" />
+    <history-entry file="GeneratedUBTester_testBuilders - 2018.01.07 at 17h 49m 36s.xml">
+      <configuration name="GeneratedUBTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 16h 32m 07s.xml">
+    <history-entry file="UBModelGeneratorTests_GenerateJavaFilesFromReference - 2018.01.07 at 17h 37m 45s.xml">
       <configuration name="UBModelGeneratorTests.GenerateJavaFilesFromReference" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163515000" />
+    <option name="totallyTimeSpent" value="167065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -813,14 +825,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4936034" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.35394457" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.3379531" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.1716418" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.20362474" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.82835823" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.7963753" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -828,13 +840,13 @@
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37391305" sideWeight="0.46801707" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37391305" sideWeight="0.46588486" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3652174" sideWeight="0.66257995" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3652174" sideWeight="0.6385928" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -860,15 +872,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java</url>
-          <line>111</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="68" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -880,14 +884,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/generator/DefaultCodeUnit.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/squareup/javapoet/1.9.0/javapoet-1.9.0.jar!/com/squareup/javapoet/CodeBlock.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -991,14 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBModelGeneratorTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/annotations/VariableType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -1031,44 +1019,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/JavaClassGeneratorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/generator/JavaLangClassMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="16" column="50" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2246">
-          <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding>
-            <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="e#5460#5461#0" expanded="true" />
-            <element signature="e#5494#5495#0" expanded="true" />
-            <element signature="method#SetIdentifier#0;class#UBAnnotationParser#0" expanded="false" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#5849#5850#0" expanded="true" />
-            <element signature="e#5916#5917#0" expanded="true" />
-            <element signature="e#5952#5953#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1081,77 +1035,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="51" column="12" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="98" column="62" lean-forward="false" selection-start-line="98" selection-start-column="62" selection-end-line="98" selection-end-column="70" />
-          <folding>
-            <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
-            <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBMethodSpecFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1148">
           <caret line="71" column="117" lean-forward="false" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1174,16 +1061,144 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        <state relative-caret-position="200">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="269" column="6" lean-forward="false" selection-start-line="269" selection-start-column="6" selection-end-line="269" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="35" column="76" lean-forward="false" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CodeUnitBuilderGeneratorTests/UBModelGeneratorTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <element signature="method#getInstance#0;class#UBGenerator#0" expanded="false" />
+            <element signature="method#parseCodeFile#0;class#UBGenerator#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBAnnotationParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="105" column="39" lean-forward="false" selection-start-line="105" selection-start-column="39" selection-end-line="105" selection-end-column="39" />
+          <folding>
+            <element signature="method#getModifier#0;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="method#getModifier#1;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5494#5495#0" expanded="true" />
+            <element signature="method#SetIdentifier#0;class#UBAnnotationParser#0" expanded="false" />
+            <element signature="e#5788#5789#0" expanded="true" />
+            <element signature="e#5849#5850#0" expanded="true" />
+            <element signature="e#5916#5917#0" expanded="true" />
+            <element signature="e#5952#5953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/JavaClassGeneratorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding>
+            <element signature="e#209#210#0" expanded="true" />
+            <element signature="e#234#235#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding>
+            <element signature="e#268#269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="e#184#185#0" expanded="true" />
+            <element signature="e#209#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#452#453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="32" column="49" lean-forward="true" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sphynx/generator/UBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        <state relative-caret-position="400">
+          <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

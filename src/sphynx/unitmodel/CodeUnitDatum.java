@@ -7,19 +7,24 @@
 package sphynx.unitmodel;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+//Todo this structure needs reevaluation for better transformability and
+//I HATE PRIMITIVE DATATYPES
 public class CodeUnitDatum<T> implements Serializable {
-	private List<T> datumData;
-
-	CodeUnitDatum(List<T> datumData) {
-		this.datumData = new LinkedList<>();
-		this.datumData.addAll(datumData);
-	}
+	private T datumData;
 
 	CodeUnitDatum(T datumData) {
-		this.datumData = new LinkedList<>();
-		this.datumData.add(datumData);
+		this.datumData = datumData;
+	}
+
+	@Override
+	public String toString() {
+		if(datumData.getClass().isArray())
+			return Arrays.toString((Object[]) datumData); //smelly smell is smelly
+
+		return datumData.toString();
 	}
 }

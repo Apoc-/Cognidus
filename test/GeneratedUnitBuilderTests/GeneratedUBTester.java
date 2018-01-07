@@ -9,6 +9,7 @@ import sphynx.generated.POJOUnitBuilder;
 import sphynx.generated.PublicIntUnitBuilder;
 import sphynx.generated.VarUnitBuilder;
 import sphynx.unitmodel.CodeUnit;
+import sphynx.unitmodel.CodeUnitDatumType;
 import sphynx.unitmodel.CodeUnitModifier;
 
 public class GeneratedUBTester {
@@ -30,7 +31,5 @@ public class GeneratedUBTester {
 						.createWithIdentifier("Dah")
 						.end())
 				.end();
-
-		System.out.println(cu);
 	}
 }

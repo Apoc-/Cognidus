@@ -11,6 +11,8 @@ import sphynx.unitmodel.CodeUnitModifier;
 import sphynx.unitmodel.CodeUnitType;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UBCodeUnitBuilder {
 	private CodeUnit codeUnit;

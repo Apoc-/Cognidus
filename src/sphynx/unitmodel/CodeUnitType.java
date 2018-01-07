@@ -8,5 +8,10 @@ package sphynx.unitmodel;
 
 public enum CodeUnitType {
 	CLASS,
-	FIELD
+	FIELD;
+
+	@Override
+	public String toString() {
+		return this.name();
+	}
 }
