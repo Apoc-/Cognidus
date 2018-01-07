@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 // Methods?
 public class UBGenerator {
 	private static UBGenerator instance;
-	private List<UBModel> models;
+	private final List<UBModel> models;
 
 	public static UBGenerator getInstance() {
 		if(instance == null)

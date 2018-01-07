@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class JavaField {
-	public Set<JavaModifier> modifiers;
+	public final Set<JavaModifier> modifiers;
 	public String type;
 	public String name;
 	public Boolean isArray;

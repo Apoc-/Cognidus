@@ -24,13 +24,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JavaClassGenerator {
-	JavaClassFile classFile;
+	public JavaClassGenerator() { }
 
-	public JavaClassGenerator() {
-		classFile = new JavaClassFile();
-	}
-
-	public void GenerateClassFromClassFile(File file) throws IOException, ClassNotFoundException {
+	public void GenerateClassFromClassFile(File file) throws IOException {
 		CompilationUnit cu = JavaParser.parse(file);
 		JavaClassFile fm = new JavaClassFile();
 
@@ -40,7 +36,7 @@ public class JavaClassGenerator {
 		GenerateJavaFileFromModel(fm);
 	}
 
-	private void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException, ClassNotFoundException {
+	private void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException {
 		JavaClass cm = fm.model;
 		Modifier[] classModifiers = getModifierArrayFromSet(cm.modifiers);
 		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);

@@ -14,7 +14,7 @@ public enum UBMethodSpec {
 	CREATE_WITH_IDENTIFIER("createWithIdentifier"),
 	END("end");
 
-	private String methodName;
+	private final String methodName;
 
 	UBMethodSpec(String methodName) {
 		this.methodName = methodName;

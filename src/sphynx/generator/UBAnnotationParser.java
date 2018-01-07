@@ -13,13 +13,9 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.type.ArrayType;
 import com.github.javaparser.ast.type.Type;
-import com.github.javaparser.resolution.declarations.ResolvedTypeParameterDeclaration;
-import com.github.javaparser.resolution.types.ResolvedReferenceType;
 import com.github.javaparser.resolution.types.ResolvedType;
-import com.github.javaparser.resolution.types.ResolvedTypeVariable;
 import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
 import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 import sphynx.unitmodel.CodeUnit;
 import sphynx.unitmodel.CodeUnitDatumType;
@@ -46,40 +42,41 @@ public class UBAnnotationParser {
 	//public methods
 	public void ParseCodeUnitAnnotiation(ClassOrInterfaceDeclaration declaration, List<UBModel> models) {
 		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.CodeUnit.class);
-		if(ae.isPresent()) {
+
+		ae.ifPresent(annotationExpr -> {
 			UBModel model = new UBModel();
 			CodeUnit cu = new CodeUnit(CodeUnitType.CLASS);
 			model.setDefaultCodeUnit(cu);
 
-			SetIdentifier(model, ae.get());
+			SetIdentifier(model, annotationExpr);
 			AddSubCodeUnitMethod(model);
 
 			ParseVariableModifierAnnotation(declaration, model);
 			parseFixedCodeUnitAnnotations(declaration, model);
 
 			models.add(model);
-		}
+		});
 	}
 
 	public void ParseCodeUnitAnnotiation(FieldDeclaration declaration, List<UBModel> models) {
 		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.CodeUnit.class);
-		if(ae.isPresent()) {
+		ae.ifPresent(annotationExpr -> {
 			UBModel model = new UBModel();
 			CodeUnit cu = new CodeUnit(CodeUnitType.FIELD);
 			model.setDefaultCodeUnit(cu);
 
-			SetIdentifier(model, ae.get());
+			SetIdentifier(model, annotationExpr);
 
 			ParseVariableModifierAnnotation(declaration, model);
 			ParseVariableTypeAnnotation(declaration, model);
 
 			models.add(model);
-		}
+		});
 	}
 
 	public void ParseFixedCodeUnitAnnotiation(FieldDeclaration declaration, UBModel model) {
 		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(sphynx.annotations.FixedCodeUnit.class);
-		if(ae.isPresent()) {
+		ae.ifPresent(annotationExpr -> {
 			CodeUnit cu = model.getDefaultCodeUnit();
 
 			VariableDeclarator vd = declaration.getVariable(0);
@@ -92,7 +89,7 @@ public class UBAnnotationParser {
 					.end();
 
 			cu.addSubCodeUnit(subCodeUnit);
-		}
+		});
 	}
 
 

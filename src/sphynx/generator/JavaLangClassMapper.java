@@ -5,7 +5,7 @@
  */
 package sphynx.generator;
 
-public class JavaLangClassMapper {
+class JavaLangClassMapper {
 	public static Class className(String className) {
 		switch (className) {
 			case "int":

@@ -5,22 +5,11 @@
  */
 package sphynx.visitors;
 
-import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.type.ArrayType;
-import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import sphynx.generator.*;
-import sphynx.unitmodel.CodeUnit;
-import sphynx.unitmodel.CodeUnitModifier;
-import sphynx.unitmodel.CodeUnitType;
 
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class JavaFieldAnnotationVisitor extends VoidVisitorAdapter<List<UBModel>> {
 	@Override

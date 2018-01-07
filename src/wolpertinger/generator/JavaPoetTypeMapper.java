@@ -5,7 +5,7 @@
  */
 package wolpertinger.generator;
 
-public class JavaPoetTypeMapper {
+class JavaPoetTypeMapper {
 	public static com.squareup.javapoet.TypeName typeName(String typeName) {
 		switch (typeName) {
 			case "int":

@@ -8,11 +8,12 @@ package sphynx.unitmodel;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CodeUnit implements Serializable {
 	private CodeUnitType type;
-	private Map<CodeUnitDatumType, CodeUnitDatum> data;
-	private List<CodeUnit> subCodeUnits;
+	private final Map<CodeUnitDatumType, CodeUnitDatum> data;
+	private final List<CodeUnit> subCodeUnits;
 
 	public CodeUnit(CodeUnitType type) {
 		this.type = type;
@@ -35,7 +36,7 @@ public class CodeUnit implements Serializable {
 		data.put(datumType,datum);
 	}
 
-	public Map<CodeUnitDatumType, CodeUnitDatum> getData() {
+	private Map<CodeUnitDatumType, CodeUnitDatum> getData() {
 		return data;
 	}
 
@@ -43,15 +44,26 @@ public class CodeUnit implements Serializable {
 		subCodeUnits.add(subCodeUnit);
 	}
 
-	public List<CodeUnit> getSubCodeUnits() {
+	private List<CodeUnit> getSubCodeUnits() {
 		return subCodeUnits;
 	}
 
-	public CodeUnitType getType() {
+	private CodeUnitType getType() {
 		return type;
 	}
 
 	public void setType(CodeUnitType type) {
 		this.type = type;
+	}
+
+	@Override
+	public String toString() {
+		String dataString = data
+				.entrySet()
+				.stream()
+				.map(entry -> entry.getKey().toString() + " = " + entry.getValue().toString() + "")
+				.collect(Collectors.joining(", "));
+
+		return type.toString() + ": " + dataString + " with " + subCodeUnits.size() + " SubCodeUnits";
 	}
 }

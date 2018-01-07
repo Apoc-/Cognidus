@@ -12,8 +12,8 @@ import java.util.Set;
 
 public class JavaClass {
 	public String name;
-	public Set<JavaModifier> modifiers;
-	public List<JavaField> fields;
+	public final Set<JavaModifier> modifiers;
+	public final List<JavaField> fields;
 
 	public JavaClass() {
 		this.name = "";

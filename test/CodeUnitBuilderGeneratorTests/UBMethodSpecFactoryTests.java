@@ -13,7 +13,7 @@ import sphynx.generator.UBCodeUnitBuilder;
 import sphynx.generator.UBMethodSpec;
 import sphynx.generator.UBMethodSpecFactory;
 
-public class UBMethodSpecFactoryTests {
+class UBMethodSpecFactoryTests {
 	@org.junit.jupiter.api.Test
 	void CreateWithIdentifierMethodSpecFactoryTest() {
 		TypeName type = ClassName.get(UBCodeUnitBuilder.class);

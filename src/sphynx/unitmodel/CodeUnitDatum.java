@@ -8,13 +8,11 @@ package sphynx.unitmodel;
 
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 //Todo this structure needs reevaluation for better transformability and
 //I HATE PRIMITIVE DATATYPES
-public class CodeUnitDatum<T> implements Serializable {
-	private T datumData;
+class CodeUnitDatum<T> implements Serializable {
+	private final T datumData;
 
 	CodeUnitDatum(T datumData) {
 		this.datumData = datumData;

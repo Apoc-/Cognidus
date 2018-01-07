@@ -7,12 +7,11 @@
 import wolpertinger.generator.JavaClassGenerator;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 class JavaClassGeneratorTest {
-	JavaClassGenerator testGenerator;
-	File testFile;
+	private JavaClassGenerator testGenerator;
+	private File testFile;
 
 	@org.junit.jupiter.api.BeforeEach
 	void setUp() {
@@ -31,7 +30,7 @@ class JavaClassGeneratorTest {
 	void generateClassFromClassFile() {
 		try {
 			testGenerator.GenerateClassFromClassFile(testFile);
-		} catch (IOException | ClassNotFoundException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
