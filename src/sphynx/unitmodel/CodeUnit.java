@@ -21,34 +21,28 @@ public class CodeUnit implements Serializable {
 		this.subCodeUnits = new ArrayList<>();
 	}
 
-	//not used for now
-	public CodeUnit(CodeUnit sourceCodeUnit) {
-		this.setType(sourceCodeUnit.getType());
-		this.data = new HashMap<>(sourceCodeUnit.getData());
-		this.subCodeUnits = new ArrayList<>();
-		sourceCodeUnit
-				.getSubCodeUnits()
-				.forEach(cu -> this.addSubCodeUnit(new CodeUnit(cu)));
-	}
-
 	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, T datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumData);
+		CodeUnitDatum<T> datum = new CodeUnitDatum<>(datumData);
 		data.put(datumType,datum);
 	}
 
-	private Map<CodeUnitDatumType, CodeUnitDatum> getData() {
+	public Map<CodeUnitDatumType, CodeUnitDatum> getData() {
 		return data;
+	}
+
+	public CodeUnitDatum getCodeUnitDatum(CodeUnitDatumType type) {
+		return data.get(type);
 	}
 
 	public void addSubCodeUnit(CodeUnit subCodeUnit) {
 		subCodeUnits.add(subCodeUnit);
 	}
 
-	private List<CodeUnit> getSubCodeUnits() {
+	public List<CodeUnit> getSubCodeUnits() {
 		return subCodeUnits;
 	}
 
-	private CodeUnitType getType() {
+	public CodeUnitType getType() {
 		return type;
 	}
 

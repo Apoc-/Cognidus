@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Cognidus" />
         <module name="wolpertinger" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Cognidus" target="1.8" />
       <module name="wolpertinger" target="1.8" />
     </bytecodeTargetLevel>
   </component>

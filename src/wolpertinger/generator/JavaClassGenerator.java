@@ -36,7 +36,7 @@ public class JavaClassGenerator {
 		GenerateJavaFileFromModel(fm);
 	}
 
-	private void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException {
+	public void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException {
 		JavaClass cm = fm.model;
 		Modifier[] classModifiers = getModifierArrayFromSet(cm.modifiers);
 		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);
