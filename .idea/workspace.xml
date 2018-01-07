@@ -4,21 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" line="21" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="Introduced CodeUnitDatumType enum, which replaces String namings for DatumType entries">
+    <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/POJOUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/PublicIntUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/StringUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generated/VarUnitBuilder.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" afterPath="$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnit.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatum.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitDatumType.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitModifier.java" />
-      <change beforePath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" afterPath="$PROJECT_DIR$/src/sphynx/unitmodel/CodeUnitType.java" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" />
-      <change beforePath="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" afterPath="$PROJECT_DIR$/test/GeneratedUnitBuilderTests/GeneratedUBTester.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -728,7 +717,7 @@
       <workItem from="1515260563028" duration="670000" />
       <workItem from="1515267909083" duration="6595000" />
       <workItem from="1515318637565" duration="13904000" />
-      <workItem from="1515337909183" duration="4825000" />
+      <workItem from="1515337909183" duration="4892000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -772,7 +761,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515339208290</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger">
+      <created>1515343851857</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1515343851857</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -808,7 +804,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167065000" />
+    <option name="totallyTimeSpent" value="167132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -832,7 +828,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.20362474" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.7963753" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.7963753" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -868,7 +864,8 @@
     <MESSAGE value="First poc for sphynx, partially finished" />
     <MESSAGE value="CompositeBuilder in the making" />
     <MESSAGE value="Introduced CodeUnitDatumType enum, which replaces String namings for DatumType entries" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduced CodeUnitDatumType enum, which replaces String namings for DatumType entries" />
+    <MESSAGE value="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
