@@ -4,7 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/sphynx/generator/UBCodeUnitBuilder.java" line="21" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger">
+    <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" afterPath="$PROJECT_DIR$/target/test-classes/GeneratedUnitBuilderTests/GeneratedUBTester.class" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" afterPath="$PROJECT_DIR$/target/test-classes/JavaClassGeneratorTest.class" />
@@ -717,7 +717,7 @@
       <workItem from="1515260563028" duration="670000" />
       <workItem from="1515267909083" duration="6595000" />
       <workItem from="1515318637565" duration="13904000" />
-      <workItem from="1515337909183" duration="4892000" />
+      <workItem from="1515337909183" duration="4908000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -768,7 +768,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515343851857</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger">
+      <created>1515343863416</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1515343863416</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -804,7 +811,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167132000" />
+    <option name="totallyTimeSpent" value="167148000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
