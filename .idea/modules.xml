@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wolpertinger.iml" filepath="$PROJECT_DIR$/wolpertinger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cognidus.iml" filepath="$PROJECT_DIR$/Cognidus.iml" />
     </modules>
   </component>
 </project>
