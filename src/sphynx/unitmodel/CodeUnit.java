@@ -6,9 +6,10 @@
 
 package sphynx.unitmodel;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class CodeUnit {
+public class CodeUnit implements Serializable {
 	private CodeUnitType type;
 	private Map<String, CodeUnitDatum> data;
 	private List<CodeUnit> subCodeUnits;
@@ -19,18 +20,36 @@ public class CodeUnit {
 		this.subCodeUnits = new ArrayList<>();
 	}
 
+	//not used for now
+	public CodeUnit(CodeUnit sourceCodeUnit) {
+		this.setType(sourceCodeUnit.getType());
+		this.data = new HashMap<>(sourceCodeUnit.getData());
+		this.subCodeUnits = new ArrayList<>();
+		sourceCodeUnit
+				.getSubCodeUnits()
+				.forEach(cu -> this.addSubCodeUnit(new CodeUnit(cu)));
+	}
+
 	public <T> void addCodeUnitDatum(String datumName, List<T> datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , Arrays.asList(datumData));
+		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , datumData);
 		data.put(datum.getDatumName(),datum);
 	}
 
 	public <T> void addCodeUnitDatum(String datumName, T datumData) {
-		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , Arrays.asList(datumData));
+		CodeUnitDatum datum = new CodeUnitDatum<>(datumName , datumData);
 		data.put(datum.getDatumName(),datum);
+	}
+
+	public Map<String, CodeUnitDatum> getData() {
+		return data;
 	}
 
 	public void addSubCodeUnit(CodeUnit subCodeUnit) {
 		subCodeUnits.add(subCodeUnit);
+	}
+
+	public List<CodeUnit> getSubCodeUnits() {
+		return subCodeUnits;
 	}
 
 	public CodeUnitType getType() {

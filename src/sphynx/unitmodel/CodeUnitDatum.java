@@ -6,11 +6,12 @@
 
 package sphynx.unitmodel;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CodeUnitDatum<T> {
-	private String datumName; //as in "identifier", "modifier", "dataType" //TODO Needs better name
+public class CodeUnitDatum<T> implements Serializable {
+	private String datumName; //as in "identifier", "modifier", "dataType" //TODO Maybe make enum
 	private List<T> datumData;
 
 	CodeUnitDatum(String datumName, List<T> datumData) {
@@ -28,4 +29,6 @@ public class CodeUnitDatum<T> {
 	String getDatumName() {
 		return datumName;
 	}
+
+
 }

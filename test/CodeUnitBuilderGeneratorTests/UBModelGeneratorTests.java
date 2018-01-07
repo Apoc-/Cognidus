@@ -10,8 +10,10 @@ import sphynx.generator.UBGenerator;
 
 public class UBModelGeneratorTests {
 	@org.junit.jupiter.api.Test
-	void FillModelFromAnnotatedFile() {
-		String path = "resources/ReferencePOJO.java";
-		UBGenerator.getInstance().generateUnitBuilders(path);
+	void GenerateJavaFilesFromReference() {
+		String targetPath = "src";
+		String sourcePath = "resources/ReferencePOJO.java";
+		String targetPackage = "sphynx.generated";
+		UBGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
 }

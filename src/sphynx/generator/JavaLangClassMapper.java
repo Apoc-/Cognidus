@@ -14,8 +14,7 @@ public class JavaLangClassMapper {
 				return float.class;
 			default:
 				try {
-					Class clazz = Class.forName(className);
-					return clazz;
+					return Class.forName(className);
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}

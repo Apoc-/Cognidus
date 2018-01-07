@@ -43,7 +43,7 @@ public class UBModel {
 		return defaultCodeUnit;
 	}
 
-	public void setDefaultCodeUnit(CodeUnit defaultCodeUnit) {
-		this.defaultCodeUnit = defaultCodeUnit;
+	public void setDefaultCodeUnit(CodeUnit codeUnit) {
+		this.defaultCodeUnit = codeUnit;
 	}
 }

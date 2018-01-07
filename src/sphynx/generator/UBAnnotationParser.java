@@ -13,6 +13,14 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.type.ArrayType;
 import com.github.javaparser.ast.type.Type;
+import com.github.javaparser.resolution.declarations.ResolvedTypeParameterDeclaration;
+import com.github.javaparser.resolution.types.ResolvedReferenceType;
+import com.github.javaparser.resolution.types.ResolvedType;
+import com.github.javaparser.resolution.types.ResolvedTypeVariable;
+import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
+import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
+import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
+import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 import sphynx.unitmodel.CodeUnit;
 import sphynx.unitmodel.CodeUnitModifier;
 import sphynx.unitmodel.CodeUnitType;
@@ -167,6 +175,16 @@ public class UBAnnotationParser {
 	}
 
 	private Class getFieldType(VariableDeclarator vd) {
-		return JavaLangClassMapper.className(vd.getType().asString());
+		TypeSolver ts = new ReflectionTypeSolver();
+		JavaParserFacade pf = JavaParserFacade.get(ts);
+		ResolvedType t = pf.getType(vd);
+		String type = "";
+		if(t.isPrimitive()) {
+			type = t.describe();
+		} else if(t.isReferenceType()) {
+			type = t.asReferenceType().getQualifiedName();
+		}
+
+		return JavaLangClassMapper.className(type);
 	}
 }

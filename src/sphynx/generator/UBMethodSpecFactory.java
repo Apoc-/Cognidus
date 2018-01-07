@@ -13,7 +13,6 @@ import sphynx.unitmodel.CodeUnit;
 import sphynx.unitmodel.CodeUnitModifier;
 
 import javax.lang.model.element.Modifier;
-import java.lang.reflect.Type;
 
 public class UBMethodSpecFactory {
 	private UBMethodSpecFactory() { }
@@ -48,7 +47,7 @@ public class UBMethodSpecFactory {
 				.returns(builderType)
 				.addParameter(String.class, "identifier")
 				.addStatement("$T cub = new $T()", builderType, builderType)
-				.addStatement("this.codeUnit.addCodeUnitDatum($S, identifier)", "identifier")
+				.addStatement("cub.codeUnit.addCodeUnitDatum($S, identifier)", "identifier")
 				.addStatement("return cub")
 				.build();
 	}

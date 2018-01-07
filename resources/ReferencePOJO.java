@@ -13,8 +13,15 @@ import sphynx.annotations.VariableType;
 
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
-	@FixedCodeUnit transient private int id;
-	@CodeUnit("PublicInt") public int number;
-	@CodeUnit("String") @VariableModifier public String s;
-	@CodeUnit("Var") @VariableModifier @VariableType public float f;
+	@FixedCodeUnit
+	transient private int id;
+
+	@CodeUnit("PublicInt")
+	public int number;
+
+	@CodeUnit("String") @VariableModifier
+	public String s;
+
+	@CodeUnit("Var") @VariableModifier @VariableType
+	public float f;
 }

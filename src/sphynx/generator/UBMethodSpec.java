@@ -6,6 +6,7 @@
 
 package sphynx.generator;
 
+//Todo: Extend to also create constructor and other methods
 public enum UBMethodSpec {
 	WITH_MODIFIERS("withModifiers"),
 	WITH_DATA_TYPE("withDataType"),
