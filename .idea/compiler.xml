@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Cognidus" />
+        <module name="Spectrum" />
         <module name="wolpertinger" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Cognidus" target="9" />
+      <module name="Spectrum" target="9" />
       <module name="wolpertinger" target="1.8" />
     </bytecodeTargetLevel>
   </component>
