@@ -4,12 +4,12 @@
  * File last modfied: 17.12.17 20:15
  */
 
-import sphynx.annotations.CodeUnit;
-import sphynx.annotations.Component;
-import sphynx.annotations.FixedCodeUnit;
-import sphynx.annotations.Renamable;
-import sphynx.annotations.VariableModifier;
-import sphynx.annotations.VariableType;
+import amber.annotations.CodeUnit;
+import amber.annotations.Component;
+import amber.annotations.FixedCodeUnit;
+import amber.annotations.Renamable;
+import amber.annotations.VariableModifier;
+import amber.annotations.VariableType;
 
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
