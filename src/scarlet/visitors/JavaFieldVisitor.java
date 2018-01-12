@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JavaFieldVisitor extends VoidVisitorAdapter<JavaClass> {
-	//TODO: Only supports field declaration that declare a single variable
+	//Only supports field declaration that declare a single variable
 	//No "public int a, b, c;" allowed
 	@Override
 	public void visit(FieldDeclaration fd, JavaClass classModel) {

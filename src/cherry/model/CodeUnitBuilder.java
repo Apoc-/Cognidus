@@ -5,6 +5,9 @@
  */
 package cherry.model;
 
+import java.util.Collection;
+import java.util.List;
+
 public class CodeUnitBuilder {
 	private final CodeUnit codeUnit;
 
@@ -30,6 +33,11 @@ public class CodeUnitBuilder {
 
 	public CodeUnitBuilder withDataType(Class dataType) {
 		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE,dataType);
+		return this;
+	}
+
+	public CodeUnitBuilder withSubCodeUnits(List<CodeUnit> cu) {
+		cu.forEach(this.codeUnit::addSubCodeUnit);
 		return this;
 	}
 

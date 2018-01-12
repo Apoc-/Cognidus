@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class CodeUnitDatum<T> implements Serializable {
 	private final T datumData;
 
-	CodeUnitDatum(T datumData) {
+	public CodeUnitDatum(T datumData) {
 		this.datumData = datumData;
 	}
 

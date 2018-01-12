@@ -7,14 +7,12 @@
 package amber.parser;
 
 import amber.model.AnnotationDatum;
-import amber.parser.visitor.JavaFixedFieldAnnotationVisitor;
+import amber.visitor.JavaFixedFieldAnnotationVisitor;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.type.ArrayType;
-import com.github.javaparser.ast.type.Type;
 import com.github.javaparser.resolution.types.ResolvedType;
 import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
 import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
@@ -161,11 +159,6 @@ public class AnnotationParser {
 
 	private void addCanHaveSubcodeUnitAnnotationDatum(AnnotationModel model) {
 		model.addAnnotationDatum(AnnotationDatum.CAN_HAVE_SUBCODEUNITS);
-	}
-
-	//TODO: Add array support
-	private boolean isArrayType(Type t) {
-		return t instanceof ArrayType;
 	}
 
 	private Class getFieldType(VariableDeclarator vd) {

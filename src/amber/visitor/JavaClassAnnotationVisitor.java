@@ -3,7 +3,7 @@
  *
  * File last modfied: 11.01.18 23:18
  */
-package amber.parser.visitor;
+package amber.visitor;
 
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;

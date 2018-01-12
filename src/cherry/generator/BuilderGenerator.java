@@ -6,14 +6,17 @@
 
 package cherry.generator;
 
+import cherry.model.CodeUnitBuilder;
+import cherry.model.CodeUnitDatum;
+import cherry.model.CodeUnitDatumType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.squareup.javapoet.*;
 import org.apache.commons.lang3.SerializationUtils;
 import amber.model.AnnotationModel;
 import cherry.model.CodeUnit;
-import amber.parser.visitor.JavaClassAnnotationVisitor;
-import amber.parser.visitor.JavaFieldAnnotationVisitor;
+import amber.visitor.JavaClassAnnotationVisitor;
+import amber.visitor.JavaFieldAnnotationVisitor;
 
 import javax.lang.model.element.Modifier;
 import java.io.File;
@@ -21,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -112,7 +116,7 @@ public class BuilderGenerator {
 		System.out.println("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
 	}
 
-	//Todo: Find better readable solutions
+	//Todo: Talk why THIS should be the solution
 	private MethodSpec generateInitDefCodeUnitMethod(CodeUnit sourceCodeUnit) {
 		byte[] serializedCodeUnit = SerializationUtils.serialize(sourceCodeUnit);
 
@@ -128,4 +132,73 @@ public class BuilderGenerator {
 				.addStatement("this.codeUnit = $T.deserialize(serializedCodeUnit)", SerializationUtils.class)
 				.build();
 	}
+
+	/*
+	private MethodSpec generateInitDefCodeUnitMethod(CodeUnit sourceCodeUnit) {
+		MethodSpec initMethod = MethodSpec.methodBuilder("initializeDefaultCodeUnit")
+				.addModifiers(Modifier.PRIVATE)
+				.addCode("this.codeUnit = CodeUnitBuilder\n")
+				.addCode("\t\t.createWithIdentifier($S)\n", getDatum(CodeUnitDatumType.IDENTIFIER, sourceCodeUnit))
+				.addCode("\t\t.withDataType($L)\n", getDatum(CodeUnitDatumType.DATA_TYPE, sourceCodeUnit))
+				.addCode(".end();\n")
+				.build();
+
+		System.out.println(initMethod.toString());
+
+		return initMethod;
+	}
+
+	private String getDatum(CodeUnitDatumType type, CodeUnit cu) {
+		CodeUnitDatum cud = cu.getCodeUnitDatum(type);
+		if(cud == null)
+			return null;
+
+		String literal = "";
+		switch(type) {
+			case IDENTIFIER:
+				literal = (String) cud.getDatumData();
+				break;
+			case DATA_TYPE:
+				literal = (String) cud.getDatumData();
+				break;
+		}
+
+		return literal;
+	}
+
+	/*private void initializeCodeUnitData() {
+		CodeUnit defaultCodeUnit = CodeUnitBuilder
+				.createWithIdentifier("ident")
+				.withDataType(dt)
+				.withModifiers()
+				.withSubCodeUnits(initializeSubCodeUnitData())
+				.end();
+	}
+
+	private List<CodeUnit> initializeSubCodeUnitData() {
+		List<CodeUnit> subCodeUnits = new LinkedList<CodeUnit>();
+
+		subCodeUnits.add(CodeUnitBuilder
+				.createWithIdentifier()
+				.withDataType()
+				.withModifiers()
+				.withSubCodeUnits()
+				.end());
+
+		subCodeUnits.add(CodeUnitBuilder
+				.createWithIdentifier()
+				.withDataType()
+				.withModifiers()
+				.withSubCodeUnits()
+				.end());
+
+		subCodeUnits.add(CodeUnitBuilder
+				.createWithIdentifier()
+				.withDataType()
+				.withModifiers()
+				.withSubCodeUnits()
+				.end());
+
+		return subCodeUnits;
+	}*/
 }
