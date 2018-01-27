@@ -24,4 +24,9 @@ public abstract class ReferencePOJO {
 
 	@CodeUnit("Var") @VariableModifier @VariableType
 	public float f;
+
+	@FixedCodeUnit @VariableModifier
+	public String getTwo(String a, String b) {
+		return a+b;
+	}
 }

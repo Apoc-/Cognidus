@@ -38,6 +38,10 @@ public class CodeUnit implements Serializable {
 		subCodeUnits.add(subCodeUnit);
 	}
 
+	public void addSubCodeUnits(List<CodeUnit> subCodeUnits) {
+		this.subCodeUnits.addAll(subCodeUnits);
+	}
+
 	public List<CodeUnit> getSubCodeUnits() {
 		return subCodeUnits;
 	}

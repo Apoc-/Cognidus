@@ -8,7 +8,10 @@ package cherry.model;
 
 public enum CodeUnitType {
 	CLASS,
-	FIELD;
+	FIELD,
+	METHOD,
+	METHOD_BODY,
+	METHOD_PARAM;
 
 	@Override
 	public String toString() {

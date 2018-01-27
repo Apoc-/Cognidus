@@ -21,7 +21,11 @@ public class CodeUnitBuilder {
 		return cb;
 	}
 
-	public CodeUnitBuilder setCodeUnityType(CodeUnitType type) {
+	public static CodeUnitBuilder create() {
+		return new CodeUnitBuilder();
+	}
+
+	public CodeUnitBuilder setCodeUnitType(CodeUnitType type) {
 		this.codeUnit.setType(type);
 		return this;
 	}
@@ -32,7 +36,12 @@ public class CodeUnitBuilder {
 	}
 
 	public CodeUnitBuilder withDataType(Class dataType) {
-		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE,dataType);
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, dataType);
+		return this;
+	}
+
+	public CodeUnitBuilder withReturnType(Class dataType) {
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, dataType);
 		return this;
 	}
 
@@ -43,6 +52,11 @@ public class CodeUnitBuilder {
 
 	public CodeUnitBuilder withSubCodeUnit(CodeUnit codeUnit) {
 		this.codeUnit.addSubCodeUnit(codeUnit);
+		return this;
+	}
+
+	public CodeUnitBuilder withMethodBody(String body) {
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.METHOD_BODY_STRING, body);
 		return this;
 	}
 

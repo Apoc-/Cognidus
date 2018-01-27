@@ -9,7 +9,9 @@ package cherry.model;
 public enum CodeUnitDatumType {
 	MODIFIER,
 	IDENTIFIER,
-	DATA_TYPE;
+	DATA_TYPE,
+	RETURN_TYPE,
+	METHOD_BODY_STRING;
 
 	@Override
 	public String toString() {

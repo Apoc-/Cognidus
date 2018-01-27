@@ -11,6 +11,10 @@ import cherry.model.CodeUnitDatum;
 import cherry.model.CodeUnitDatumType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.printer.JsonPrinter;
+import com.github.javaparser.symbolsolver.JavaSymbolSolver;
+import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
+import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 import com.squareup.javapoet.*;
 import org.apache.commons.lang3.SerializationUtils;
 import amber.model.AnnotationModel;
@@ -55,6 +59,11 @@ public class BuilderGenerator {
 
 		try {
 			cu = JavaParser.parse(codeFile);
+
+			TypeSolver ts = new ReflectionTypeSolver();
+			JavaSymbolSolver jss = new JavaSymbolSolver(ts);
+			jss.inject(cu);
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

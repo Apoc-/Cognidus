@@ -8,15 +8,15 @@ package amber.parser;
 
 import amber.model.AnnotationDatum;
 import amber.visitor.JavaFixedFieldAnnotationVisitor;
+import amber.visitor.JavaFixedMethodAnnotationVisitor;
 import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.NodeList;
+import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.resolution.declarations.ResolvedMethodDeclaration;
+import com.github.javaparser.resolution.declarations.ResolvedParameterDeclaration;
 import com.github.javaparser.resolution.types.ResolvedType;
-import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
-import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
-import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 import amber.model.AnnotationModel;
 import cherry.model.CodeUnitBuilder;
 import cherry.model.CodeUnit;
@@ -24,6 +24,7 @@ import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
 import cherry.model.CodeUnitType;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
@@ -49,7 +50,7 @@ public class AnnotationParser {
 			model.setDefaultCodeUnit(cu);
 			model.addAnnotationDatum(AnnotationDatum.CAN_HAVE_SUBCODEUNITS);
 
-			SetIdentifier(model, annotationExpr);
+			setIdentifier(model, annotationExpr);
 
 			parseVariableModifierAnnotation(declaration, model);
 			parseFixedCodeUnitAnnotations(declaration, model);
@@ -65,7 +66,7 @@ public class AnnotationParser {
 			CodeUnit cu = new CodeUnit(CodeUnitType.FIELD);
 			model.setDefaultCodeUnit(cu);
 
-			SetIdentifier(model, annotationExpr);
+			setIdentifier(model, annotationExpr);
 
 			parseVariableModifierAnnotation(declaration, model);
 			parseVariableTypeAnnotation(declaration, model);
@@ -83,12 +84,46 @@ public class AnnotationParser {
 
 			CodeUnit subCodeUnit = CodeUnitBuilder
 					.createWithIdentifier(getFieldIdentifier(vd))
-					.setCodeUnityType(CodeUnitType.FIELD)
+					.setCodeUnitType(CodeUnitType.FIELD)
 					.withModifiers(getModifier(declaration))
-					.withDataType(getFieldType(vd))
+					.withDataType(resolveVariableType(vd))
 					.end();
 
 			cu.addSubCodeUnit(subCodeUnit);
+		});
+	}
+
+	public void parseFixedCodeUnitAnnotiation(MethodDeclaration declaration, AnnotationModel model) {
+		Optional<AnnotationExpr> ae = declaration.getAnnotationByClass(amber.annotations.FixedCodeUnit.class);
+		ae.ifPresent(annotationExpr -> {
+			CodeUnit cu = model.getDefaultCodeUnit();
+
+			String name = declaration.getName().getIdentifier();
+
+			CodeUnit methodCodeUnit = CodeUnitBuilder
+					.createWithIdentifier(name)
+					.setCodeUnitType(CodeUnitType.METHOD)
+					.withModifiers(getModifier(declaration))
+					.withReturnType(resolveMethodReturnType(declaration))
+					.end();
+
+			methodCodeUnit.addSubCodeUnits(createMethodParamCodeUnits(declaration));
+
+			String methodBody = "";
+			Optional<BlockStmt> bs = declaration.getBody();
+			if(bs.isPresent()) {
+				methodBody = bs.get().toString();
+			}
+
+			CodeUnit methodBodyCodeUnit = CodeUnitBuilder
+					.create()
+					.setCodeUnitType(CodeUnitType.METHOD_BODY)
+					.withMethodBody(methodBody)
+					.end();
+
+			methodCodeUnit.addSubCodeUnit(methodBodyCodeUnit);
+
+			System.out.println(methodCodeUnit);
 		});
 	}
 
@@ -115,12 +150,13 @@ public class AnnotationParser {
 		if(ae.isPresent()) {
 			model.addAnnotationDatum(AnnotationDatum.VARIABLE_DATATYPE);
 		} else {
-			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, getFieldType(declaration.getVariable(0)));
+			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, resolveVariableType(declaration.getVariable(0)));
 		}
 	}
 
 	private void parseFixedCodeUnitAnnotations(ClassOrInterfaceDeclaration declaration, AnnotationModel model) {
 		new JavaFixedFieldAnnotationVisitor().visit(declaration, model);
+		new JavaFixedMethodAnnotationVisitor().visit(declaration, model);
 	}
 
 	private CodeUnitModifier[] getModifier(ClassOrInterfaceDeclaration cd) {
@@ -143,11 +179,21 @@ public class AnnotationParser {
 				.toArray(new CodeUnitModifier[mods.size()]);
 	}
 
+	private CodeUnitModifier[] getModifier(MethodDeclaration fd) {
+		EnumSet<Modifier> mods = fd.getModifiers();
+
+		return mods
+				.stream()
+				.map(modifier -> CodeUnitModifier.valueOf(modifier.name()))
+				.collect(Collectors.toList())
+				.toArray(new CodeUnitModifier[mods.size()]);
+	}
+
 	private String getFieldIdentifier(VariableDeclarator vd) {
 		return vd.getNameAsString();
 	}
 
-	private void SetIdentifier(AnnotationModel model, AnnotationExpr anno) {
+	private void setIdentifier(AnnotationModel model, AnnotationExpr anno) {
 			String identifier = anno
 					.asSingleMemberAnnotationExpr()
 					.getMemberValue()
@@ -161,17 +207,38 @@ public class AnnotationParser {
 		model.addAnnotationDatum(AnnotationDatum.CAN_HAVE_SUBCODEUNITS);
 	}
 
-	private Class getFieldType(VariableDeclarator vd) {
-		TypeSolver ts = new ReflectionTypeSolver();
-		JavaParserFacade pf = JavaParserFacade.get(ts);
-		ResolvedType t = pf.getType(vd);
+	private Class resolveVariableType(VariableDeclarator vd) {
+		ResolvedType rt = vd.resolve().getType();
+		return getClazz(rt);
+	}
+
+	private Class resolveMethodReturnType(MethodDeclaration md) {
+		ResolvedType rt = md.resolve().getReturnType();
+		return getClazz(rt);
+	}
+
+	private Class getClazz(ResolvedType rt) {
 		String type = "";
-		if(t.isPrimitive()) {
-			type = t.describe();
-		} else if(t.isReferenceType()) {
-			type = t.asReferenceType().getQualifiedName();
+		if(rt.isPrimitive()) {
+			type = rt.describe();
+		} else if(rt.isReferenceType()) {
+			type = rt.asReferenceType().getQualifiedName();
 		}
 
 		return JavaClassMapper.className(type);
+	}
+
+	private List<CodeUnit> createMethodParamCodeUnits(MethodDeclaration declaration) {
+		return declaration
+				.getParameters()
+				.stream()
+				.map(Parameter::resolve)
+				.map(p ->
+						CodeUnitBuilder
+						.createWithIdentifier(p.getName())
+						.setCodeUnitType(CodeUnitType.METHOD_PARAM)
+						.withDataType(getClazz(p.getType()))
+						.end())
+				.collect(Collectors.toList());
 	}
 }

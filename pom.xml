@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.fhws.applab.apoc</groupId>
-    <artifactId>wolpertinger</artifactId>
+    <artifactId>Spectrum</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -32,11 +32,11 @@
             <artifactId>javapoet</artifactId>
             <version>1.9.0</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
             <version>3.5.5</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>java-symbol-solver-core</artifactId>
