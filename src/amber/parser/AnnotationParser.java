@@ -110,6 +110,7 @@ public class AnnotationParser {
 			methodCodeUnit.addSubCodeUnits(createMethodParamCodeUnits(declaration));
 
 			String methodBody = "";
+			//TODO: Fix additional braces
 			Optional<BlockStmt> bs = declaration.getBody();
 			if(bs.isPresent()) {
 				methodBody = bs.get().toString();
@@ -122,8 +123,7 @@ public class AnnotationParser {
 					.end();
 
 			methodCodeUnit.addSubCodeUnit(methodBodyCodeUnit);
-
-			System.out.println(methodCodeUnit);
+			cu.addSubCodeUnit(methodCodeUnit);
 		});
 	}
 

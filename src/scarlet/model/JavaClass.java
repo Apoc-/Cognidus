@@ -14,10 +14,12 @@ public class JavaClass {
 	public String name;
 	public Set<JavaModifier> modifiers;
 	public List<JavaField> fields;
+	public List<JavaMethod> methods;
 
 	public JavaClass() {
 		this.name = "";
 		this.modifiers = new HashSet<>();
 		this.fields = new LinkedList<>();
+		this.methods = new LinkedList<>();
 	}
 }

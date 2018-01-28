@@ -42,6 +42,6 @@ class TransformatorTester {
 		j.model = cut.transformClassCodeUnit(cu);
 
 		JavaClassGenerator jcg = new JavaClassGenerator();
-		jcg.GenerateJavaFileFromModel(j);
+		jcg.generateJavaFileFromModel(j);
 	}
 }

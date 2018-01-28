@@ -5,13 +5,17 @@
  */
 package scarlet.generator;
 
+import com.squareup.javapoet.TypeName;
+
 class JavaPoetTypeMapper {
 	public static com.squareup.javapoet.TypeName typeName(String typeName) {
 		switch (typeName) {
 			case "int":
-				return com.squareup.javapoet.TypeName.INT;
+				return TypeName.INT;
 			case "float":
-				return com.squareup.javapoet.TypeName.FLOAT;
+				return TypeName.FLOAT;
+			case "void":
+				return TypeName.VOID;
 			default:
 				return com.squareup.javapoet.ClassName.bestGuess(typeName);
 		}

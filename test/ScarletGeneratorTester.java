@@ -5,19 +5,70 @@
  */
 
 import scarlet.generator.JavaClassGenerator;
+import scarlet.model.*;
 
 import java.io.File;
 import java.io.IOException;
 
 class ScarletGeneratorTester {
+	private JavaClassFile fileModel;
+
+	@org.junit.jupiter.api.BeforeEach
+	void initializeTestJavaClassFileModel() {
+		fileModel = new JavaClassFile();
+		fileModel.model = new JavaClass();
+		fileModel.model.name = "TestClassName";
+		fileModel.model.modifiers.add(JavaModifier.PUBLIC);
+		fileModel.model.modifiers.add(JavaModifier.FINAL);
+
+		JavaField field1 = new JavaField();
+		field1.identifier = "testField1";
+		field1.type = "int";
+		field1.modifiers.add(JavaModifier.PUBLIC);
+		field1.modifiers.add(JavaModifier.STATIC);
+
+		JavaField field2 = new JavaField();
+		field2.identifier = "testField2";
+		field2.type = "java.lang.String";
+		field2.modifiers.add(JavaModifier.PRIVATE);
+
+		fileModel.model.fields.add(field1);
+		fileModel.model.fields.add(field2);
+
+		JavaMethod method1 = new JavaMethod();
+		method1.identifier = "testMethod1";
+		method1.returnType = "int";
+		method1.modifiers.add(JavaModifier.PUBLIC);
+		method1.modifiers.add(JavaModifier.STATIC);
+		method1.body.setContentFromString("return this.testField1");
+
+		JavaMethod method2 = new JavaMethod();
+		method2.identifier = "testMethod2";
+		method2.returnType = "void";
+		method2.modifiers.add(JavaModifier.PRIVATE);
+
+		JavaMethodParameter param1 = new JavaMethodParameter();
+		param1.identifier = "testParam1";
+		param1.type = "java.lang.String";
+
+		JavaMethodParameter param2 = new JavaMethodParameter();
+		param2.identifier = "testParam2";
+		param2.type = "int";
+
+		method2.parameters.add(param1);
+		method2.parameters.add(param2);
+		method2.body.setContentFromString("System.out.println(\"Hello, World!\")");
+
+		fileModel.model.methods.add(method1);
+		fileModel.model.methods.add(method2);
+	}
+
 	@org.junit.jupiter.api.Test
 	void generateClassFromClassFile() {
 		JavaClassGenerator testGenerator = new JavaClassGenerator();
-		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-		File testFile = new File("resources/ReferencePOJO.java");
 
 		try {
-			testGenerator.GenerateClassFromClassFile(testFile);
+			testGenerator.generateJavaFileFromModel(fileModel);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

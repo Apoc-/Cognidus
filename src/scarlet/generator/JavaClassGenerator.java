@@ -5,13 +5,11 @@
  */
 package scarlet.generator;
 
+import cherry.model.CodeUnit;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.squareup.javapoet.*;
-import scarlet.model.JavaClass;
-import scarlet.model.JavaClassFile;
-import scarlet.model.JavaField;
-import scarlet.model.JavaModifier;
+import scarlet.model.*;
 import scarlet.visitors.JavaFieldVisitor;
 import scarlet.visitors.JavaClassVisitor;
 
@@ -26,24 +24,26 @@ import java.util.stream.Collectors;
 public class JavaClassGenerator {
 	public JavaClassGenerator() { }
 
-	public void GenerateClassFromClassFile(File file) throws IOException {
+	public void generateClassFromClassFile(File file) throws IOException {
 		CompilationUnit cu = JavaParser.parse(file);
 		JavaClassFile fm = new JavaClassFile();
 
 		new JavaClassVisitor().visit(cu, fm);
 		new JavaFieldVisitor().visit(cu, fm.model);
 
-		GenerateJavaFileFromModel(fm);
+		generateJavaFileFromModel(fm);
 	}
 
-	public void GenerateJavaFileFromModel(JavaClassFile fm) throws IOException {
+	public void generateJavaFileFromModel(JavaClassFile fm) throws IOException {
 		JavaClass cm = fm.model;
 		Modifier[] classModifiers = getModifierArrayFromSet(cm.modifiers);
 		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);
+		List<MethodSpec> methodSpecs = generateMethodSpecs(cm.methods);
 
 		TypeSpec generatedClass = TypeSpec.classBuilder(cm.name)
 				.addModifiers(classModifiers)
 				.addFields(fieldSpecs)
+				.addMethods(methodSpecs)
 				.build();
 
 		JavaFile javaFile = JavaFile.builder("com.example.helloworld", generatedClass)
@@ -71,7 +71,7 @@ public class JavaClassGenerator {
 
 	private FieldSpec generateArrayFieldSpec(JavaField field) {
 		TypeName type = JavaPoetTypeMapper.typeName(field.type);
-		String name = field.name;
+		String name = field.identifier;
 		Modifier[] modifiers = getModifierArrayFromSet(field.modifiers);
 
 		return FieldSpec
@@ -81,7 +81,7 @@ public class JavaClassGenerator {
 
 	private FieldSpec generateFieldSpec(JavaField field) {
 		TypeName type = JavaPoetTypeMapper.typeName(field.type);
-		String name = field.name;
+		String name = field.identifier;
 		Modifier[] modifiers = getModifierArrayFromSet(field.modifiers);
 
 		return FieldSpec
@@ -94,5 +94,34 @@ public class JavaClassGenerator {
 				.map(m -> Modifier.valueOf(m.name()))
 				.collect(Collectors.toList())
 				.toArray(new Modifier[modifiers.size()]);
+	}
+
+	private List<MethodSpec> generateMethodSpecs(List<JavaMethod> javaMethods) {
+		return javaMethods.stream()
+				.map(this::generateMethodSpec)
+				.collect(Collectors.toList());
+	}
+
+	private MethodSpec generateMethodSpec(JavaMethod method) {
+		Modifier[] modifiers = getModifierArrayFromSet(method.modifiers);
+		TypeName returnType = JavaPoetTypeMapper.typeName(method.returnType);
+		String name = method.identifier;
+		String codeBody = method.body.toString();
+
+		List<ParameterSpec> params = method.parameters
+				.stream()
+				.map(jp ->
+						ParameterSpec
+						.builder(JavaPoetTypeMapper.typeName(jp.type), jp.identifier)
+						.build())
+				.collect(Collectors.toList());
+
+		return MethodSpec
+				.methodBuilder(name)
+				.addModifiers(modifiers)
+				.addParameters(params)
+				.addCode(codeBody + "\n") //new line for pretty-ness
+				.returns(returnType)
+				.build();
 	}
 }

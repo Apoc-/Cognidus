@@ -25,7 +25,7 @@ public class JavaFieldVisitor extends VoidVisitorAdapter<JavaClass> {
 		JavaField jfm = new JavaField();
 		VariableDeclarator varDeclaration = fd.getVariable(0);
 
-		jfm.name = getFieldName(varDeclaration);
+		jfm.identifier = getFieldName(varDeclaration);
 		jfm.modifiers.addAll(getFieldModifier(fd));
 		jfm.isArray = isArrayType(varDeclaration.getType());
 		jfm.type = getFieldType(varDeclaration);
