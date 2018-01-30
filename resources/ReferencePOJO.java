@@ -13,8 +13,11 @@ import amber.annotations.VariableType;
 
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
-	@FixedCodeUnit
+	@FixedCodeUnit @HasGetter @HasSetter
 	transient private int id;
+
+	@FixedCodeUnit @HasSetter
+	private String name;
 
 	@CodeUnit("PublicInt")
 	public int number;

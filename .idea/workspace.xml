@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="963c1246-b684-467d-8a41-6e84a7432d06" name="Default" comment="Flattened datum list in CodeUnitDatum&#10;Added toString for better readability in debugger">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/scarlet/model/JavaMethod.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/scarlet/model/JavaMethodBody.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/scarlet/model/JavaMethodParameter.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/amber/annotations/HasGetter.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/amber/annotations/HasSetter.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Spectrum.iml" afterPath="$PROJECT_DIR$/Spectrum.iml" />
+      <change beforePath="$PROJECT_DIR$/resources/ReferencePOJO.java" afterPath="$PROJECT_DIR$/resources/ReferencePOJO.java" />
       <change beforePath="$PROJECT_DIR$/src-generated/cherry/generated/POJOUnitBuilder.java" afterPath="$PROJECT_DIR$/src-generated/cherry/generated/POJOUnitBuilder.java" />
       <change beforePath="$PROJECT_DIR$/src/amber/parser/AnnotationParser.java" afterPath="$PROJECT_DIR$/src/amber/parser/AnnotationParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/jade/CodeUnitTransformator.java" afterPath="$PROJECT_DIR$/src/jade/CodeUnitTransformator.java" />
-      <change beforePath="$PROJECT_DIR$/src/scarlet/generator/JavaClassGenerator.java" afterPath="$PROJECT_DIR$/src/scarlet/generator/JavaClassGenerator.java" />
-      <change beforePath="$PROJECT_DIR$/src/scarlet/generator/JavaPoetTypeMapper.java" afterPath="$PROJECT_DIR$/src/scarlet/generator/JavaPoetTypeMapper.java" />
-      <change beforePath="$PROJECT_DIR$/src/scarlet/model/JavaClass.java" afterPath="$PROJECT_DIR$/src/scarlet/model/JavaClass.java" />
-      <change beforePath="$PROJECT_DIR$/src/scarlet/model/JavaField.java" afterPath="$PROJECT_DIR$/src/scarlet/model/JavaField.java" />
-      <change beforePath="$PROJECT_DIR$/src/scarlet/visitors/JavaFieldVisitor.java" afterPath="$PROJECT_DIR$/src/scarlet/visitors/JavaFieldVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/test-generated/TransformatorTester.java" afterPath="$PROJECT_DIR$/test-generated/TransformatorTester.java" />
-      <change beforePath="$PROJECT_DIR$/test/ScarletGeneratorTester.java" afterPath="$PROJECT_DIR$/test/ScarletGeneratorTester.java" />
+      <change beforePath="$PROJECT_DIR$/src/amber/visitor/JavaClassAnnotationVisitor.java" afterPath="$PROJECT_DIR$/src/amber/visitor/JavaClassAnnotationVisitor.java" />
+      <change beforePath="$PROJECT_DIR$/src/amber/visitor/JavaFieldAnnotationVisitor.java" afterPath="$PROJECT_DIR$/src/amber/visitor/JavaFieldAnnotationVisitor.java" />
+      <change beforePath="$PROJECT_DIR$/src/amber/visitor/JavaFixedFieldAnnotationVisitor.java" afterPath="$PROJECT_DIR$/src/amber/visitor/JavaFixedFieldAnnotationVisitor.java" />
+      <change beforePath="$PROJECT_DIR$/src/amber/visitor/JavaFixedMethodAnnotationVisitor.java" afterPath="$PROJECT_DIR$/src/amber/visitor/JavaFixedMethodAnnotationVisitor.java" />
+      <change beforePath="$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java" afterPath="$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java" />
+      <change beforePath="$PROJECT_DIR$/src/cherry/model/CodeUnitType.java" afterPath="$PROJECT_DIR$/src/cherry/model/CodeUnitType.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,109 +37,164 @@
       <FILTER>kitsune.transformator.*</FILTER>
     </SUITE>
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="AnnotationParser.java" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/amber/parser/AnnotationParser.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="245">
+                    <caret line="296" column="27" lean-forward="false" selection-start-line="296" selection-start-column="27" selection-end-line="296" selection-end-column="27" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="method#getInstance#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseCodeUnitAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseCodeUnitAnnotation#1;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseVariableModifierAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseVariableModifierAnnotation#1;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseVariableTypeAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#parseFixedCodeUnitAnnotations#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#getModifier#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#getModifier#1;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#getModifier#2;class#AnnotationParser#0" expanded="false" />
+                      <element signature="e#8775#8776#0" expanded="true" />
+                      <element signature="e#8809#8810#0" expanded="true" />
+                      <element signature="method#setIdentifier#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#addCanHaveSubcodeUnitAnnotationDatum#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#resolveVariableType#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="method#getClazz#0;class#AnnotationParser#0" expanded="false" />
+                      <element signature="e#10178#10179#0" expanded="true" />
+                      <element signature="e#10226#10227#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeUnitTransformator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jade/CodeUnitTransformator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnnotationDatum.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationDatum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransformatorTester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-generated/TransformatorTester.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnnotationModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VariableType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/annotations/VariableType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VariableModifier.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/annotations/VariableModifier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FixedCodeUnit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/annotations/FixedCodeUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CodeUnit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/amber/annotations/CodeUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AnnotationParser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/amber/parser/AnnotationParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+            <state relative-caret-position="544">
+              <caret line="202" column="62" lean-forward="true" selection-start-line="202" selection-start-column="62" selection-end-line="202" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6672#6673#0" expanded="true" />
-                <element signature="e#6706#6707#0" expanded="true" />
+                <element signature="method#getInstance#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseCodeUnitAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseCodeUnitAnnotation#1;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseVariableModifierAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseVariableModifierAnnotation#1;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseVariableTypeAnnotation#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#parseFixedCodeUnitAnnotations#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#getModifier#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#getModifier#1;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#getModifier#2;class#AnnotationParser#0" expanded="false" />
+                <element signature="e#8775#8776#0" expanded="true" />
+                <element signature="e#8809#8810#0" expanded="true" />
+                <element signature="method#setIdentifier#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#addCanHaveSubcodeUnitAnnotationDatum#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#resolveVariableType#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#getClazz#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="method#createMethodParamCodeUnits#0;class#AnnotationParser#0" expanded="false" />
+                <element signature="e#10178#10179#0" expanded="true" />
+                <element signature="e#10226#10227#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeneratedBuilderTester.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-generated/GeneratedBuilderTester.java">
+      <file leaf-file-name="HasGetter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amber/annotations/HasGetter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="32" column="10" lean-forward="false" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            <state relative-caret-position="154">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HasSetter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/amber/annotations/HasSetter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReferencePOJO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/ReferencePOJO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeUnitType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeUnitBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="57" column="27" lean-forward="false" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MethodDeclaration.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5-sources.jar!/com/github/javaparser/ast/body/MethodDeclaration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PublicIntUnitBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/PublicIntUnitBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringUnitBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/StringUnitBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-44">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VarUnitBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/VarUnitBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-44">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -195,8 +247,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/scarlet/AnnotationModel.java" />
-        <option value="$PROJECT_DIR$/src/scarlet/AnnotatedExpression.java" />
         <option value="$PROJECT_DIR$/src/scarlet/AnnotationType.java" />
         <option value="$PROJECT_DIR$/src/scarlet/AnnotationParser.java" />
         <option value="$PROJECT_DIR$/src/scarlet/JavaLangClassMapper.java" />
@@ -225,13 +275,10 @@
         <option value="$PROJECT_DIR$/test-generated/GeneratedBuilderTester.java" />
         <option value="$PROJECT_DIR$/test-generated/TransformatorTester.java" />
         <option value="$PROJECT_DIR$/src/cherry/generator/BuilderMethodFactory.java" />
-        <option value="$PROJECT_DIR$/src/cherry/model/CodeUnitType.java" />
         <option value="$PROJECT_DIR$/src/amber/annotations/FixedCodeUnit.java" />
         <option value="$PROJECT_DIR$/src/amber/annotations/VariableModifier.java" />
         <option value="$PROJECT_DIR$/src/amber/visitor/JavaFixedMethodAnnotationVisitor.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java" />
-        <option value="$PROJECT_DIR$/resources/ReferencePOJO.java" />
         <option value="$PROJECT_DIR$/src/cherry/model/CodeUnit.java" />
         <option value="$PROJECT_DIR$/src/cherry/model/CodeUnitDatumType.java" />
         <option value="$PROJECT_DIR$/src/cherry/model/CodeUnitBuilder.java" />
@@ -245,6 +292,11 @@
         <option value="$PROJECT_DIR$/src/scarlet/generator/JavaClassGenerator.java" />
         <option value="$PROJECT_DIR$/src/scarlet/model/JavaMethodBody.java" />
         <option value="$PROJECT_DIR$/src/jade/CodeUnitTransformator.java" />
+        <option value="$PROJECT_DIR$/src/amber/annotations/HasGetter.java" />
+        <option value="$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java" />
+        <option value="$PROJECT_DIR$/src/cherry/model/CodeUnitType.java" />
+        <option value="$PROJECT_DIR$/src/amber/annotations/HasSetter.java" />
+        <option value="$PROJECT_DIR$/resources/ReferencePOJO.java" />
         <option value="$PROJECT_DIR$/src/amber/parser/AnnotationParser.java" />
       </list>
     </option>
@@ -263,7 +315,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-560" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -513,11 +565,11 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="amber.annotations" />
       <recent name="scarlet.visitors" />
       <recent name="scarlet.model" />
       <recent name="amber.visitor" />
       <recent name="cherry" />
-      <recent name="sphynx.visitors" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Projects\Cognidus\test" />
@@ -539,7 +591,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CherryGeneratorTester.GenerateBuildersFromRefImpl">
+  <component name="RunManager" selected="JUnit.TransformatorTester.test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -721,9 +773,9 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CherryGeneratorTester.GenerateBuildersFromRefImpl" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.TransformatorTester.test" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GeneratedBuilderTester.testBuilders" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TransformatorTester.test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GeneratedBuilderTester.testBuilders" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CherryGeneratorTester.GenerateBuildersFromRefImpl" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ScarletGeneratorTester.generateClassFromClassFile" />
       </list>
     </recent_temporary>
@@ -771,7 +823,7 @@
       <workItem from="1516379013054" duration="599000" />
       <workItem from="1516808983594" duration="627000" />
       <workItem from="1516809757636" duration="3806000" />
-      <workItem from="1517081163261" duration="18872000" />
+      <workItem from="1517081163261" duration="27929000" />
     </task>
     <task id="LOCAL-00001" summary="Black magic">
       <created>1514073712436</created>
@@ -840,39 +892,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.28 at 12h 54m 35s.xml">
+    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.30 at 18h 28m 02s.xml">
       <configuration name="CherryGeneratorTester.GenerateBuildersFromRefImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.28 at 13h 01m 15s.xml">
+    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.30 at 18h 32m 45s.xml">
       <configuration name="CherryGeneratorTester.GenerateBuildersFromRefImpl" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GeneratedBuilderTester_testBuilders - 2018.01.28 at 12h 54m 48s.xml">
+    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.30 at 18h 39m 05s.xml">
+      <configuration name="CherryGeneratorTester.GenerateBuildersFromRefImpl" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CherryGeneratorTester_GenerateBuildersFromRefImpl - 2018.01.30 at 18h 39m 30s.xml">
+      <configuration name="CherryGeneratorTester.GenerateBuildersFromRefImpl" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GeneratedBuilderTester_testBuilders - 2018.01.30 at 18h 39m 37s.xml">
       <configuration name="GeneratedBuilderTester.testBuilders" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 51m 30s.xml">
+    <history-entry file="TransformatorTester_test - 2018.01.30 at 18h 27m 35s.xml">
       <configuration name="TransformatorTester.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 52m 07s.xml">
+    <history-entry file="TransformatorTester_test - 2018.01.30 at 18h 28m 06s.xml">
       <configuration name="TransformatorTester.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 53m 31s.xml">
+    <history-entry file="TransformatorTester_test - 2018.01.30 at 18h 32m 50s.xml">
       <configuration name="TransformatorTester.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 54m 26s.xml">
+    <history-entry file="TransformatorTester_test - 2018.01.30 at 18h 39m 13s.xml">
       <configuration name="TransformatorTester.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 55m 01s.xml">
-      <configuration name="TransformatorTester.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 56m 02s.xml">
-      <configuration name="TransformatorTester.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TransformatorTester_test - 2018.01.28 at 12h 56m 12s.xml">
+    <history-entry file="TransformatorTester_test - 2018.01.30 at 18h 39m 44s.xml">
       <configuration name="TransformatorTester.test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="231914000" />
+    <option name="totallyTimeSpent" value="240971000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -896,11 +948,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.2867804" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.71321964" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21847826" sideWeight="0.71321964" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2153518" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19989339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4914712" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37391305" sideWeight="0.46162048" order="1" side_tool="false" content_ui="tabs" />
@@ -909,7 +961,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32173914" sideWeight="0.75692964" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29456523" sideWeight="0.75692964" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -944,226 +996,12 @@
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/amber/parser/AnnotationParser.java</url>
-          <line>115</line>
-          <properties />
-          <option name="timeStamp" value="107" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/amber/parser/AnnotationParser.java</url>
-          <line>113</line>
-          <properties />
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="109" />
+      <option name="time" value="112" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/java-symbol-solver-core/0.6.3/java-symbol-solver-core-0.6.3.jar!/com/github/javaparser/symbolsolver/javaparsermodel/DefaultVisitorAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="158" column="50" lean-forward="false" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
-          <folding>
-            <marker date="1515256174520" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1515256174520" expanded="false" signature="174:5229" ph="..." />
-            <marker date="1515256174520" expanded="true" signature="5352:5359" ph="{}" />
-            <marker date="1515256174520" expanded="true" signature="5431:5523" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="5598:5690" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="5760:5852" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="5920:6012" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6081:6173" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6257:6349" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6421:6513" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6593:6685" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6763:6855" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="6939:7031" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7104:7196" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7271:7363" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7442:7534" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7608:7700" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7766:7858" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="7937:8029" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8100:8192" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8269:8361" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8431:8523" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8589:8681" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8756:8848" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="8921:9013" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9079:9171" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9236:9328" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9397:9489" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9557:9649" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9721:9813" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="9887:9979" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10056:10148" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10215:10307" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10374:10466" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10531:10623" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10689:10781" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="10853:10945" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11014:11106" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11178:11270" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11341:11433" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11507:11599" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11674:11766" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="11838:11930" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12002:12094" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12168:12260" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12335:12427" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12499:12591" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12662:12754" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12819:12911" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="12986:13078" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13143:13235" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13301:13393" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13459:13551" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13631:13723" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13800:13892" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="13975:14067" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14144:14236" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14308:14400" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14490:14582" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14664:14756" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14823:14915" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="14981:15073" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15141:15233" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15299:15391" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15462:15554" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15621:15713" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15785:15877" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="15943:16035" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16102:16194" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16257:16349" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16415:16507" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16576:16668" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16731:16823" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="16891:16983" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17047:17139" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17205:17297" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17370:17462" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17526:17618" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17686:17778" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="17845:17937" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18013:18105" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18170:18262" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18327:18419" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18480:18572" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18639:18731" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18805:18897" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="18966:19058" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19128:19220" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19289:19381" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19451:19543" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19609:19701" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19768:19860" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="19926:20018" ph="{...}" />
-            <marker date="1515256174520" expanded="true" signature="20087:20179" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5.jar!/com/github/javaparser/ParserConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1264">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <marker date="1513240557464" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1513240557464" expanded="false" signature="145:375" ph="..." />
-            <marker date="1513240557464" expanded="true" signature="873:880" ph="{}" />
-            <marker date="1513240557464" expanded="false" signature="922:933" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="963:969" ph=" }" />
-            <marker date="1513240557464" expanded="true" signature="1050:1130" ph="{...}" />
-            <marker date="1513240557464" expanded="false" signature="1193:1204" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="1255:1261" ph=" }" />
-            <marker date="1513240557464" expanded="true" signature="1384:1506" ph="{...}" />
-            <marker date="1513240557464" expanded="true" signature="1585:1667" ph="{...}" />
-            <marker date="1513240557464" expanded="true" signature="1820:1972" ph="{...}" />
-            <marker date="1513240557464" expanded="true" signature="2041:2194" ph="{...}" />
-            <marker date="1513240557464" expanded="false" signature="2230:2241" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="2265:2271" ph=" }" />
-            <marker date="1513240557464" expanded="false" signature="2300:2311" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="2331:2337" ph=" }" />
-            <marker date="1513240557464" expanded="true" signature="2394:2454" ph="{...}" />
-            <marker date="1513240557464" expanded="false" signature="2491:2502" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="2524:2530" ph=" }" />
-            <marker date="1513240557464" expanded="true" signature="2597:2701" ph="{...}" />
-            <marker date="1513240557464" expanded="true" signature="2800:2898" ph="{...}" />
-            <marker date="1513240557464" expanded="false" signature="2949:2960" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="2999:3005" ph=" }" />
-            <marker date="1513240557464" expanded="false" signature="3062:3073" ph=" { " />
-            <marker date="1513240557464" expanded="false" signature="3121:3127" ph=" }" />
-            <marker date="1513240557464" expanded="true" signature="3209:3283" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0-M1/junit-platform-commons-1.1.0-M1.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="176" column="0" lean-forward="false" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5-sources.jar!/com/github/javaparser/ast/body/TypeDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5-sources.jar!/com/github/javaparser/ast/body/FieldDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="89" column="17" lean-forward="false" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0-M1/junit-platform-commons-1.1.0-M1-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="391" column="0" lean-forward="false" selection-start-line="391" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5-sources.jar!/com/github/javaparser/ParserConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/util/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="148" column="13" lean-forward="false" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/java-symbol-solver-core/0.6.3/java-symbol-solver-core-0.6.3-sources.jar!/com/github/javaparser/symbolsolver/javaparsermodel/DefaultVisitorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1209,23 +1047,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/ReferencePOJO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
+            <element signature="e#890#891#0" expanded="false" />
+            <element signature="e#926#927#0" expanded="false" />
+            <element signature="e#987#988#0" expanded="false" />
+            <element signature="e#1032#1033#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1235,17 +1065,6 @@
         <state relative-caret-position="88">
           <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-          <folding>
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#587#588#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,25 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="75" column="18" lean-forward="false" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
-          <folding>
-            <element signature="e#1374#1375#0" expanded="true" />
-            <element signature="e#1407#1408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amber/visitor/JavaClassAnnotationVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="17" column="42" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1419,14 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/POJOUnitBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/CherryGeneratorTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1448,40 +1240,8 @@
         <state relative-caret-position="542">
           <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jade/CodeUnitTransformator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationDatum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/amber/annotations/VariableType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,6 +1261,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/annotations/VariableType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/amber/annotations/CodeUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1509,14 +1277,178 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationDatum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cherry/generator/BuilderMethodMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/visitor/JavaFieldAnnotationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/visitor/JavaFixedFieldAnnotationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/visitor/JavaClassAnnotationVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/model/AnnotationModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jade/CodeUnitTransformator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cherry/generator/BuilderGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2024">
+          <caret line="123" column="52" lean-forward="false" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="52" />
+          <folding>
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1217#1218#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/POJOUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/PublicIntUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/StringUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src-generated/cherry/generated/VarUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/javaparser/javaparser-core/3.5.5/javaparser-core-3.5.5-sources.jar!/com/github/javaparser/ast/body/MethodDeclaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="57" column="27" lean-forward="false" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cherry/model/CodeUnitType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/annotations/HasGetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/amber/annotations/HasSetter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/ReferencePOJO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/amber/parser/AnnotationParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+        <state relative-caret-position="544">
+          <caret line="202" column="62" lean-forward="true" selection-start-line="202" selection-start-column="62" selection-end-line="202" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6672#6673#0" expanded="true" />
-            <element signature="e#6706#6707#0" expanded="true" />
+            <element signature="method#getInstance#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseCodeUnitAnnotation#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseCodeUnitAnnotation#1;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseVariableModifierAnnotation#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseVariableModifierAnnotation#1;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseVariableTypeAnnotation#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#parseFixedCodeUnitAnnotations#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#getModifier#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#getModifier#1;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#getModifier#2;class#AnnotationParser#0" expanded="false" />
+            <element signature="e#8775#8776#0" expanded="true" />
+            <element signature="e#8809#8810#0" expanded="true" />
+            <element signature="method#setIdentifier#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#addCanHaveSubcodeUnitAnnotationDatum#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#resolveVariableType#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#getClazz#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="method#createMethodParamCodeUnits#0;class#AnnotationParser#0" expanded="false" />
+            <element signature="e#10178#10179#0" expanded="true" />
+            <element signature="e#10226#10227#0" expanded="true" />
           </folding>
         </state>
       </provider>

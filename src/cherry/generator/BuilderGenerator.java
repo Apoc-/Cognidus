@@ -6,12 +6,8 @@
 
 package cherry.generator;
 
-import cherry.model.CodeUnitBuilder;
-import cherry.model.CodeUnitDatum;
-import cherry.model.CodeUnitDatumType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.printer.JsonPrinter;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
@@ -28,7 +24,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +43,7 @@ public class BuilderGenerator {
 
 	public void generateUnitBuilders(String sourcePath, String targetPath, String targetPackage) {
 		CompilationUnit cu = parseCodeFile(sourcePath);
-		populateUnitBuilderModels(cu);
+		populateAnnotationModels(cu);
 
 		models.forEach(m -> generateUnitBuilder(m, targetPath, targetPackage));
 	}
@@ -71,7 +66,7 @@ public class BuilderGenerator {
 		return cu;
 	}
 
-	private void populateUnitBuilderModels(CompilationUnit cu) {
+	private void populateAnnotationModels(CompilationUnit cu) {
 		//visit classes
 		new JavaClassAnnotationVisitor().visit(cu, this.models);
 

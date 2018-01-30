@@ -10,7 +10,7 @@ public enum CodeUnitType {
 	CLASS,
 	FIELD,
 	METHOD,
-	METHOD_BODY,
+	METHOD_BODY, //todo possibly make this a codeunitdatum and not a sub codeunit
 	METHOD_PARAM;
 
 	@Override

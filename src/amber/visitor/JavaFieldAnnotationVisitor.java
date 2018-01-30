@@ -15,6 +15,6 @@ import java.util.List;
 public class JavaFieldAnnotationVisitor extends VoidVisitorAdapter<List<AnnotationModel>> {
 	@Override
 	public void visit(FieldDeclaration declaration, List<AnnotationModel> models) {
-		AnnotationParser.getInstance().parseCodeUnitAnnotiation(declaration, models);
+		AnnotationParser.getInstance().parseCodeUnitAnnotation(declaration, models);
 	}
 }
