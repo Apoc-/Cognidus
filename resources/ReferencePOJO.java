@@ -19,7 +19,7 @@ public abstract class ReferencePOJO {
 	@FixedCodeUnit @HasSetter
 	private String name;
 
-	@CodeUnit("PublicInt")
+	@CodeUnit("PublicInt") @HasGetter @HasSetter
 	public int number;
 
 	@CodeUnit("String") @VariableModifier

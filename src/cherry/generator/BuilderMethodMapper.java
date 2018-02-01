@@ -6,20 +6,20 @@
 
 package cherry.generator;
 
-import amber.model.AnnotationDatum;
+import amber.model.AnnotationType;
 
 import java.util.Map;
 
 public class BuilderMethodMapper {
-	private static Map<AnnotationDatum, BuilderMethodType> map;
+	private static Map<AnnotationType, BuilderMethodType> map;
 	static {
 		map = Map.of(
-				AnnotationDatum.VARIABLE_MODIFIERS, BuilderMethodType.WITH_MODIFIERS,
-				AnnotationDatum.VARIABLE_DATATYPE, BuilderMethodType.WITH_DATA_TYPE,
-				AnnotationDatum.CAN_HAVE_SUBCODEUNITS, BuilderMethodType.WITH_SUB_CODEUNIT);
+				AnnotationType.VARIABLE_MODIFIERS, BuilderMethodType.WITH_MODIFIERS,
+				AnnotationType.VARIABLE_DATATYPE, BuilderMethodType.WITH_DATA_TYPE,
+				AnnotationType.CAN_HAVE_SUBCODEUNITS, BuilderMethodType.WITH_SUB_CODEUNIT);
 	}
 
-	public static BuilderMethodType getBuilderMethodType(AnnotationDatum annotationDatum) {
-		return map.get(annotationDatum);
+	public static BuilderMethodType getBuilderMethodType(AnnotationType annotationType) {
+		return map.get(annotationType);
 	}
 }

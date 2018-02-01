@@ -6,8 +6,10 @@
 
 package amber.model;
 
-public enum AnnotationDatum {
+public enum AnnotationType {
 	VARIABLE_MODIFIERS,
 	VARIABLE_DATATYPE,
-	CAN_HAVE_SUBCODEUNITS
+	CAN_HAVE_SUBCODEUNITS,
+	HAS_GETTER,
+	HAS_SETTER
 }

@@ -12,11 +12,13 @@ import java.util.EnumSet;
 
 public class AnnotationModel {
 	private String identifier;
-	private EnumSet<AnnotationDatum> annotationData;
+	private EnumSet<AnnotationType> variablityAnnotations;
+	private EnumSet<AnnotationType> extensionAnnotations;
 	private CodeUnit defaultCodeUnit;
 
 	public AnnotationModel() {
-		annotationData = EnumSet.noneOf(AnnotationDatum.class);
+		variablityAnnotations = EnumSet.noneOf(AnnotationType.class);
+		extensionAnnotations = EnumSet.noneOf(AnnotationType.class);
 	}
 
 	public String getIdentifier() {
@@ -27,20 +29,24 @@ public class AnnotationModel {
 		this.identifier = identifier;
 	}
 
-	public EnumSet<AnnotationDatum> getAnnotationData() {
-		return annotationData;
+	public void addVariabilityAnnotation(AnnotationType annotationType) {
+		this.variablityAnnotations.add(annotationType);
 	}
 
-	public void addAnnotationDatum(AnnotationDatum annotationDatum) {
-		if(annotationData == null) {
-			annotationData = EnumSet.of(annotationDatum);
-		} else {
-			this.annotationData.add(annotationDatum);
-		}
+	public EnumSet<AnnotationType> getVariablityAnnotations() {
+		return this.variablityAnnotations;
+	}
+
+	public void addExtensionAnnotation(AnnotationType annotationType) {
+		this.extensionAnnotations.add(annotationType);
+	}
+
+	public EnumSet<AnnotationType> getExtensionAnnotations() {
+		return this.extensionAnnotations;
 	}
 
 	public CodeUnit getDefaultCodeUnit() {
-		return defaultCodeUnit;
+		return this.defaultCodeUnit;
 	}
 
 	public void setDefaultCodeUnit(CodeUnit codeUnit) {

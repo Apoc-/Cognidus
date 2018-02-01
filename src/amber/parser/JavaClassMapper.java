@@ -5,6 +5,7 @@
  */
 package amber.parser;
 
+//todo: extend to all primitve types
 class JavaClassMapper {
 	public static Class className(String className) {
 		switch (className) {

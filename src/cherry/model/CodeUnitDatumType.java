@@ -11,7 +11,9 @@ public enum CodeUnitDatumType {
 	IDENTIFIER,
 	DATA_TYPE,
 	RETURN_TYPE,
-	METHOD_BODY_STRING;
+	METHOD_BODY_STRING,
+	GETTER,
+	SETTER;
 
 	@Override
 	public String toString() {

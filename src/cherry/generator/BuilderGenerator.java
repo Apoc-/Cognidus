@@ -6,6 +6,7 @@
 
 package cherry.generator;
 
+import amber.model.AnnotationType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
@@ -67,16 +68,14 @@ public class BuilderGenerator {
 	}
 
 	private void populateAnnotationModels(CompilationUnit cu) {
-		//visit classes
 		new JavaClassAnnotationVisitor().visit(cu, this.models);
-
-		//visit fields
 		new JavaFieldAnnotationVisitor().visit(cu, this.models);
 	}
 
 
-	//Todo: Move MethodSpec creations to factory
+	//Todo: Move MethodSpec creations to factory and general refactoring
 	private void generateUnitBuilder(AnnotationModel model, String targetPath, String targetPackage) {
+		BuilderMethodFactory bmf = new BuilderMethodFactory(model, targetPackage);
 		String builderClassIdentifier = model.getIdentifier() + "UnitBuilder";
 		TypeName builderClassName = ClassName.get(targetPackage, builderClassIdentifier);
 
@@ -87,13 +86,14 @@ public class BuilderGenerator {
 
 		MethodSpec codeUnitInitializer = generateInitDefCodeUnitMethod(model.getDefaultCodeUnit());
 
-		MethodSpec builderInitializer = BuilderMethodFactory.createForType(BuilderMethodType.CREATE_WITH_IDENTIFIER, builderClassName);
-		MethodSpec builderFinalizer = BuilderMethodFactory.createForType(BuilderMethodType.END, builderClassName);
+		//create with ident + set datum getter / setter
+		MethodSpec builderInitializer = bmf.createForType(BuilderMethodType.CREATE_WITH_IDENTIFIER);
+		MethodSpec builderFinalizer = bmf.createForType(BuilderMethodType.END);
 
-		List<MethodSpec> methods = model.getAnnotationData()
+		List<MethodSpec> variabilityMethods = model.getVariablityAnnotations()
 				.stream()
-				.map(anno -> BuilderMethodFactory
-						.createForType(BuilderMethodMapper.getBuilderMethodType(anno), builderClassName))
+				.map(anno -> bmf
+						.createForType(BuilderMethodMapper.getBuilderMethodType(anno)))
 				.collect(Collectors.toList());
 
 		TypeSpec builderType = TypeSpec
@@ -104,7 +104,7 @@ public class BuilderGenerator {
 				.addMethod(codeUnitInitializer)
 				.addMethod(builderInitializer)
 				.addMethod(builderFinalizer)
-				.addMethods(methods)
+				.addMethods(variabilityMethods)
 				.build();
 
 		JavaFile javaFile = JavaFile.builder(targetPackage, builderType)
