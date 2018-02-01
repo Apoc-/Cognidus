@@ -28,6 +28,9 @@ class GeneratedBuilderTester {
 				.withSubCodeUnit(PublicIntUnitBuilder
 						.createWithIdentifier("Dah")
 						.end())
+				.withSubCodeUnit(PublicIntUnitBuilder
+						.createWithIdentifier("DahDah")
+						.end())
 				.end();
 
 		System.out.println(cu);

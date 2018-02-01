@@ -28,8 +28,13 @@ public abstract class ReferencePOJO {
 	@CodeUnit("Var") @VariableModifier @VariableType
 	public float f;
 
-	@FixedCodeUnit @VariableModifier
-	public String getTwo(String a, String b) {
-		return a+b;
+	@FixedCodeUnit
+	public int sum(int a, int b) {
+		return a + b;
+	}
+
+	@CodeUnit
+	public int mul(int a, int b) {
+		return a * b;
 	}
 }

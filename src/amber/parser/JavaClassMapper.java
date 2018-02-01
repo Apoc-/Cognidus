@@ -6,9 +6,12 @@
 package amber.parser;
 
 //todo: extend to all primitve types
+//todo: handle references not known yet eg. a future generated class
 class JavaClassMapper {
 	public static Class className(String className) {
 		switch (className) {
+			case "boolean":
+				return boolean.class;
 			case "int":
 				return int.class;
 			case "float":

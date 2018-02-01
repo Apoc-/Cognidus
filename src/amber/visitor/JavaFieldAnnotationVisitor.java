@@ -5,6 +5,7 @@
  */
 package amber.visitor;
 
+import amber.parser.FieldAnnotationParser;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import amber.model.AnnotationModel;
@@ -15,6 +16,6 @@ import java.util.List;
 public class JavaFieldAnnotationVisitor extends VoidVisitorAdapter<List<AnnotationModel>> {
 	@Override
 	public void visit(FieldDeclaration declaration, List<AnnotationModel> models) {
-		AnnotationParser.getInstance().parseCodeUnitAnnotation(declaration, models);
+		new FieldAnnotationParser().parseCodeUnitAnnotation(declaration, models);
 	}
 }
