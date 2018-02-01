@@ -72,21 +72,12 @@ public class BuilderGenerator {
 		new JavaFieldAnnotationVisitor().visit(cu, this.models);
 	}
 
-
-	//Todo: Move MethodSpec creations to factory and general refactoring
 	private void generateUnitBuilder(AnnotationModel model, String targetPath, String targetPackage) {
 		BuilderMethodFactory bmf = new BuilderMethodFactory(model, targetPackage);
 		String builderClassIdentifier = model.getIdentifier() + "UnitBuilder";
-		TypeName builderClassName = ClassName.get(targetPackage, builderClassIdentifier);
 
-		MethodSpec constructor = MethodSpec.constructorBuilder()
-				.addModifiers(Modifier.PRIVATE)
-				.addStatement("initializeDefaultCodeUnit()")
-				.build();
-
-		MethodSpec codeUnitInitializer = generateInitDefCodeUnitMethod(model.getDefaultCodeUnit());
-
-		//create with ident + set datum getter / setter
+		MethodSpec constructor = bmf.createForType(BuilderMethodType.CONSTRUCTOR);
+		MethodSpec codeUnitInitializer = bmf.createForType(BuilderMethodType.INIT_DEF_CODE_UNIT);
 		MethodSpec builderInitializer = bmf.createForType(BuilderMethodType.CREATE_WITH_IDENTIFIER);
 		MethodSpec builderFinalizer = bmf.createForType(BuilderMethodType.END);
 
@@ -119,90 +110,4 @@ public class BuilderGenerator {
 
 		System.out.println("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
 	}
-
-	//Todo: Talk why THIS should be the solution
-	private MethodSpec generateInitDefCodeUnitMethod(CodeUnit sourceCodeUnit) {
-		byte[] serializedCodeUnit = SerializationUtils.serialize(sourceCodeUnit);
-
-		String codeUnitArrayLiteral = Arrays
-				.toString(serializedCodeUnit)
-				.replace("[","{")
-				.replace("]","}");
-
-		return MethodSpec.methodBuilder("initializeDefaultCodeUnit")
-				.addComment("Initializes this builder's data with default data encoded into a byte[]")
-				.addModifiers(Modifier.PRIVATE)
-				.addStatement("byte[] serializedCodeUnit = new byte[] $L", codeUnitArrayLiteral)
-				.addStatement("this.codeUnit = $T.deserialize(serializedCodeUnit)", SerializationUtils.class)
-				.build();
-	}
-
-	/*
-	private MethodSpec generateInitDefCodeUnitMethod(CodeUnit sourceCodeUnit) {
-		MethodSpec initMethod = MethodSpec.methodBuilder("initializeDefaultCodeUnit")
-				.addModifiers(Modifier.PRIVATE)
-				.addCode("this.codeUnit = CodeUnitBuilder\n")
-				.addCode("\t\t.createWithIdentifier($S)\n", getDatum(CodeUnitDatumType.IDENTIFIER, sourceCodeUnit))
-				.addCode("\t\t.withDataType($L)\n", getDatum(CodeUnitDatumType.DATA_TYPE, sourceCodeUnit))
-				.addCode(".end();\n")
-				.build();
-
-		System.out.println(initMethod.toString());
-
-		return initMethod;
-	}
-
-	private String getDatum(CodeUnitDatumType type, CodeUnit cu) {
-		CodeUnitDatum cud = cu.getCodeUnitDatum(type);
-		if(cud == null)
-			return null;
-
-		String literal = "";
-		switch(type) {
-			case IDENTIFIER:
-				literal = (String) cud.getDatumData();
-				break;
-			case DATA_TYPE:
-				literal = (String) cud.getDatumData();
-				break;
-		}
-
-		return literal;
-	}
-
-	/*private void initializeCodeUnitData() {
-		CodeUnit defaultCodeUnit = CodeUnitBuilder
-				.createWithIdentifier("ident")
-				.withDataType(dt)
-				.withModifiers()
-				.withSubCodeUnits(initializeSubCodeUnitData())
-				.end();
-	}
-
-	private List<CodeUnit> initializeSubCodeUnitData() {
-		List<CodeUnit> subCodeUnits = new LinkedList<CodeUnit>();
-
-		subCodeUnits.add(CodeUnitBuilder
-				.createWithIdentifier()
-				.withDataType()
-				.withModifiers()
-				.withSubCodeUnits()
-				.end());
-
-		subCodeUnits.add(CodeUnitBuilder
-				.createWithIdentifier()
-				.withDataType()
-				.withModifiers()
-				.withSubCodeUnits()
-				.end());
-
-		subCodeUnits.add(CodeUnitBuilder
-				.createWithIdentifier()
-				.withDataType()
-				.withModifiers()
-				.withSubCodeUnits()
-				.end());
-
-		return subCodeUnits;
-	}*/
 }

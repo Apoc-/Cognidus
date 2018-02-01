@@ -12,11 +12,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CodeUnitBuilderUtils {
-	public static List<CodeUnit> createDefaultMethodCodeUnits(CodeUnit codeUnit) {
+	public static List<CodeUnit> createDefaultMethodCodeUnits(CodeUnit classCodeUnit) {
 		List<CodeUnit> methodCodeUnits = new LinkedList<>();
 
 		//check only fields and generate getter and/or setter if neccessary
-		codeUnit
+		classCodeUnit
 				.getSubCodeUnits()
 				.stream()
 				.filter(cu -> cu.getType() == CodeUnitType.FIELD)

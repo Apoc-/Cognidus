@@ -1,6 +1,7 @@
 package cherry.generated;
 
 import cherry.model.CodeUnit;
+import cherry.model.CodeUnitBuilderUtils;
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
 import java.lang.String;
@@ -26,6 +27,7 @@ public class StringUnitBuilder {
   }
 
   public CodeUnit end() {
+    this.codeUnit.addSubCodeUnits(CodeUnitBuilderUtils.createDefaultMethodCodeUnits(codeUnit));
     return codeUnit;
   }
 

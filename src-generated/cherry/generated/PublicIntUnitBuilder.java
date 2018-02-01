@@ -1,6 +1,7 @@
 package cherry.generated;
 
 import cherry.model.CodeUnit;
+import cherry.model.CodeUnitBuilderUtils;
 import cherry.model.CodeUnitDatumType;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
@@ -21,10 +22,13 @@ public class PublicIntUnitBuilder {
   public static PublicIntUnitBuilder createWithIdentifier(String identifier) {
     PublicIntUnitBuilder cub = new PublicIntUnitBuilder();
     cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
+    cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.GETTER, true);
+    cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.SETTER, true);
     return cub;
   }
 
   public CodeUnit end() {
+    this.codeUnit.addSubCodeUnits(CodeUnitBuilderUtils.createDefaultMethodCodeUnits(codeUnit));
     return codeUnit;
   }
 }

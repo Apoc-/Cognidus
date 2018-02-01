@@ -12,7 +12,9 @@ public enum BuilderMethodType {
 	WITH_DATA_TYPE("withDataType"),
 	WITH_SUB_CODEUNIT("withSubCodeUnit"),
 	CREATE_WITH_IDENTIFIER("createWithIdentifier"),
-	END("end");
+	CONSTRUCTOR(""),
+	END("end"),
+	INIT_DEF_CODE_UNIT("initDefCodeUnit");
 
 	private final String methodName;
 

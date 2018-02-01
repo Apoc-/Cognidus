@@ -7,21 +7,24 @@
 package cherry.generator;
 
 import amber.model.AnnotationModel;
-import com.squareup.javapoet.ArrayTypeName;
-import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeName;
+import amber.model.AnnotationType;
+import cherry.model.CodeUnitBuilderUtils;
+import com.squareup.javapoet.*;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
+import org.apache.commons.lang3.SerializationUtils;
 
 import javax.lang.model.element.Modifier;
+import java.util.Arrays;
 
 public class BuilderMethodFactory {
 	private String builderClassIdentifier;
 	private String packageIdentifier;
+	private AnnotationModel annotationModel;
 
-	public BuilderMethodFactory(AnnotationModel annotationModel, String targetPackage) {
+	BuilderMethodFactory(AnnotationModel annotationModel, String targetPackage) {
+		this.annotationModel = annotationModel;
 		this.builderClassIdentifier = annotationModel.getIdentifier() + "UnitBuilder";
 		this.packageIdentifier = targetPackage;
 	}
@@ -31,6 +34,9 @@ public class BuilderMethodFactory {
 		TypeName builderTypeName = ClassName.get(packageIdentifier, builderClassIdentifier);
 
 		switch(builderMethodType) {
+			case CONSTRUCTOR:
+				createdMethodSpec = createConstructor();
+				break;
 			case CREATE_WITH_IDENTIFIER:
 				createdMethodSpec = createCreateWithIdSpec(builderMethodType.toString(), builderTypeName);
 				break;
@@ -43,6 +49,9 @@ public class BuilderMethodFactory {
 			case WITH_SUB_CODEUNIT:
 				createdMethodSpec = createWithSubCodeUnitSpec(builderMethodType.toString(), builderTypeName);
 				break;
+			case INIT_DEF_CODE_UNIT:
+				createdMethodSpec = createInitDefCodeUnitMethod();
+				break;
 			case END:
 				createdMethodSpec = createEndSpec(builderMethodType.toString());
 				break;
@@ -51,13 +60,31 @@ public class BuilderMethodFactory {
 		return createdMethodSpec;
 	}
 
+	private MethodSpec createConstructor() {
+		return MethodSpec.constructorBuilder()
+				.addModifiers(Modifier.PRIVATE)
+				.addStatement("initializeDefaultCodeUnit()")
+				.build();
+	}
+
 	private MethodSpec createCreateWithIdSpec(String identifier, TypeName builderType) {
-		return MethodSpec.methodBuilder(identifier)
-				.addModifiers(Modifier.PUBLIC, Modifier.STATIC)
+		MethodSpec.Builder msb = MethodSpec.methodBuilder(identifier);
+
+		msb.addModifiers(Modifier.PUBLIC, Modifier.STATIC)
 				.returns(builderType)
 				.addParameter(String.class, "identifier")
 				.addStatement("$T cub = new $T()", builderType, builderType)
-				.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, identifier)", CodeUnitDatumType.class, "IDENTIFIER")
+				.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, identifier)", CodeUnitDatumType.class, "IDENTIFIER");
+
+		if(annotationModel.getExtensionAnnotations().contains(AnnotationType.HAS_GETTER)) {
+			msb.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, true)", CodeUnitDatumType.class, "GETTER");
+		}
+
+		if(annotationModel.getExtensionAnnotations().contains(AnnotationType.HAS_SETTER)) {
+			msb.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, true)", CodeUnitDatumType.class, "SETTER");
+		}
+
+		return msb
 				.addStatement("return cub")
 				.build();
 	}
@@ -97,9 +124,27 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(CodeUnit.class)
+				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
 				.addStatement("return codeUnit")
 				.build();
 	}
 
+	//Todo: Talk why THIS should be the solution
+	private MethodSpec createInitDefCodeUnitMethod() {
+		CodeUnit sourceCodeUnit = annotationModel.getDefaultCodeUnit();
 
+		byte[] serializedCodeUnit = SerializationUtils.serialize(sourceCodeUnit);
+
+		String codeUnitArrayLiteral = Arrays
+				.toString(serializedCodeUnit)
+				.replace("[","{")
+				.replace("]","}");
+
+		return MethodSpec.methodBuilder("initializeDefaultCodeUnit")
+				.addComment("Initializes this builder's data with default data encoded into a byte[]")
+				.addModifiers(Modifier.PRIVATE)
+				.addStatement("byte[] serializedCodeUnit = new byte[] $L", codeUnitArrayLiteral)
+				.addStatement("this.codeUnit = $T.deserialize(serializedCodeUnit)", SerializationUtils.class)
+				.build();
+	}
 }
