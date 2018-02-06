@@ -5,11 +5,10 @@
  */
 package amber.visitor;
 
+import amber.model.AnnotationModel;
 import amber.parser.ClassAnnotationParser;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import amber.parser.AnnotationParser;
-import amber.model.AnnotationModel;
 
 import java.util.List;
 

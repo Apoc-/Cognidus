@@ -5,7 +5,6 @@
  */
 package scarlet.generator;
 
-import cherry.model.CodeUnit;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.squareup.javapoet.*;
@@ -22,8 +21,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JavaClassGenerator {
-	public JavaClassGenerator() { }
-
 	public void generateClassFromClassFile(File file) throws IOException {
 		CompilationUnit cu = JavaParser.parse(file);
 		JavaClassFile fm = new JavaClassFile();

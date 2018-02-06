@@ -6,7 +6,6 @@
 package amber.visitor;
 
 import amber.model.AnnotationModel;
-import amber.parser.AnnotationParser;
 import amber.parser.MethodAnnotationParser;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;

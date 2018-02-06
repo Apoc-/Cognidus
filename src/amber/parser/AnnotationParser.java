@@ -6,22 +6,9 @@
 
 package amber.parser;
 
-import amber.model.AnnotationType;
-import amber.visitor.JavaFixedFieldAnnotationVisitor;
-import amber.visitor.JavaFixedMethodAnnotationVisitor;
-import cherry.model.*;
-import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.body.*;
 import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.resolution.types.ResolvedType;
 import amber.model.AnnotationModel;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class AnnotationParser {
 	AnnotationParser()  { }

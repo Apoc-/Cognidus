@@ -5,16 +5,14 @@
  */
 
 import amber.annotations.CodeUnit;
-import amber.annotations.Component;
 import amber.annotations.FixedCodeUnit;
-import amber.annotations.Renamable;
 import amber.annotations.VariableModifier;
 import amber.annotations.VariableType;
 
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
 	@FixedCodeUnit @HasGetter @HasSetter
-	transient private int id;
+	private transient int id;
 
 	@FixedCodeUnit @HasSetter
 	private String name;

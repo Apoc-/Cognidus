@@ -5,9 +5,13 @@
  */
 package amber.parser;
 
+import violet.Logger;
+
 //todo: extend to all primitve types
 //todo: handle references not known yet eg. a future generated class
 class JavaClassMapper {
+	private JavaClassMapper() {}
+
 	public static Class className(String className) {
 		switch (className) {
 			case "boolean":
@@ -20,7 +24,7 @@ class JavaClassMapper {
 				try {
 					return Class.forName(className);
 				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
+					Logger.console().logError(e.getMessage());
 				}
 				return Object.class;
 		}

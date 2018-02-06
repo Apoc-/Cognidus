@@ -6,25 +6,25 @@
 
 package cherry.generator;
 
-import amber.model.AnnotationType;
+import amber.model.AnnotationModel;
+import amber.visitor.JavaClassAnnotationVisitor;
+import amber.visitor.JavaFieldAnnotationVisitor;
+import cherry.model.CodeUnit;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
-import com.squareup.javapoet.*;
-import org.apache.commons.lang3.SerializationUtils;
-import amber.model.AnnotationModel;
-import cherry.model.CodeUnit;
-import amber.visitor.JavaClassAnnotationVisitor;
-import amber.visitor.JavaFieldAnnotationVisitor;
+import com.squareup.javapoet.JavaFile;
+import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.TypeSpec;
+import violet.Logger;
 
 import javax.lang.model.element.Modifier;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -61,7 +61,7 @@ public class BuilderGenerator {
 			jss.inject(cu);
 
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logger.console().logError(e.getMessage());
 		}
 
 		return cu;
@@ -105,9 +105,9 @@ public class BuilderGenerator {
 			File targetFile = new File(targetPath);
 			javaFile.writeTo(targetFile);
 		} catch (IOException e) {
-			e.printStackTrace();
+			Logger.console().logError(e.getMessage());
 		}
 
-		System.out.println("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
+		Logger.console().logInfo("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
 	}
 }

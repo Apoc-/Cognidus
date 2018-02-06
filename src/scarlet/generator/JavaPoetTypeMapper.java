@@ -8,6 +8,8 @@ package scarlet.generator;
 import com.squareup.javapoet.TypeName;
 
 class JavaPoetTypeMapper {
+	private JavaPoetTypeMapper() {}
+
 	public static com.squareup.javapoet.TypeName typeName(String typeName) {
 		switch (typeName) {
 			case "int":

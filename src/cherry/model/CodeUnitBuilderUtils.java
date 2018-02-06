@@ -12,6 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CodeUnitBuilderUtils {
+	private CodeUnitBuilderUtils() {}
+
 	public static List<CodeUnit> createDefaultMethodCodeUnits(CodeUnit classCodeUnit) {
 		List<CodeUnit> methodCodeUnits = new LinkedList<>();
 

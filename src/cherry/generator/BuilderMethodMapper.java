@@ -11,6 +11,9 @@ import amber.model.AnnotationType;
 import java.util.Map;
 
 public class BuilderMethodMapper {
+	private BuilderMethodMapper() {
+	}
+
 	private static Map<AnnotationType, BuilderMethodType> map;
 	static {
 		map = Map.of(

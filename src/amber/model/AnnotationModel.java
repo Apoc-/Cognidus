@@ -9,6 +9,7 @@ package amber.model;
 import cherry.model.CodeUnit;
 
 import java.util.EnumSet;
+import java.util.Set;
 
 public class AnnotationModel {
 	private String identifier;
@@ -33,7 +34,7 @@ public class AnnotationModel {
 		this.variablityAnnotations.add(annotationType);
 	}
 
-	public EnumSet<AnnotationType> getVariablityAnnotations() {
+	public Set<AnnotationType> getVariablityAnnotations() {
 		return this.variablityAnnotations;
 	}
 
@@ -41,7 +42,7 @@ public class AnnotationModel {
 		this.extensionAnnotations.add(annotationType);
 	}
 
-	public EnumSet<AnnotationType> getExtensionAnnotations() {
+	public Set<AnnotationType> getExtensionAnnotations() {
 		return this.extensionAnnotations;
 	}
 

@@ -5,9 +5,6 @@
  */
 package scarlet.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class JavaMethodParameter {
 	public String type;
 	public String identifier;
