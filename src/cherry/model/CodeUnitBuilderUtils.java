@@ -39,18 +39,8 @@ public class CodeUnitBuilderUtils {
 	}
 
 	public static CodeUnit createGetterCodeUnit(String identifier, Class type) {
-		CodeUnit method = CodeUnitBuilder
-				.createWithIdentifier("get" + StringUtils.capitalize(identifier))
-				.setCodeUnitType(CodeUnitType.METHOD)
-				.withModifiers(CodeUnitModifier.PUBLIC)
-				.withReturnType(type)
-				.end();
-
-		CodeUnit methodBody = CodeUnitBuilder
-				.create()
-				.setCodeUnitType(CodeUnitType.METHOD_BODY)
-				.withMethodBody("return " + identifier + ";")
-				.end();
+		CodeUnit method = createMethodCodeUnit(identifier, "get", type);
+		CodeUnit methodBody = createMethodBodyCodeUnit("return " + identifier + ";");
 
 		method.addSubCodeUnit(methodBody);
 
@@ -58,28 +48,39 @@ public class CodeUnitBuilderUtils {
 	}
 
 	public static CodeUnit createSetterCodeUnit(String identifier, Class type) {
-		CodeUnit method = CodeUnitBuilder
-				.createWithIdentifier("set" + StringUtils.capitalize(identifier))
-				.setCodeUnitType(CodeUnitType.METHOD)
-				.withModifiers(CodeUnitModifier.PUBLIC)
-				.withReturnType(void.class)
-				.end();
+		CodeUnit method = createMethodCodeUnit(identifier, "set", void.class);
 
-		CodeUnit methodParameters = CodeUnitBuilder
-				.createWithIdentifier("value")
-				.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-				.withDataType(type)
-				.end();
-
-		CodeUnit methodBody = CodeUnitBuilder
-				.create()
-				.setCodeUnitType(CodeUnitType.METHOD_BODY)
-				.withMethodBody("this." + identifier + " = value;")
-				.end();
+		CodeUnit methodParameters = createMethodParameterCodeUnit("value", type);
+		CodeUnit methodBody = createMethodBodyCodeUnit("this." + identifier + " = value;");
 
 		method.addSubCodeUnit(methodParameters);
 		method.addSubCodeUnit(methodBody);
 
 		return method;
+	}
+
+	private static CodeUnit createMethodCodeUnit(String identifier, String set, Class type) {
+		return CodeUnitBuilder
+				.createWithIdentifier(set + StringUtils.capitalize(identifier))
+				.setCodeUnitType(CodeUnitType.METHOD)
+				.withModifiers(CodeUnitModifier.PUBLIC)
+				.withReturnType(type)
+				.end();
+	}
+
+	public static CodeUnit createMethodParameterCodeUnit(String identifier, Class type) {
+		return CodeUnitBuilder
+				.createWithIdentifier(identifier)
+				.setCodeUnitType(CodeUnitType.METHOD_PARAM)
+				.withDataType(type)
+				.end();
+	}
+
+	public static CodeUnit createMethodBodyCodeUnit(String body) {
+		return CodeUnitBuilder
+				.create()
+				.setCodeUnitType(CodeUnitType.METHOD_BODY)
+				.withMethodBody(body)
+				.end();
 	}
 }

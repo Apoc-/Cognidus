@@ -6,6 +6,7 @@
 
 package amber.parser;
 
+import amber.annotations.VariableModifier;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class FieldAnnotationParser extends AnnotationParser {
 	private void parseVariableModifierAnnotation(FieldDeclaration declaration, AnnotationModel model) {
-		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.VariableModifier.class);
+		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(VariableModifier.class);
 		if(anno.isPresent()) {
 			model.addVariabilityAnnotation(AnnotationType.VARIABLE_MODIFIERS);
 		} else {

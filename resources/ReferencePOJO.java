@@ -31,8 +31,18 @@ public abstract class ReferencePOJO {
 		return a + b;
 	}
 
-	@CodeUnit
-	public int mul(int a, int b) {
+	@CodeUnit("MethodModParam") @VariableModifier @VariableParams
+	public int foo(int a) {
+		return a * b;
+	}
+
+	@CodeUnit("MethodMod") @VariableModifier
+	public int bar(int n) {
+		return a * b;
+	}
+
+	@CodeUnit("Method")
+	public int bus(int m) {
 		return a * b;
 	}
 }

@@ -4,9 +4,7 @@
  * File last modfied: 11.01.18 23:39
  */
 
-import cherry.generated.POJOUnitBuilder;
-import cherry.generated.PublicIntUnitBuilder;
-import cherry.generated.VarUnitBuilder;
+import cherry.generated.*;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 import jade.CodeUnitTransformator;
@@ -17,7 +15,7 @@ import java.io.IOException;
 
 class TransformatorTester {
 	@org.junit.jupiter.api.Test
-	void test() throws IOException {
+	void ClassAndFieldBuilderTest() throws IOException {
 		CodeUnit cu = POJOUnitBuilder
 				.createWithIdentifier("Foo")
 				.withSubCodeUnit(VarUnitBuilder
@@ -35,6 +33,41 @@ class TransformatorTester {
 						.end())
 				.withSubCodeUnit(PublicIntUnitBuilder
 						.createWithIdentifier("DahDah")
+						.end())
+				.end();
+
+		System.out.println(cu);
+
+		CodeUnitTransformator cut = new CodeUnitTransformator();
+		JavaClassFile j = new JavaClassFile();
+		j.model = cut.transformClassCodeUnit(cu);
+
+		JavaClassGenerator jcg = new JavaClassGenerator();
+		jcg.generateJavaFileFromModel(j);
+	}
+
+	@org.junit.jupiter.api.Test
+	void MethodBuilderTest() throws IOException {
+		CodeUnit cu = POJOUnitBuilder
+				.createWithIdentifier("Clazz")
+				.withSubCodeUnit(MethodUnitBuilder
+						.createWithIdentifier("Method")
+						.withMethodBody("//test;")
+						.withReturnType(void.class)
+						.end())
+				.withSubCodeUnit(MethodModUnitBuilder
+						.createWithIdentifier("MethodM")
+						.withModifiers(CodeUnitModifier.PRIVATE)
+						.withMethodBody("//test2;")
+						.withReturnType(void.class)
+						.end())
+				.withSubCodeUnit(MethodModParamUnitBuilder
+						.createWithIdentifier("MethodMP")
+						.withModifiers(CodeUnitModifier.PRIVATE, CodeUnitModifier.STATIC)
+						.addParameter("a", int.class)
+						.addParameter("b", int.class)
+						.withMethodBody("return a + b;")
+						.withReturnType(int.class)
 						.end())
 				.end();
 

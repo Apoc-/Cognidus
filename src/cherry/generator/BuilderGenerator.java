@@ -9,7 +9,9 @@ package cherry.generator;
 import amber.model.AnnotationModel;
 import amber.visitor.JavaClassAnnotationVisitor;
 import amber.visitor.JavaFieldAnnotationVisitor;
+import amber.visitor.JavaMethodAnnotationVisitor;
 import cherry.model.CodeUnit;
+import cherry.model.CodeUnitType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
@@ -70,16 +72,17 @@ public class BuilderGenerator {
 	private void populateAnnotationModels(CompilationUnit cu) {
 		new JavaClassAnnotationVisitor().visit(cu, this.models);
 		new JavaFieldAnnotationVisitor().visit(cu, this.models);
+		new JavaMethodAnnotationVisitor().visit(cu, this.models);
 	}
 
 	private void generateUnitBuilder(AnnotationModel model, String targetPath, String targetPackage) {
 		BuilderMethodFactory bmf = new BuilderMethodFactory(model, targetPackage);
 		String builderClassIdentifier = model.getIdentifier() + "UnitBuilder";
 
-		MethodSpec constructor = bmf.createForType(BuilderMethodType.CONSTRUCTOR);
-		MethodSpec codeUnitInitializer = bmf.createForType(BuilderMethodType.INIT_DEF_CODE_UNIT);
-		MethodSpec builderInitializer = bmf.createForType(BuilderMethodType.CREATE_WITH_IDENTIFIER);
-		MethodSpec builderFinalizer = bmf.createForType(BuilderMethodType.END);
+		List<MethodSpec> defaultMethods = getBuilderMethodTypes(model.getDefaultCodeUnit().getType())
+				.stream()
+				.map(bmf::createForType)
+				.collect(Collectors.toList());
 
 		List<MethodSpec> variabilityMethods = model.getVariablityAnnotations()
 				.stream()
@@ -91,10 +94,7 @@ public class BuilderGenerator {
 				.classBuilder(builderClassIdentifier)
 				.addModifiers(Modifier.PUBLIC)
 				.addField(CodeUnit.class, "codeUnit", Modifier.PRIVATE)
-				.addMethod(constructor)
-				.addMethod(codeUnitInitializer)
-				.addMethod(builderInitializer)
-				.addMethod(builderFinalizer)
+				.addMethods(defaultMethods)
 				.addMethods(variabilityMethods)
 				.build();
 
@@ -109,5 +109,53 @@ public class BuilderGenerator {
 		}
 
 		Logger.console().logInfo("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
+	}
+
+	private List<BuilderMethodType> getBuilderMethodTypes(CodeUnitType builderType) {
+		List<BuilderMethodType> methods;
+
+		switch(builderType) {
+			case CLASS:
+				methods = getClassBuilderMethodTypes();
+				break;
+			case METHOD:
+				methods = getMethodBuilderMethodTypes();
+				break;
+			case FIELD:
+			default:
+				methods = getFieldBuilderMethodTypes();
+				break;
+		}
+
+		return methods;
+	}
+
+	private List<BuilderMethodType> getClassBuilderMethodTypes() {
+		return List.of(
+				BuilderMethodType.CONSTRUCTOR,
+				BuilderMethodType.INIT_DEF_CODE_UNIT,
+				BuilderMethodType.CREATE_WITH_IDENTIFIER,
+				BuilderMethodType.CLASSBUILDER_END
+		);
+	}
+
+	private List<BuilderMethodType> getMethodBuilderMethodTypes() {
+		return List.of(
+				BuilderMethodType.CONSTRUCTOR,
+				BuilderMethodType.INIT_DEF_CODE_UNIT,
+				BuilderMethodType.CREATE_WITH_IDENTIFIER,
+				BuilderMethodType.END,
+				BuilderMethodType.WITH_METHOD_BODY,
+				BuilderMethodType.WITH_RETURN_TYPE
+		);
+	}
+
+	private List<BuilderMethodType> getFieldBuilderMethodTypes() {
+		return List.of(
+				BuilderMethodType.CONSTRUCTOR,
+				BuilderMethodType.INIT_DEF_CODE_UNIT,
+				BuilderMethodType.CREATE_WITH_IDENTIFIER,
+				BuilderMethodType.END
+		);
 	}
 }

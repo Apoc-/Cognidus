@@ -6,15 +6,18 @@
 
 package cherry.generator;
 
-//Todo: Extend to also create constructor and other methods
 public enum BuilderMethodType {
 	WITH_MODIFIERS("withModifiers"),
 	WITH_DATA_TYPE("withDataType"),
 	WITH_SUB_CODEUNIT("withSubCodeUnit"),
 	CREATE_WITH_IDENTIFIER("createWithIdentifier"),
 	CONSTRUCTOR(""),
+	CLASSBUILDER_END("end"),
 	END("end"),
-	INIT_DEF_CODE_UNIT("initDefCodeUnit");
+	INIT_DEF_CODE_UNIT("initDefCodeUnit"),
+	ADD_PARAMETER("addParameter"),
+	WITH_METHOD_BODY("withMethodBody"),
+	WITH_RETURN_TYPE("withReturnType");
 
 	private final String methodName;
 

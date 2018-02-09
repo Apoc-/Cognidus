@@ -8,11 +8,8 @@ package cherry.generator;
 
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
-import cherry.model.CodeUnitBuilderUtils;
+import cherry.model.*;
 import com.squareup.javapoet.*;
-import cherry.model.CodeUnit;
-import cherry.model.CodeUnitDatumType;
-import cherry.model.CodeUnitModifier;
 import org.apache.commons.lang3.SerializationUtils;
 
 import javax.lang.model.element.Modifier;
@@ -52,9 +49,20 @@ public class BuilderMethodFactory {
 			case INIT_DEF_CODE_UNIT:
 				createdMethodSpec = createInitDefCodeUnitMethod();
 				break;
+			case CLASSBUILDER_END:
+				createdMethodSpec = createClassBuilderEndSpec(builderMethodType.toString());
+				break;
 			case END:
 				createdMethodSpec = createEndSpec(builderMethodType.toString());
 				break;
+			case ADD_PARAMETER:
+				createdMethodSpec = createAddParameterSpec(builderMethodType.toString(), builderTypeName);
+				break;
+			case WITH_METHOD_BODY:
+				createdMethodSpec = createWithBodySpec(builderMethodType.toString(), builderTypeName);
+				break;
+			case WITH_RETURN_TYPE:
+				createdMethodSpec = createWithReturnType(builderMethodType.toString(), builderTypeName);
 		}
 
 		return createdMethodSpec;
@@ -64,6 +72,16 @@ public class BuilderMethodFactory {
 		return MethodSpec.constructorBuilder()
 				.addModifiers(Modifier.PRIVATE)
 				.addStatement("initializeDefaultCodeUnit()")
+				.build();
+	}
+
+	private MethodSpec createAddParameterSpec(String identifier, TypeName builderType) {
+		return MethodSpec.methodBuilder(identifier).addModifiers(Modifier.PUBLIC)
+				.returns(builderType)
+				.addParameter(String.class, "identifier")
+				.addParameter(Class.class, "type")
+				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodParameterCodeUnit(identifier, type))", CodeUnitBuilderUtils.class)
+				.addStatement("return this")
 				.build();
 	}
 
@@ -120,12 +138,39 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
-	private MethodSpec createEndSpec(String identifier) {
+	private MethodSpec createClassBuilderEndSpec(String identifier) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(CodeUnit.class)
 				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
 				.addStatement("return codeUnit")
+				.build();
+	}
+
+	private MethodSpec createEndSpec(String identifier) {
+		return MethodSpec.methodBuilder(identifier)
+				.addModifiers(Modifier.PUBLIC)
+				.returns(CodeUnit.class)
+				.addStatement("return codeUnit")
+				.build();
+	}
+
+	private MethodSpec createWithBodySpec(String identifier, TypeName builderType) {
+		return MethodSpec.methodBuilder(identifier).addModifiers(Modifier.PUBLIC)
+				.returns(builderType)
+				.addParameter(String.class, "code")
+				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodBodyCodeUnit(code))", CodeUnitBuilderUtils.class)
+				.addStatement("return this")
+				.build();
+	}
+
+	private MethodSpec createWithReturnType(String identifier, TypeName builderType) {
+		return MethodSpec.methodBuilder(identifier)
+				.addModifiers(Modifier.PUBLIC)
+				.returns(builderType)
+				.addParameter(Class.class, "dataType")
+				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, dataType)", CodeUnitDatumType.class, "RETURN_TYPE")
+				.addStatement("return this")
 				.build();
 	}
 

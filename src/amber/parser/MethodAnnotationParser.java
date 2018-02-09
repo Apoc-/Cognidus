@@ -6,11 +6,12 @@
 
 package amber.parser;
 
+import amber.annotations.FixedCodeUnit;
+import amber.annotations.VariableModifier;
+import amber.annotations.VariableParams;
 import amber.model.AnnotationModel;
-import cherry.model.CodeUnit;
-import cherry.model.CodeUnitBuilder;
-import cherry.model.CodeUnitModifier;
-import cherry.model.CodeUnitType;
+import amber.model.AnnotationType;
+import cherry.model.*;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
@@ -24,14 +25,57 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MethodAnnotationParser extends AnnotationParser {
+	public void parseCodeUnitAnnotation(MethodDeclaration declaration, List<AnnotationModel> models) {
+		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.CodeUnit.class);
+		anno.ifPresent(annotationExpr -> {
+			AnnotationModel model = new AnnotationModel();
+			CodeUnit cu = new CodeUnit(CodeUnitType.METHOD);
+
+			/*CodeUnit defBodyCu = CodeUnitBuilder
+					.create()
+					.setCodeUnitType(CodeUnitType.METHOD_BODY)
+					.withMethodBody("//this is a generated empty body")
+					.end();*/
+
+			//cu.addSubCodeUnit(defBodyCu);
+
+			model.setDefaultCodeUnit(cu);
+
+			setIdentifier(model, annotationExpr);
+
+			parseVariableModifierAnnotation(declaration, model);
+			parseVariableParamsAnnotation(declaration, model);
+
+			models.add(model);
+		});
+	}
+
 	public void parseFixedCodeUnitAnnotation(MethodDeclaration declaration, AnnotationModel model) {
-		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.FixedCodeUnit.class);
+		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(FixedCodeUnit.class);
 		anno.ifPresent(annotationExpr -> {
 			CodeUnit cu = model.getDefaultCodeUnit();
 			CodeUnit methodCodeUnit = createMethodCodeUnitFromDeclaration(declaration);
 
 			cu.addSubCodeUnit(methodCodeUnit);
 		});
+	}
+
+	private void parseVariableModifierAnnotation(MethodDeclaration declaration, AnnotationModel model) {
+		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(VariableModifier.class);
+		if(anno.isPresent()) {
+			model.addVariabilityAnnotation(AnnotationType.VARIABLE_MODIFIERS);
+		} else {
+			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.MODIFIER, getModifier(declaration));
+		}
+	}
+
+	private void parseVariableParamsAnnotation(MethodDeclaration declaration, AnnotationModel model) {
+		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(VariableParams.class);
+		if(anno.isPresent()) {
+			model.addVariabilityAnnotation(AnnotationType.VARIABLE_PARAMETERS);
+		} else {
+			model.getDefaultCodeUnit().addSubCodeUnits(createMethodParamCodeUnits(declaration));
+		}
 	}
 
 	private CodeUnit createMethodCodeUnitFromDeclaration(MethodDeclaration declaration) {
