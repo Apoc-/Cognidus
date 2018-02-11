@@ -10,6 +10,7 @@ import amber.annotations.VariableModifier;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
+import cherry.platform.CodeUnitBuilderUtils;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;

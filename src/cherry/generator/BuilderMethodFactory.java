@@ -9,6 +9,7 @@ package cherry.generator;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
+import cherry.platform.CodeUnitBuilderUtils;
 import com.squareup.javapoet.*;
 import org.apache.commons.lang3.SerializationUtils;
 

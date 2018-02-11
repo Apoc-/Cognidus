@@ -1,11 +1,12 @@
 /*
  * Copyright (c) Apoc- 2018
  *
- * File last modfied: 31.01.18 14:33
+ * File last modfied: 09.02.18 18:50
  */
 
-package cherry.model;
+package cherry.platform;
 
+import cherry.model.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.LinkedList;
