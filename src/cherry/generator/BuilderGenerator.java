@@ -78,22 +78,23 @@ public class BuilderGenerator {
 	private void generateUnitBuilder(AnnotationModel model, String targetPath, String targetPackage) {
 		BuilderMethodFactory bmf = new BuilderMethodFactory(model, targetPackage);
 		String builderClassIdentifier = model.getIdentifier() + "UnitBuilder";
+		Class codeUnitType = getCodeUnitType(model.getDefaultCodeUnit());
 
 		List<MethodSpec> defaultMethods = getBuilderMethodTypes(model.getDefaultCodeUnit().getType())
 				.stream()
-				.map(bmf::createForType)
+				.map((BuilderMethodType builderMethodType) -> bmf.createForType(builderMethodType, codeUnitType))
 				.collect(Collectors.toList());
 
 		List<MethodSpec> variabilityMethods = model.getVariablityAnnotations()
 				.stream()
 				.map(anno -> bmf
-						.createForType(BuilderMethodMapper.getBuilderMethodType(anno)))
+						.createForType(BuilderMethodMapper.getBuilderMethodType(anno), codeUnitType))
 				.collect(Collectors.toList());
 
 		TypeSpec builderType = TypeSpec
 				.classBuilder(builderClassIdentifier)
 				.addModifiers(Modifier.PUBLIC)
-				.addField(CodeUnit.class, "codeUnit", Modifier.PRIVATE)
+				.addField(codeUnitType, "codeUnit", Modifier.PRIVATE)
 				.addMethods(defaultMethods)
 				.addMethods(variabilityMethods)
 				.build();
@@ -109,6 +110,10 @@ public class BuilderGenerator {
 		}
 
 		Logger.console().logInfo("Generated " + builderClassIdentifier + " in " + targetPath + " with package " + targetPackage);
+	}
+
+	private Class getCodeUnitType(CodeUnit cu) {
+		return cu.getClass();
 	}
 
 	private List<BuilderMethodType> getBuilderMethodTypes(CodeUnitType builderType) {
@@ -135,7 +140,9 @@ public class BuilderGenerator {
 				BuilderMethodType.CONSTRUCTOR,
 				BuilderMethodType.INIT_DEF_CODE_UNIT,
 				BuilderMethodType.CREATE_WITH_IDENTIFIER,
-				BuilderMethodType.CLASSBUILDER_END
+				BuilderMethodType.CLASSBUILDER_END,
+				BuilderMethodType.WITH_FIELD,
+				BuilderMethodType.WITH_METHOD
 		);
 	}
 

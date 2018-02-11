@@ -27,13 +27,19 @@ public class BuilderMethodFactory {
 		this.packageIdentifier = targetPackage;
 	}
 
-	public MethodSpec createForType(BuilderMethodType builderMethodType) {
+	public MethodSpec createForType(BuilderMethodType builderMethodType, Class codeUnitType) {
 		MethodSpec createdMethodSpec = null;
 		TypeName builderTypeName = ClassName.get(packageIdentifier, builderClassIdentifier);
 
 		switch(builderMethodType) {
 			case CONSTRUCTOR:
 				createdMethodSpec = createConstructor();
+				break;
+			case WITH_FIELD:
+				createdMethodSpec = createWithFieldSpec(builderMethodType.toString(), builderTypeName);
+				break;
+			case WITH_METHOD:
+				createdMethodSpec = createWithMethodSpec(builderMethodType.toString(), builderTypeName);
 				break;
 			case CREATE_WITH_IDENTIFIER:
 				createdMethodSpec = createCreateWithIdSpec(builderMethodType.toString(), builderTypeName);
@@ -51,12 +57,12 @@ public class BuilderMethodFactory {
 				createdMethodSpec = createInitDefCodeUnitMethod();
 				break;
 			case CLASSBUILDER_END:
-				createdMethodSpec = createClassBuilderEndSpec(builderMethodType.toString());
+				createdMethodSpec = createClassBuilderEndSpec(builderMethodType.toString(), codeUnitType);
 				break;
 			case END:
-				createdMethodSpec = createEndSpec(builderMethodType.toString());
+				createdMethodSpec = createEndSpec(builderMethodType.toString(), codeUnitType);
 				break;
-			case ADD_PARAMETER:
+			case WITH_PARAMETER:
 				createdMethodSpec = createAddParameterSpec(builderMethodType.toString(), builderTypeName);
 				break;
 			case WITH_METHOD_BODY:
@@ -129,6 +135,7 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
+	//todo del
 	private MethodSpec createWithSubCodeUnitSpec(String identifier, TypeName builderType) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
@@ -139,19 +146,39 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
-	private MethodSpec createClassBuilderEndSpec(String identifier) {
+	private MethodSpec createWithFieldSpec(String identifier, TypeName builderType) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
-				.returns(CodeUnit.class)
+				.returns(builderType)
+				.addParameter(FieldCodeUnit.class, "codeUnit")
+				.addStatement("this.codeUnit.addSubCodeUnit(codeUnit)")
+				.addStatement("return this")
+				.build();
+	}
+
+	private MethodSpec createWithMethodSpec(String identifier, TypeName builderType) {
+		return MethodSpec.methodBuilder(identifier)
+				.addModifiers(Modifier.PUBLIC)
+				.returns(builderType)
+				.addParameter(MethodCodeUnit.class, "codeUnit")
+				.addStatement("this.codeUnit.addSubCodeUnit(codeUnit)")
+				.addStatement("return this")
+				.build();
+	}
+
+	private MethodSpec createClassBuilderEndSpec(String identifier, Class codeUnitType) {
+		return MethodSpec.methodBuilder(identifier)
+				.addModifiers(Modifier.PUBLIC)
+				.returns(codeUnitType)
 				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
 				.addStatement("return codeUnit")
 				.build();
 	}
 
-	private MethodSpec createEndSpec(String identifier) {
+	private MethodSpec createEndSpec(String identifier, Class codeUnitType) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
-				.returns(CodeUnit.class)
+				.returns(codeUnitType)
 				.addStatement("return codeUnit")
 				.build();
 	}

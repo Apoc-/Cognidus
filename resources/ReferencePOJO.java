@@ -31,6 +31,11 @@ public abstract class ReferencePOJO {
 		return a + b;
 	}
 
+	@FixedCodeUnit
+	public int sum(int a, int b, int c) {
+		return a + b + c;
+	}
+
 	@CodeUnit("MethodModParam") @VariableModifier @VariableParams
 	public int foo(int a) {
 		return a * b;

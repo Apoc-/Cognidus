@@ -9,6 +9,7 @@ package amber.annotations;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
+//todo what about static, final fields?
 @Target({ElementType.FIELD})
 public @interface HasSetter {
 }

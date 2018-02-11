@@ -10,12 +10,14 @@ public enum BuilderMethodType {
 	WITH_MODIFIERS("withModifiers"),
 	WITH_DATA_TYPE("withDataType"),
 	WITH_SUB_CODEUNIT("withSubCodeUnit"),
+	WITH_FIELD("withField"),
+	WITH_METHOD("withMethod"),
 	CREATE_WITH_IDENTIFIER("createWithIdentifier"),
 	CONSTRUCTOR(""),
 	CLASSBUILDER_END("end"),
 	END("end"),
 	INIT_DEF_CODE_UNIT("initDefCodeUnit"),
-	ADD_PARAMETER("addParameter"),
+	WITH_PARAMETER("withParameter"),
 	WITH_METHOD_BODY("withMethodBody"),
 	WITH_RETURN_TYPE("withReturnType");
 

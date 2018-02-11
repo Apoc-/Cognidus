@@ -15,20 +15,20 @@ class GeneratedBuilderTester {
 	void testBuilders() {
 		CodeUnit cu = POJOUnitBuilder
 				.createWithIdentifier("Foo")
-				.withSubCodeUnit(VarUnitBuilder
+				.withField(VarUnitBuilder
 						.createWithIdentifier("Fus")
 						.withDataType(float.class)
 						.withModifiers(CodeUnitModifier.PRIVATE)
 						.end())
-				.withSubCodeUnit(VarUnitBuilder
+				.withField(VarUnitBuilder
 						.createWithIdentifier("Ro")
 						.withDataType(String.class)
 						.withModifiers(CodeUnitModifier.PUBLIC, CodeUnitModifier.TRANSIENT)
 						.end())
-				.withSubCodeUnit(PublicIntUnitBuilder
+				.withField(PublicIntUnitBuilder
 						.createWithIdentifier("Dah")
 						.end())
-				.withSubCodeUnit(PublicIntUnitBuilder
+				.withField(PublicIntUnitBuilder
 						.createWithIdentifier("DahDah")
 						.end())
 				.end();

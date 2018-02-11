@@ -1,7 +1,7 @@
 /*
- * Copyright (c) Apoc- 2017
+ * Copyright (c) Apoc- 2018
  *
- * File last modfied: 17.12.17 20:15
+ * File last modfied: 09.02.18 19:35
  */
 
 import amber.annotations.CodeUnit;
@@ -13,6 +13,9 @@ import amber.annotations.VariableType;
 public abstract class ReferencePOJO {
 	@FixedCodeUnit @HasGetter @HasSetter
 	private transient int id;
+
+	@FixedCodeUnit
+	private ReferencePOJO() { }
 
 	@FixedCodeUnit @HasSetter
 	private String name;

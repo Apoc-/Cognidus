@@ -18,20 +18,20 @@ class TransformatorTester {
 	void ClassAndFieldBuilderTest() throws IOException {
 		CodeUnit cu = POJOUnitBuilder
 				.createWithIdentifier("Foo")
-				.withSubCodeUnit(VarUnitBuilder
+				.withField(VarUnitBuilder
 						.createWithIdentifier("Fus")
 						.withDataType(float.class)
 						.withModifiers(CodeUnitModifier.PRIVATE)
 						.end())
-				.withSubCodeUnit(VarUnitBuilder
+				.withField(VarUnitBuilder
 						.createWithIdentifier("Ro")
 						.withDataType(String.class)
 						.withModifiers(CodeUnitModifier.PUBLIC, CodeUnitModifier.TRANSIENT)
 						.end())
-				.withSubCodeUnit(PublicIntUnitBuilder
+				.withField(PublicIntUnitBuilder
 						.createWithIdentifier("Dah")
 						.end())
-				.withSubCodeUnit(PublicIntUnitBuilder
+				.withField(PublicIntUnitBuilder
 						.createWithIdentifier("DahDah")
 						.end())
 				.end();
@@ -50,22 +50,22 @@ class TransformatorTester {
 	void MethodBuilderTest() throws IOException {
 		CodeUnit cu = POJOUnitBuilder
 				.createWithIdentifier("Clazz")
-				.withSubCodeUnit(MethodUnitBuilder
+				.withMethod(MethodUnitBuilder
 						.createWithIdentifier("Method")
 						.withMethodBody("//test;")
 						.withReturnType(void.class)
 						.end())
-				.withSubCodeUnit(MethodModUnitBuilder
+				.withMethod(MethodModUnitBuilder
 						.createWithIdentifier("MethodM")
 						.withModifiers(CodeUnitModifier.PRIVATE)
 						.withMethodBody("//test2;")
 						.withReturnType(void.class)
 						.end())
-				.withSubCodeUnit(MethodModParamUnitBuilder
+				.withMethod(MethodModParamUnitBuilder
 						.createWithIdentifier("MethodMP")
 						.withModifiers(CodeUnitModifier.PRIVATE, CodeUnitModifier.STATIC)
-						.addParameter("a", int.class)
-						.addParameter("b", int.class)
+						.withParameter("a", int.class)
+						.withParameter("b", int.class)
 						.withMethodBody("return a + b;")
 						.withReturnType(int.class)
 						.end())

@@ -9,6 +9,7 @@ package amber.annotations;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
+//todo what about self references? eg instance for singleton
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface FixedCodeUnit {
 }

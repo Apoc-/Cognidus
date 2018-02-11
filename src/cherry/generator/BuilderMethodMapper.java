@@ -20,7 +20,7 @@ public class BuilderMethodMapper {
 				AnnotationType.VARIABLE_MODIFIERS, BuilderMethodType.WITH_MODIFIERS,
 				AnnotationType.VARIABLE_DATATYPE, BuilderMethodType.WITH_DATA_TYPE,
 				AnnotationType.CAN_HAVE_SUBCODEUNITS, BuilderMethodType.WITH_SUB_CODEUNIT,
-				AnnotationType.VARIABLE_PARAMETERS, BuilderMethodType.ADD_PARAMETER);
+				AnnotationType.VARIABLE_PARAMETERS, BuilderMethodType.WITH_PARAMETER);
 	}
 
 	public static BuilderMethodType getBuilderMethodType(AnnotationType annotationType) {

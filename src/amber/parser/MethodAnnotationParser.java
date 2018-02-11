@@ -29,15 +29,7 @@ public class MethodAnnotationParser extends AnnotationParser {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.CodeUnit.class);
 		anno.ifPresent(annotationExpr -> {
 			AnnotationModel model = new AnnotationModel();
-			CodeUnit cu = new CodeUnit(CodeUnitType.METHOD);
-
-			/*CodeUnit defBodyCu = CodeUnitBuilder
-					.create()
-					.setCodeUnitType(CodeUnitType.METHOD_BODY)
-					.withMethodBody("//this is a generated empty body")
-					.end();*/
-
-			//cu.addSubCodeUnit(defBodyCu);
+			CodeUnit cu = new MethodCodeUnit(CodeUnitType.METHOD);
 
 			model.setDefaultCodeUnit(cu);
 

@@ -71,7 +71,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.CodeUnit.class);
 		anno.ifPresent(annotationExpr -> {
 			AnnotationModel model = new AnnotationModel();
-			CodeUnit cu = new CodeUnit(CodeUnitType.FIELD);
+			CodeUnit cu = new FieldCodeUnit(CodeUnitType.FIELD);
 			model.setDefaultCodeUnit(cu);
 
 			setIdentifier(model, annotationExpr);

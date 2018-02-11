@@ -10,10 +10,7 @@ import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import amber.visitor.JavaFixedFieldAnnotationVisitor;
 import amber.visitor.JavaFixedMethodAnnotationVisitor;
-import cherry.model.CodeUnit;
-import cherry.model.CodeUnitDatumType;
-import cherry.model.CodeUnitModifier;
-import cherry.model.CodeUnitType;
+import cherry.model.*;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
@@ -29,9 +26,8 @@ public class ClassAnnotationParser extends AnnotationParser {
 
 		anno.ifPresent(annotationExpr -> {
 			AnnotationModel model = new AnnotationModel();
-			CodeUnit cu = new CodeUnit(CodeUnitType.CLASS);
+			CodeUnit cu = new ClassCodeUnit(CodeUnitType.CLASS);
 			model.setDefaultCodeUnit(cu);
-			model.addVariabilityAnnotation(AnnotationType.CAN_HAVE_SUBCODEUNITS);
 
 			setIdentifier(model, annotationExpr);
 

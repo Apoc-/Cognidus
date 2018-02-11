@@ -8,8 +8,8 @@ package scarlet.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class JavaField {
-	public Set<JavaModifier> modifiers;
+public class JavaField implements JavaEntity {
+	public Set modifiers;
 	public String type;
 	public String identifier;
 	public Boolean isArray;
