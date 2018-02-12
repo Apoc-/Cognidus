@@ -7,8 +7,12 @@
 package amber.parser;
 
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.nodeTypes.NodeWithAnnotations;
 import com.github.javaparser.resolution.types.ResolvedType;
 import amber.model.AnnotationModel;
+
+import java.lang.annotation.Annotation;
+import java.util.Optional;
 
 public class AnnotationParser {
 	AnnotationParser()  { }
@@ -21,6 +25,7 @@ public class AnnotationParser {
 
 			model.setIdentifier(identifier);
 	}
+
 	Class getClazz(ResolvedType rt) {
 		String type = "";
 		if(rt.isPrimitive()) {

@@ -4,7 +4,9 @@
  * File last modfied: 11.01.18 23:39
  */
 
-import cherry.generated.*;
+
+import cherry.generated.ReferenceClazz.ClazzUnitBuilder;
+import cherry.generated.ReferencePOJO.*;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 import jade.CodeUnitTransformator;
@@ -69,6 +71,23 @@ class TransformatorTester {
 						.withMethodBody("return a + b;")
 						.withReturnType(int.class)
 						.end())
+				.end();
+
+		System.out.println(cu);
+
+		CodeUnitTransformator cut = new CodeUnitTransformator();
+		JavaClassFile j = new JavaClassFile();
+		j.model = cut.transformClassCodeUnit(cu);
+
+		JavaClassGenerator jcg = new JavaClassGenerator();
+		jcg.generateJavaFileFromModel(j);
+	}
+
+	@org.junit.jupiter.api.Test
+	void ConstructorBuilderTest() throws IOException {
+		CodeUnit cu = ClazzUnitBuilder
+				.createWithIdentifier("SimpleClazz")
+				.withModifiers(CodeUnitModifier.PUBLIC)
 				.end();
 
 		System.out.println(cu);

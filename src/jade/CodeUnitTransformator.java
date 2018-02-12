@@ -22,10 +22,11 @@ public class CodeUnitTransformator {
 	public JavaClass transformClassCodeUnit(CodeUnit cu) {
 		JavaClass clazz = new JavaClass();
 
-		clazz.name = this.transformIdentifier(cu);
+		clazz.identifier = this.transformIdentifier(cu);
 		clazz.modifiers = this.transformModifier(cu);
 		clazz.fields = this.transformFields(cu);
 		clazz.methods = this.transformMethods(cu);
+		clazz.constructors = this.transformConstructors(cu, clazz);
 
 		return clazz;
 	}
@@ -45,10 +46,10 @@ public class CodeUnitTransformator {
 
 	private List<JavaField> transformFields(CodeUnit cu) {
 		 return cu.getSubCodeUnits()
-				.stream()
-				.filter(unit -> unit.getType() == CodeUnitType.FIELD)
-				.map(this::transformField)
-				.collect(Collectors.toList());
+				 .stream()
+				 .filter(this::isField)
+				 .map(this::transformField)
+				 .collect(Collectors.toList());
 	}
 
 	private JavaField transformField(CodeUnit cu) {
@@ -63,7 +64,7 @@ public class CodeUnitTransformator {
 	private List<JavaMethod> transformMethods(CodeUnit cu) {
 		return cu.getSubCodeUnits()
 				.stream()
-				.filter(unit -> unit.getType() == CodeUnitType.METHOD)
+				.filter(this::isMethod)
 				.map(this::transformMethod)
 				.collect(Collectors.toList());
 	}
@@ -80,6 +81,25 @@ public class CodeUnitTransformator {
 		return jMethod;
 	}
 
+	private List<JavaConstructor> transformConstructors(CodeUnit cu, JavaClass clazz) {
+		return cu.getSubCodeUnits()
+				.stream()
+				.filter(this::isConstructor)
+				.map(unit -> this.transformConstructor(unit, clazz))
+				.collect(Collectors.toList());
+	}
+
+	private JavaConstructor transformConstructor(CodeUnit cu, JavaClass clazz) {
+		JavaConstructor javaConstructor = new JavaConstructor(clazz);
+
+		javaConstructor.modifiers = transformModifier(cu);
+		javaConstructor.parameters = transformParameters(cu);
+		javaConstructor.body = transformBody(cu);
+
+		return javaConstructor;
+
+	}
+
 	private String transformType(CodeUnit cu) {
 		Class c = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 		return c.getName();
@@ -93,7 +113,7 @@ public class CodeUnitTransformator {
 	private List<JavaMethodParameter> transformParameters(CodeUnit cu) {
 		return cu.getSubCodeUnits()
 				.stream()
-				.filter(unit -> unit.getType() == CodeUnitType.METHOD_PARAM)
+				.filter(this::isMethodParam)
 				.map(this::transformParameter)
 				.collect(Collectors.toList());
 	}
@@ -115,7 +135,7 @@ public class CodeUnitTransformator {
 
 		Optional<CodeUnit> optionalCodeUnit = cu.getSubCodeUnits()
 				.stream()
-				.filter(unit -> unit.getType() == CodeUnitType.METHOD_BODY)
+				.filter(this::isMethodBody)
 				.findFirst();
 
 		if(optionalCodeUnit.isPresent()) {
@@ -127,5 +147,29 @@ public class CodeUnitTransformator {
 		}
 
 		return jBody;
+	}
+
+	private boolean isConstructor(CodeUnit cu) {
+		return this.isType(cu, CodeUnitType.CONSTRUCTOR);
+	}
+
+	private boolean isMethod(CodeUnit cu) {
+		return this.isType(cu, CodeUnitType.METHOD);
+	}
+
+	private boolean isMethodBody(CodeUnit cu) {
+		return this.isType(cu, CodeUnitType.METHOD_BODY);
+	}
+
+	private boolean isMethodParam(CodeUnit cu) {
+		return this.isType(cu, CodeUnitType.METHOD_PARAM);
+	}
+
+	private boolean isField(CodeUnit cu) {
+		return this.isType(cu, CodeUnitType.FIELD);
+	}
+
+	private boolean isType(CodeUnit cu, CodeUnitType type) {
+		return cu.getType() == type;
 	}
 }

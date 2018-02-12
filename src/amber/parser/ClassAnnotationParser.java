@@ -8,6 +8,7 @@ package amber.parser;
 
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
+import amber.visitor.JavaFixedConstructorAnnotationVisitor;
 import amber.visitor.JavaFixedFieldAnnotationVisitor;
 import amber.visitor.JavaFixedMethodAnnotationVisitor;
 import cherry.model.*;
@@ -50,6 +51,7 @@ public class ClassAnnotationParser extends AnnotationParser {
 	private void parseFixedCodeUnitAnnotations(ClassOrInterfaceDeclaration declaration, AnnotationModel model) {
 		new JavaFixedFieldAnnotationVisitor().visit(declaration, model);
 		new JavaFixedMethodAnnotationVisitor().visit(declaration, model);
+		new JavaFixedConstructorAnnotationVisitor().visit(declaration, model);
 	}
 
 	private CodeUnitModifier[] getModifier(ClassOrInterfaceDeclaration cd) {

@@ -9,6 +9,7 @@ package cherry.model;
 public enum CodeUnitType {
 	CLASS,
 	FIELD,
+	CONSTRUCTOR,
 	METHOD,
 	METHOD_BODY, //todo possibly make this a codeunitdatum and not a sub codeunit
 	METHOD_PARAM;

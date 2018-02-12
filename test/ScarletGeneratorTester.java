@@ -7,7 +7,6 @@
 import scarlet.generator.JavaClassGenerator;
 import scarlet.model.*;
 
-import java.io.File;
 import java.io.IOException;
 
 class ScarletGeneratorTester {
@@ -17,7 +16,7 @@ class ScarletGeneratorTester {
 	void initializeTestJavaClassFileModel() {
 		fileModel = new JavaClassFile();
 		fileModel.model = new JavaClass();
-		fileModel.model.name = "TestClassName";
+		fileModel.model.identifier = "TestClassName";
 		fileModel.model.modifiers.add(JavaModifier.PUBLIC);
 		fileModel.model.modifiers.add(JavaModifier.FINAL);
 

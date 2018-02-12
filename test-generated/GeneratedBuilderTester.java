@@ -4,9 +4,10 @@
  * File last modfied: 11.01.18 23:24
  */
 
-import cherry.generated.POJOUnitBuilder;
-import cherry.generated.PublicIntUnitBuilder;
-import cherry.generated.VarUnitBuilder;
+
+import cherry.generated.ReferencePOJO.POJOUnitBuilder;
+import cherry.generated.ReferencePOJO.PublicIntUnitBuilder;
+import cherry.generated.ReferencePOJO.VarUnitBuilder;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 

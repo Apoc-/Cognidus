@@ -1,4 +1,4 @@
-package cherry.generated;
+package cherry.generated.ReferencePOJO;
 
 import cherry.model.ClassCodeUnit;
 import cherry.model.CodeUnitDatumType;

@@ -11,13 +11,14 @@ import java.util.List;
 import java.util.Set;
 
 public class JavaClass {
-	public String name;
+	public String identifier;
 	public Set<JavaModifier> modifiers;
 	public List<JavaField> fields;
 	public List<JavaMethod> methods;
+	public List<JavaConstructor> constructors;
 
 	public JavaClass() {
-		this.name = "";
+		this.identifier = "";
 		this.modifiers = new HashSet<>();
 		this.fields = new LinkedList<>();
 		this.methods = new LinkedList<>();

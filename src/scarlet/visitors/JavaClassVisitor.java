@@ -19,7 +19,7 @@ public class JavaClassVisitor extends VoidVisitorAdapter<JavaClassFile> {
 	public void visit(ClassOrInterfaceDeclaration coid, JavaClassFile classFileModel) {
 		JavaClass classModel = new JavaClass();
 
-		classModel.name = getClassName(coid);
+		classModel.identifier = getClassName(coid);
 		classModel.modifiers.addAll(getClassModifiers(coid));
 
 		classFileModel.model = classModel;

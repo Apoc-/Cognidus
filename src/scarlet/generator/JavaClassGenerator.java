@@ -33,14 +33,16 @@ public class JavaClassGenerator {
 
 	public void generateJavaFileFromModel(JavaClassFile fm) throws IOException {
 		JavaClass cm = fm.model;
-		Modifier[] classModifiers = getModifierArrayFromSet(cm.modifiers);
+		Modifier[] classModifiers = getModifiers(cm.modifiers);
 		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);
 		List<MethodSpec> methodSpecs = generateMethodSpecs(cm.methods);
+		List<MethodSpec> constructorSpecs = generateConstructorSpecs(cm.constructors);
 
-		TypeSpec generatedClass = TypeSpec.classBuilder(cm.name)
+		TypeSpec generatedClass = TypeSpec.classBuilder(cm.identifier)
 				.addModifiers(classModifiers)
 				.addFields(fieldSpecs)
 				.addMethods(methodSpecs)
+				.addMethods(constructorSpecs)
 				.build();
 
 		JavaFile javaFile = JavaFile.builder("com.example.helloworld", generatedClass)
@@ -69,7 +71,7 @@ public class JavaClassGenerator {
 	private FieldSpec generateArrayFieldSpec(JavaField field) {
 		TypeName type = JavaPoetTypeMapper.typeName(field.type);
 		String name = field.identifier;
-		Modifier[] modifiers = getModifierArrayFromSet(field.modifiers);
+		Modifier[] modifiers = getModifiers(field.modifiers);
 
 		return FieldSpec
 				.builder(ArrayTypeName.of(type), name, modifiers)
@@ -79,14 +81,14 @@ public class JavaClassGenerator {
 	private FieldSpec generateFieldSpec(JavaField field) {
 		TypeName type = JavaPoetTypeMapper.typeName(field.type);
 		String name = field.identifier;
-		Modifier[] modifiers = getModifierArrayFromSet(field.modifiers);
+		Modifier[] modifiers = getModifiers(field.modifiers);
 
 		return FieldSpec
 				.builder(type, name, modifiers)
 				.build();
 	}
 
-	private Modifier[] getModifierArrayFromSet(Set<JavaModifier> modifiers) {
+	private Modifier[] getModifiers(Set<JavaModifier> modifiers) {
 		return modifiers.stream()
 				.map(m -> Modifier.valueOf(m.name()))
 				.collect(Collectors.toList())
@@ -99,26 +101,51 @@ public class JavaClassGenerator {
 				.collect(Collectors.toList());
 	}
 
+	private List<MethodSpec> generateConstructorSpecs(List<JavaConstructor> javaConstructors) {
+		return javaConstructors.stream()
+				.map(this::generateConstructorSpec)
+				.collect(Collectors.toList());
+	}
+
 	private MethodSpec generateMethodSpec(JavaMethod method) {
-		Modifier[] modifiers = getModifierArrayFromSet(method.modifiers);
+		Modifier[] modifiers = getModifiers(method.modifiers);
 		TypeName returnType = JavaPoetTypeMapper.typeName(method.returnType);
 		String name = method.identifier;
-		String codeBody = method.body.toString();
+		String codeBody = method.body.toString() + "\n";
 
 		List<ParameterSpec> params = method.parameters
 				.stream()
-				.map(jp ->
-						ParameterSpec
-						.builder(JavaPoetTypeMapper.typeName(jp.type), jp.identifier)
-						.build())
+				.map(this::generateParameterSpec)
 				.collect(Collectors.toList());
 
 		return MethodSpec
 				.methodBuilder(name)
 				.addModifiers(modifiers)
 				.addParameters(params)
-				.addCode(codeBody + "\n") //new line for pretty-ness
+				.addCode(codeBody)
 				.returns(returnType)
+				.build();
+	}
+
+	private MethodSpec generateConstructorSpec(JavaConstructor constructor) {
+		Modifier[] modifiers = getModifiers(constructor.modifiers);
+		String codeBody = constructor.body.toString() + "\n";
+
+		List<ParameterSpec> params = constructor.parameters
+				.stream()
+				.map(this::generateParameterSpec)
+				.collect(Collectors.toList());
+
+		return MethodSpec.constructorBuilder()
+				.addModifiers(modifiers)
+				.addParameters(params)
+				.addCode(codeBody)
+				.build();
+	}
+
+	private ParameterSpec generateParameterSpec(JavaMethodParameter javaMethodParameter) {
+		return ParameterSpec
+				.builder(JavaPoetTypeMapper.typeName(javaMethodParameter.type), javaMethodParameter.identifier)
 				.build();
 	}
 }
