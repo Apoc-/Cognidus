@@ -7,6 +7,7 @@
 
 import cherry.generated.ReferenceClazz.ClazzUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
+import cherry.generated.SingletonClass.SingletonUnitBuilder;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 import jade.CodeUnitTransformator;
@@ -40,12 +41,7 @@ class TransformatorTester {
 
 		System.out.println(cu);
 
-		CodeUnitTransformator cut = new CodeUnitTransformator();
-		JavaClassFile j = new JavaClassFile();
-		j.model = cut.transformClassCodeUnit(cu);
-
-		JavaClassGenerator jcg = new JavaClassGenerator();
-		jcg.generateJavaFileFromModel(j);
+		TransformCodeUnit(cu);
 	}
 
 	@org.junit.jupiter.api.Test
@@ -75,12 +71,7 @@ class TransformatorTester {
 
 		System.out.println(cu);
 
-		CodeUnitTransformator cut = new CodeUnitTransformator();
-		JavaClassFile j = new JavaClassFile();
-		j.model = cut.transformClassCodeUnit(cu);
-
-		JavaClassGenerator jcg = new JavaClassGenerator();
-		jcg.generateJavaFileFromModel(j);
+		TransformCodeUnit(cu);
 	}
 
 	@org.junit.jupiter.api.Test
@@ -92,6 +83,21 @@ class TransformatorTester {
 
 		System.out.println(cu);
 
+		TransformCodeUnit(cu);
+	}
+
+	@org.junit.jupiter.api.Test
+	void SingletonBuilderTest() throws IOException {
+		CodeUnit cu = SingletonUnitBuilder
+				.createWithIdentifier("DataManager")
+				.end();
+
+		System.out.println(cu);
+
+		TransformCodeUnit(cu);
+	}
+
+	private void TransformCodeUnit(CodeUnit cu) throws IOException {
 		CodeUnitTransformator cut = new CodeUnitTransformator();
 		JavaClassFile j = new JavaClassFile();
 		j.model = cut.transformClassCodeUnit(cu);

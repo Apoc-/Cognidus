@@ -9,16 +9,19 @@ import amber.annotations.FixedCodeUnit;
 import amber.annotations.VariableModifier;
 import amber.annotations.VariableType;
 
-@CodeUnit("Clazz") @VariableModifier
-public class ReferenceClazz {
-	@FixedCodeUnit @HasGetter @HasSetter
-	private int id;
+@CodeUnit("Singleton")
+public class SingletonClass {
+	@FixedCodeUnit
+	private static SingletonClass instance;
 
 	@FixedCodeUnit
 	private ReferenceClazz() { }
 
 	@FixedCodeUnit
-	public ReferenceClazz(int id) {
-		this.id = id;
+	public static SingletonClass getInstance() {
+		if(instance == null)
+			instance = new SingletonClass();
+
+		return instance;
 	}
 }

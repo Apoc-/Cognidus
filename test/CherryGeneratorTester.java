@@ -7,7 +7,7 @@ import cherry.generator.BuilderGenerator;
 
 class CherryGeneratorTester {
 	@org.junit.jupiter.api.Test
-	void GenerateReferencePOJOBuilders() {
+	void GenReferencePOJOBuilders() {
 		String targetPath = "src-generated";
 		String sourcePath = "resources/ReferencePOJO.java";
 		String targetPackage = "cherry.generated.ReferencePOJO";
@@ -15,10 +15,18 @@ class CherryGeneratorTester {
 	}
 
 	@org.junit.jupiter.api.Test
-	void GenerateReferenceClazzBuilders() {
+	void GenReferenceClazzBuilders() {
 		String targetPath = "src-generated";
-		String sourcePath = "resources/ReferenceClazz.java";
+		String sourcePath = "resources/ReferenceClass.java";
 		String targetPackage = "cherry.generated.ReferenceClazz";
+		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
+	}
+
+	@org.junit.jupiter.api.Test
+	void GenSingletonBuilder() {
+		String targetPath = "src-generated";
+		String sourcePath = "resources/SingletonClass.java";
+		String targetPackage = "cherry.generated.SingletonClass";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
 }
