@@ -101,13 +101,13 @@ public class CodeUnitTransformator {
 	}
 
 	private String transformType(CodeUnit cu) {
-		Class c = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
-		return c.getName();
+		String typeName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
+		return typeName;
 	}
 
 	private String transformReturnType(CodeUnit cu) {
-		Class c = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
-		return c.getName();
+		String typeName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
+		return typeName;
 	}
 
 	private List<JavaMethodParameter> transformParameters(CodeUnit cu) {
@@ -123,8 +123,7 @@ public class CodeUnitTransformator {
 
 		jParam.identifier = (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 
-		Class returnType = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
-		jParam.type = returnType.getName();
+		jParam.type = (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 
 		return jParam;
 	}

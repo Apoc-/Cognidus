@@ -14,7 +14,6 @@ import cherry.model.CodeUnitModifier;
 import cherry.model.CodeUnitType;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
@@ -72,7 +71,7 @@ public class ConstructorAnnotationParser extends AnnotationParser {
 						CodeUnitBuilder
 								.createWithIdentifier(p.getName())
 								.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-								.withDataType(getClazz(p.getType()))
+								.withDataType(getTypeName(p.getType()))
 								.end())
 				.collect(Collectors.toList());
 	}

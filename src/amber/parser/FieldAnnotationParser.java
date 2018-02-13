@@ -36,10 +36,10 @@ public class FieldAnnotationParser extends AnnotationParser {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.HasGetter.class);
 		if(anno.isPresent()) {
 			VariableDeclarator vd = declaration.getVariable(0);
-			Class type = resolveVariableType(vd);
+			String typeName = resolveVariableType(vd);
 			String identifier = getFieldIdentifier(vd);
 
-			CodeUnit method = CodeUnitBuilderUtils.createGetterCodeUnit(identifier, type);
+			CodeUnit method = CodeUnitBuilderUtils.createGetterCodeUnit(identifier, typeName);
 
 			cu.addSubCodeUnit(method);
 		}
@@ -50,9 +50,9 @@ public class FieldAnnotationParser extends AnnotationParser {
 		if(anno.isPresent()) {
 			VariableDeclarator vd = declaration.getVariable(0);
 			String identifier = getFieldIdentifier(vd);
-			Class type = resolveVariableType(vd);
+			String typeName = resolveVariableType(vd);
 
-			CodeUnit method = CodeUnitBuilderUtils.createSetterCodeUnit(identifier, type);
+			CodeUnit method = CodeUnitBuilderUtils.createSetterCodeUnit(identifier, typeName);
 
 			cu.addSubCodeUnit(method);
 		}
@@ -135,8 +135,8 @@ public class FieldAnnotationParser extends AnnotationParser {
 		return vd.getNameAsString();
 	}
 
-	private Class resolveVariableType(VariableDeclarator vd) {
+	private String resolveVariableType(VariableDeclarator vd) {
 		ResolvedType rt = vd.resolve().getType();
-		return getClazz(rt);
+		return getTypeName(rt);
 	}
 }

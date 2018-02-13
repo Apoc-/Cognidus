@@ -120,13 +120,13 @@ public class MethodAnnotationParser extends AnnotationParser {
 						CodeUnitBuilder
 								.createWithIdentifier(p.getName())
 								.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-								.withDataType(getClazz(p.getType()))
+								.withDataType(getTypeName(p.getType()))
 								.end())
 				.collect(Collectors.toList());
 	}
 
-	private Class resolveMethodReturnType(MethodDeclaration md) {
+	private String resolveMethodReturnType(MethodDeclaration md) {
 		ResolvedType rt = md.resolve().getReturnType();
-		return getClazz(rt);
+		return getTypeName(rt);
 	}
 }

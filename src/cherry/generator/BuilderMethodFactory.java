@@ -86,8 +86,8 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier).addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
 				.addParameter(String.class, "identifier")
-				.addParameter(Class.class, "type")
-				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodParameterCodeUnit(identifier, type))", CodeUnitBuilderUtils.class)
+				.addParameter(String.class, "typeName")
+				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodParameterCodeUnit(identifier, typeName))", CodeUnitBuilderUtils.class)
 				.addStatement("return this")
 				.build();
 	}
@@ -129,8 +129,8 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
-				.addParameter(Class.class, "dataType")
-				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, dataType)", CodeUnitDatumType.class, "DATA_TYPE")
+				.addParameter(String.class, "typeName")
+				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, typeName)", CodeUnitDatumType.class, "DATA_TYPE")
 				.addStatement("return this")
 				.build();
 	}
@@ -196,8 +196,8 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
-				.addParameter(Class.class, "dataType")
-				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, dataType)", CodeUnitDatumType.class, "RETURN_TYPE")
+				.addParameter(String.class, "typeName")
+				.addStatement("this.codeUnit.addCodeUnitDatum($T.$L, typeName)", CodeUnitDatumType.class, "RETURN_TYPE")
 				.addStatement("return this")
 				.build();
 	}

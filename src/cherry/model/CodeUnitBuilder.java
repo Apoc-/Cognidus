@@ -34,23 +34,13 @@ public class CodeUnitBuilder {
 		return this;
 	}
 
-	public CodeUnitBuilder withDataType(Class dataType) {
-		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, dataType);
+	public CodeUnitBuilder withDataType(String typeName) {
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, typeName);
 		return this;
 	}
 
-	public CodeUnitBuilder withReturnType(Class dataType) {
-		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, dataType);
-		return this;
-	}
-
-	public CodeUnitBuilder withSubCodeUnits(List<CodeUnit> cu) {
-		cu.forEach(this.codeUnit::addSubCodeUnit);
-		return this;
-	}
-
-	public CodeUnitBuilder withSubCodeUnit(CodeUnit codeUnit) {
-		this.codeUnit.addSubCodeUnit(codeUnit);
+	public CodeUnitBuilder withReturnType(String typeName) {
+		this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, typeName);
 		return this;
 	}
 

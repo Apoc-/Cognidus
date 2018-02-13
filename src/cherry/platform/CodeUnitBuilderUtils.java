@@ -24,23 +24,23 @@ public class CodeUnitBuilderUtils {
 				.stream()
 				.filter(cu -> cu.getType() == CodeUnitType.FIELD)
 				.forEach(cu -> {
-					Class type = (Class) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
+					String typeName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 					String ident = (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 
 					if(cu.getData().containsKey(CodeUnitDatumType.GETTER)) {
-						methodCodeUnits.add(createGetterCodeUnit(ident, type));
+						methodCodeUnits.add(createGetterCodeUnit(ident, typeName));
 					}
 
 					if (cu.getData().containsKey(CodeUnitDatumType.SETTER)) {
-						methodCodeUnits.add(createSetterCodeUnit(ident, type));
+						methodCodeUnits.add(createSetterCodeUnit(ident, typeName));
 					}
 				});
 
 		return methodCodeUnits;
 	}
 
-	public static CodeUnit createGetterCodeUnit(String identifier, Class type) {
-		CodeUnit method = createMethodCodeUnit(identifier, "get", type);
+	public static CodeUnit createGetterCodeUnit(String identifier, String typeName) {
+		CodeUnit method = createMethodCodeUnit(identifier, "get", typeName);
 		CodeUnit methodBody = createMethodBodyCodeUnit("return " + identifier + ";");
 
 		method.addSubCodeUnit(methodBody);
@@ -48,10 +48,10 @@ public class CodeUnitBuilderUtils {
 		return method;
 	}
 
-	public static CodeUnit createSetterCodeUnit(String identifier, Class type) {
-		CodeUnit method = createMethodCodeUnit(identifier, "set", void.class);
+	public static CodeUnit createSetterCodeUnit(String identifier, String typeName) {
+		CodeUnit method = createMethodCodeUnit(identifier, "set", void.class.getTypeName());
 
-		CodeUnit methodParameters = createMethodParameterCodeUnit("value", type);
+		CodeUnit methodParameters = createMethodParameterCodeUnit("value", typeName);
 		CodeUnit methodBody = createMethodBodyCodeUnit("this." + identifier + " = value;");
 
 		method.addSubCodeUnit(methodParameters);
@@ -60,20 +60,20 @@ public class CodeUnitBuilderUtils {
 		return method;
 	}
 
-	private static CodeUnit createMethodCodeUnit(String identifier, String set, Class type) {
+	private static CodeUnit createMethodCodeUnit(String identifier, String set, String typeName) {
 		return CodeUnitBuilder
 				.createWithIdentifier(set + StringUtils.capitalize(identifier))
 				.setCodeUnitType(CodeUnitType.METHOD)
 				.withModifiers(CodeUnitModifier.PUBLIC)
-				.withReturnType(type)
+				.withReturnType(typeName)
 				.end();
 	}
 
-	public static CodeUnit createMethodParameterCodeUnit(String identifier, Class type) {
+	public static CodeUnit createMethodParameterCodeUnit(String identifier, String typeName) {
 		return CodeUnitBuilder
 				.createWithIdentifier(identifier)
 				.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-				.withDataType(type)
+				.withDataType(typeName)
 				.end();
 	}
 

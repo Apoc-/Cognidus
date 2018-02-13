@@ -1,7 +1,7 @@
 /*
  * Copyright (c) Apoc- 2018
  *
- * File last modfied: 09.02.18 19:35
+ * File last modfied: 12.02.18 14:00
  */
 
 import amber.annotations.CodeUnit;
@@ -15,7 +15,7 @@ public class SingletonClass {
 	private static SingletonClass instance;
 
 	@FixedCodeUnit
-	private ReferenceClazz() { }
+	private SingletonClass() { }
 
 	@FixedCodeUnit
 	public static SingletonClass getInstance() {

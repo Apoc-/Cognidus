@@ -23,12 +23,12 @@ class TransformatorTester {
 				.createWithIdentifier("Foo")
 				.withField(VarUnitBuilder
 						.createWithIdentifier("Fus")
-						.withDataType(float.class)
+						.withDataType(float.class.getName())
 						.withModifiers(CodeUnitModifier.PRIVATE)
 						.end())
 				.withField(VarUnitBuilder
 						.createWithIdentifier("Ro")
-						.withDataType(String.class)
+						.withDataType(String.class.getName())
 						.withModifiers(CodeUnitModifier.PUBLIC, CodeUnitModifier.TRANSIENT)
 						.end())
 				.withField(PublicIntUnitBuilder
@@ -51,21 +51,21 @@ class TransformatorTester {
 				.withMethod(MethodUnitBuilder
 						.createWithIdentifier("Method")
 						.withMethodBody("//test;")
-						.withReturnType(void.class)
+						.withReturnType(void.class.getName())
 						.end())
 				.withMethod(MethodModUnitBuilder
 						.createWithIdentifier("MethodM")
 						.withModifiers(CodeUnitModifier.PRIVATE)
 						.withMethodBody("//test2;")
-						.withReturnType(void.class)
+						.withReturnType(void.class.getName())
 						.end())
 				.withMethod(MethodModParamUnitBuilder
 						.createWithIdentifier("MethodMP")
 						.withModifiers(CodeUnitModifier.PRIVATE, CodeUnitModifier.STATIC)
-						.withParameter("a", int.class)
-						.withParameter("b", int.class)
+						.withParameter("a", int.class.getName())
+						.withParameter("b", int.class.getName())
 						.withMethodBody("return a + b;")
-						.withReturnType(int.class)
+						.withReturnType(int.class.getName())
 						.end())
 				.end();
 

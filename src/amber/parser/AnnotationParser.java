@@ -26,7 +26,7 @@ public class AnnotationParser {
 			model.setIdentifier(identifier);
 	}
 
-	Class getClazz(ResolvedType rt) {
+	String getTypeName(ResolvedType rt) {
 		String type = "";
 		if(rt.isPrimitive()) {
 			type = rt.describe();
@@ -34,6 +34,6 @@ public class AnnotationParser {
 			type = rt.asReferenceType().getQualifiedName();
 		}
 
-		return JavaClassMapper.className(type);
+		return type;
 	}
 }
