@@ -13,7 +13,8 @@ public enum CodeUnitDatumType {
 	RETURN_TYPE,
 	METHOD_BODY_STRING,
 	GETTER,
-	SETTER;
+	SETTER,
+	REF_CLASS;
 
 	@Override
 	public String toString() {

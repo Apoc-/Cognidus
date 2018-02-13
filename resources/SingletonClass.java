@@ -24,4 +24,8 @@ public class SingletonClass {
 
 		return instance;
 	}
+
+	public static SingletonClass identity(SingletonClass singletonClass) {
+		return singletonClass;
+	}
 }

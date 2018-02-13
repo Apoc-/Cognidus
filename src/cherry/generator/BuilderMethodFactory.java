@@ -171,6 +171,7 @@ public class BuilderMethodFactory {
 				.addModifiers(Modifier.PUBLIC)
 				.returns(codeUnitType)
 				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
+				.addStatement("$T.resolveSelfClassReferences(this.codeUnit)", CodeUnitBuilderUtils.class)
 				.addStatement("return codeUnit")
 				.build();
 	}

@@ -48,8 +48,18 @@ public class MethodAnnotationParser extends AnnotationParser {
 			CodeUnit cu = model.getDefaultCodeUnit();
 			CodeUnit methodCodeUnit = createMethodCodeUnitFromDeclaration(declaration);
 
+			//todo refactor
+			String declaringClassName = resolveDeclaringClassName(declaration);
+			String methodReturnTypeName = resolveMethodReturnType(declaration);
+
+			handleClassReference(methodCodeUnit, declaringClassName, methodReturnTypeName);
+
 			cu.addSubCodeUnit(methodCodeUnit);
 		});
+	}
+
+	private String resolveDeclaringClassName(MethodDeclaration declaration) {
+		return declaration.resolve().declaringType().getQualifiedName();
 	}
 
 	private void parseVariableModifierAnnotation(MethodDeclaration declaration, AnnotationModel model) {
@@ -116,12 +126,20 @@ public class MethodAnnotationParser extends AnnotationParser {
 				.getParameters()
 				.stream()
 				.map(Parameter::resolve)
-				.map(p ->
-						CodeUnitBuilder
-								.createWithIdentifier(p.getName())
-								.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-								.withDataType(getTypeName(p.getType()))
-								.end())
+				.map(p -> {
+							String parameterTypeName = getTypeName(p.getType());
+							String declaringClassName = resolveDeclaringClassName(declaration);
+
+							CodeUnit paramCodeUnit = CodeUnitBuilder
+									.createWithIdentifier(p.getName())
+									.setCodeUnitType(CodeUnitType.METHOD_PARAM)
+									.withDataType(parameterTypeName)
+									.end();
+
+							handleClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
+
+							return paramCodeUnit;
+						})
 				.collect(Collectors.toList());
 	}
 

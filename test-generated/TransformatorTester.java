@@ -8,6 +8,8 @@
 import cherry.generated.ReferenceClazz.ClazzUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
 import cherry.generated.SingletonClass.SingletonUnitBuilder;
+import cherry.generated.VarSingletonClass.InstanceVarUnitBuilder;
+import cherry.generated.VarSingletonClass.VarSingletonUnitBuilder;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 import jade.CodeUnitTransformator;
@@ -90,6 +92,20 @@ class TransformatorTester {
 	void SingletonBuilderTest() throws IOException {
 		CodeUnit cu = SingletonUnitBuilder
 				.createWithIdentifier("DataManager")
+				.end();
+
+		System.out.println(cu);
+
+		TransformCodeUnit(cu);
+	}
+
+	@org.junit.jupiter.api.Test
+	void VarSingletonBuilderTest() throws IOException {
+		CodeUnit cu = VarSingletonUnitBuilder
+				.createWithIdentifier("DataManager")
+				.withField(InstanceVarUnitBuilder
+						.createWithIdentifier("varInstance")
+						.end())
 				.end();
 
 		System.out.println(cu);

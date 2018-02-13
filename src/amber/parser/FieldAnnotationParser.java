@@ -63,7 +63,15 @@ public class FieldAnnotationParser extends AnnotationParser {
 		if(anno.isPresent()) {
 			model.addVariabilityAnnotation(AnnotationType.VARIABLE_DATATYPE);
 		} else {
-			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, resolveVariableType(declaration.getVariable(0)));
+			//todo refactor
+			CodeUnit codeUnit = model.getDefaultCodeUnit();
+			VariableDeclarator vd = declaration.getVariable(0);
+			String declaringClassName = resolveDeclaringClassName(vd);
+			String variableTypeName = resolveVariableType(vd);
+
+			codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, variableTypeName);
+
+			handleClassReference(codeUnit, declaringClassName, variableTypeName);
 		}
 	}
 
@@ -105,13 +113,17 @@ public class FieldAnnotationParser extends AnnotationParser {
 			CodeUnit cu = model.getDefaultCodeUnit();
 
 			VariableDeclarator vd = declaration.getVariable(0);
+			String declaringClassName = resolveDeclaringClassName(vd);
+			String variableTypeName = resolveVariableType(vd);
 
 			CodeUnit subCodeUnit = CodeUnitBuilder
 					.createWithIdentifier(getFieldIdentifier(vd))
 					.setCodeUnitType(CodeUnitType.FIELD)
 					.withModifiers(getModifier(declaration))
-					.withDataType(resolveVariableType(vd))
+					.withDataType(variableTypeName)
 					.end();
+
+			handleClassReference(cu, declaringClassName, variableTypeName);
 
 			parseFixedCodeUnitHasGetterAnnotation(declaration, cu);
 			parseFixedCodeUnitHasSetterAnnotation(declaration, cu);
@@ -121,6 +133,13 @@ public class FieldAnnotationParser extends AnnotationParser {
 		});
 	}
 
+	private String resolveDeclaringClassName(VariableDeclarator vd) {
+		return vd.resolve()
+				.declaringType()
+				.getQualifiedName();
+	}
+
+	//todo refactor NodeWithModifier!
 	private CodeUnitModifier[] getModifier(FieldDeclaration fd) {
 		EnumSet<Modifier> mods = fd.getModifiers();
 
@@ -137,6 +156,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 	private String resolveVariableType(VariableDeclarator vd) {
 		ResolvedType rt = vd.resolve().getType();
+
 		return getTypeName(rt);
 	}
 }
