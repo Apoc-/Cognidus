@@ -19,13 +19,10 @@ public class SingletonClass {
 
 	@FixedCodeUnit
 	public static SingletonClass getInstance() {
-		if(instance == null)
-			instance = new SingletonClass();
+		if(this.instance == null) {
+			this.instance = new SingletonClass();
+		}
 
-		return instance;
-	}
-
-	public static SingletonClass identity(SingletonClass singletonClass) {
-		return singletonClass;
+		return this.instance;
 	}
 }

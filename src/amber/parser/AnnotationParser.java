@@ -9,12 +9,8 @@ package amber.parser;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitDatumType;
 import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.nodeTypes.NodeWithAnnotations;
 import com.github.javaparser.resolution.types.ResolvedType;
 import amber.model.AnnotationModel;
-
-import java.lang.annotation.Annotation;
-import java.util.Optional;
 
 public class AnnotationParser {
 	AnnotationParser()  { }
@@ -41,7 +37,7 @@ public class AnnotationParser {
 
 	void handleClassReference(CodeUnit codeUnit, String declaringClassName, String typeName) {
 		if(declaringClassName.equals(typeName)) {
-			codeUnit.addCodeUnitDatum(CodeUnitDatumType.REF_CLASS, declaringClassName);
+			codeUnit.addCodeUnitDatum(CodeUnitDatumType.PARENT_CLASS_REF, declaringClassName);
 		}
 	}
 }

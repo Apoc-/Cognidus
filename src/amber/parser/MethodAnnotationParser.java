@@ -104,11 +104,15 @@ public class MethodAnnotationParser extends AnnotationParser {
 			methodBody = methodBody.substring(1,methodBody.length()-1).trim();
 		}
 
-		return CodeUnitBuilder
+		CodeUnit codeUnit = CodeUnitBuilder
 				.create()
 				.setCodeUnitType(CodeUnitType.METHOD_BODY)
 				.withMethodBody(methodBody)
 				.end();
+
+		codeUnit.addCodeUnitDatum(CodeUnitDatumType.PARENT_CLASS_REF, resolveDeclaringClassName(declaration));
+
+		return codeUnit;
 	}
 
 	private CodeUnitModifier[] getModifier(MethodDeclaration fd) {

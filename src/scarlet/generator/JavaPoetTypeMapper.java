@@ -5,21 +5,39 @@
  */
 package scarlet.generator;
 
+import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.TypeName;
+import violet.Logger;
 
 class JavaPoetTypeMapper {
 	private JavaPoetTypeMapper() {}
 
 	public static com.squareup.javapoet.TypeName typeName(String typeName) {
+		TypeName type;
+
 		switch (typeName) {
 			case "int":
-				return TypeName.INT;
+				type = TypeName.INT;
+				break;
 			case "float":
-				return TypeName.FLOAT;
+				type = TypeName.FLOAT;
+				break;
 			case "void":
-				return TypeName.VOID;
+				type = TypeName.VOID;
+				break;
 			default:
-				return com.squareup.javapoet.ClassName.bestGuess(typeName);
+				try {
+					type = com.squareup.javapoet.ClassName.bestGuess(typeName);
+				} catch (IllegalArgumentException ex) {
+					Logger.console().logError("IllegalArgumentException in JavaPoetTypeMapper, falling back on default TypeName");
+					type = getDefaultTypeName(typeName);
+				}
 		}
+
+		return type;
+	}
+
+	private static TypeName getDefaultTypeName(String typeName) {
+		return ClassName.get("", typeName);
 	}
 }

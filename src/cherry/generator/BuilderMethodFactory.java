@@ -10,6 +10,7 @@ import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
 import cherry.platform.CodeUnitBuilderUtils;
+import cherry.platform.CodeUnitReferenceResolver;
 import com.squareup.javapoet.*;
 import org.apache.commons.lang3.SerializationUtils;
 
@@ -171,7 +172,7 @@ public class BuilderMethodFactory {
 				.addModifiers(Modifier.PUBLIC)
 				.returns(codeUnitType)
 				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
-				.addStatement("$T.resolveSelfClassReferences(this.codeUnit)", CodeUnitBuilderUtils.class)
+				.addStatement("new $T(this.codeUnit).resolveReferences()", CodeUnitReferenceResolver.class)
 				.addStatement("return codeUnit")
 				.build();
 	}

@@ -14,7 +14,7 @@ public enum CodeUnitDatumType {
 	METHOD_BODY_STRING,
 	GETTER,
 	SETTER,
-	REF_CLASS;
+	PARENT_CLASS_REF;
 
 	@Override
 	public String toString() {

@@ -85,26 +85,4 @@ public class CodeUnitBuilderUtils {
 				.end();
 	}
 
-	public static void resolveSelfClassReferences(CodeUnit cu) {
-		String className = (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
-
-		cu.getSubCodeUnits()
-				.stream()
-				.filter(unit -> unit.getData().containsKey(CodeUnitDatumType.REF_CLASS))
-				.forEach(unit -> {
-					if(unit.getType() == CodeUnitType.FIELD  || unit.getType() == CodeUnitType.METHOD_PARAM) {
-						unit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, className);
-					} else if(unit.getType() == CodeUnitType.METHOD) {
-						unit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, className);
-					} else if(unit.getType() == CodeUnitType.METHOD_BODY) {
-						String codeBody = (String) unit.getCodeUnitDatum(CodeUnitDatumType.METHOD_BODY_STRING).getDatumData();
-						String refClassName = (String) unit.getCodeUnitDatum(CodeUnitDatumType.REF_CLASS).getDatumData();
-
-						String resolvedBody = codeBody.replaceAll("\\b" + refClassName + "\\b", codeBody);
-
-						unit.addCodeUnitDatum(CodeUnitDatumType.METHOD_BODY_STRING, resolvedBody);
-					}
-
-				});
-	}
 }

@@ -23,7 +23,7 @@ public class VarSingletonClass {
 	@FixedCodeUnit
 	public static VarSingletonClass getInstance() {
 		if(instance == null)
-			instance = new SingletonClass();
+			instance = new VarSingletonClass();
 
 		return instance;
 	}

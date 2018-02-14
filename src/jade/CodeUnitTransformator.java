@@ -101,13 +101,11 @@ public class CodeUnitTransformator {
 	}
 
 	private String transformType(CodeUnit cu) {
-		String typeName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
-		return typeName;
+		return (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 	}
 
 	private String transformReturnType(CodeUnit cu) {
-		String typeName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
-		return typeName;
+		return (String) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
 	}
 
 	private List<JavaMethodParameter> transformParameters(CodeUnit cu) {
@@ -149,26 +147,22 @@ public class CodeUnitTransformator {
 	}
 
 	private boolean isConstructor(CodeUnit cu) {
-		return this.isType(cu, CodeUnitType.CONSTRUCTOR);
+		return cu.isType(CodeUnitType.CONSTRUCTOR);
 	}
 
 	private boolean isMethod(CodeUnit cu) {
-		return this.isType(cu, CodeUnitType.METHOD);
+		return cu.isType(CodeUnitType.METHOD);
 	}
 
 	private boolean isMethodBody(CodeUnit cu) {
-		return this.isType(cu, CodeUnitType.METHOD_BODY);
+		return cu.isType(CodeUnitType.METHOD_BODY);
 	}
 
 	private boolean isMethodParam(CodeUnit cu) {
-		return this.isType(cu, CodeUnitType.METHOD_PARAM);
+		return cu.isType(CodeUnitType.METHOD_PARAM);
 	}
 
 	private boolean isField(CodeUnit cu) {
-		return this.isType(cu, CodeUnitType.FIELD);
-	}
-
-	private boolean isType(CodeUnit cu, CodeUnitType type) {
-		return cu.getType() == type;
+		return cu.isType(CodeUnitType.FIELD);
 	}
 }

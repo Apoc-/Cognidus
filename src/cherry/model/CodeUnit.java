@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class CodeUnit implements Serializable {
+	private CodeUnit parent;
 	private CodeUnitType type;
 	private final Map<CodeUnitDatumType, CodeUnitDatum> data;
 	private final List<CodeUnit> subCodeUnits;
@@ -19,6 +20,10 @@ public class CodeUnit implements Serializable {
 		this.type = type;
 		this.data = new HashMap<>();
 		this.subCodeUnits = new ArrayList<>();
+	}
+
+	public boolean isType(CodeUnitType type) {
+		return getType() == type;
 	}
 
 	public <T> void addCodeUnitDatum(CodeUnitDatumType datumType, T datumData) {
@@ -34,12 +39,17 @@ public class CodeUnit implements Serializable {
 		return data.get(type);
 	}
 
+	public boolean hasDatum(CodeUnitDatumType type) {
+		return data.containsKey(type);
+	}
+
 	public void addSubCodeUnit(CodeUnit subCodeUnit) {
+		subCodeUnit.parent = this;
 		subCodeUnits.add(subCodeUnit);
 	}
 
 	public void addSubCodeUnits(List<CodeUnit> subCodeUnits) {
-		this.subCodeUnits.addAll(subCodeUnits);
+		subCodeUnits.forEach(this::addSubCodeUnit);
 	}
 
 	public List<CodeUnit> getSubCodeUnits() {
@@ -63,5 +73,17 @@ public class CodeUnit implements Serializable {
 				.collect(Collectors.joining(", "));
 
 		return type.toString() + ": " + dataString + " with " + subCodeUnits.size() + " SubCodeUnits";
+	}
+
+	public CodeUnit getParent() {
+		return parent;
+	}
+
+	public void setParent(CodeUnit parent) {
+		this.parent = parent;
+	}
+
+	public boolean hasParent() {
+		return this.parent != null;
 	}
 }

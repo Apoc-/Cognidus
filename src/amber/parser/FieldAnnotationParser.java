@@ -123,7 +123,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 					.withDataType(variableTypeName)
 					.end();
 
-			handleClassReference(cu, declaringClassName, variableTypeName);
+			handleClassReference(subCodeUnit, declaringClassName, variableTypeName);
 
 			parseFixedCodeUnitHasGetterAnnotation(declaration, cu);
 			parseFixedCodeUnitHasSetterAnnotation(declaration, cu);
