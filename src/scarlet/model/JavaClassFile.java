@@ -6,5 +6,6 @@
 package scarlet.model;
 
 public class JavaClassFile {
-	public JavaClass model;
+	public JavaClass javaClass;
+	public String packageName = "scarlet.generated.default";
 }

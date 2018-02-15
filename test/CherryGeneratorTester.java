@@ -37,4 +37,12 @@ class CherryGeneratorTester {
 		String targetPackage = "cherry.generated.VarSingletonClass";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
+
+	@org.junit.jupiter.api.Test
+	void GenGenericBuilder() {
+		String targetPath = "src-generated";
+		String sourcePath = "resources/ReferenceGenerics.java";
+		String targetPackage = "cherry.generated.ReferenceGenerics";
+		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
+	}
 }

@@ -2,14 +2,14 @@ package cherry.generated.ReferencePOJO;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.MethodCodeUnit;
-import cherry.platform.CodeUnitBuilderUtils;
+import cherry.platform.DefaultCodeUnitProvider;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
 
-public class MethodUnitBuilder {
+public class MethodyUnitBuilder {
   private MethodCodeUnit codeUnit;
 
-  private MethodUnitBuilder() {
+  private MethodyUnitBuilder() {
     initializeDefaultCodeUnit();
   }
 
@@ -19,8 +19,8 @@ public class MethodUnitBuilder {
     this.codeUnit = SerializationUtils.deserialize(serializedCodeUnit);
   }
 
-  public static MethodUnitBuilder createWithIdentifier(String identifier) {
-    MethodUnitBuilder cub = new MethodUnitBuilder();
+  public static MethodyUnitBuilder createWithIdentifier(String identifier) {
+    MethodyUnitBuilder cub = new MethodyUnitBuilder();
     cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
     return cub;
   }
@@ -29,12 +29,12 @@ public class MethodUnitBuilder {
     return codeUnit;
   }
 
-  public MethodUnitBuilder withMethodBody(String code) {
-    this.codeUnit.addSubCodeUnit(CodeUnitBuilderUtils.createMethodBodyCodeUnit(code));
+  public MethodyUnitBuilder withMethodBody(String code) {
+    this.codeUnit.addSubCodeUnit(DefaultCodeUnitProvider.createMethodBodyCodeUnit(code));
     return this;
   }
 
-  public MethodUnitBuilder withReturnType(String typeName) {
+  public MethodyUnitBuilder withReturnType(String typeName) {
     this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, typeName);
     return this;
   }

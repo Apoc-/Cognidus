@@ -26,13 +26,13 @@ public class JavaClassGenerator {
 		JavaClassFile fm = new JavaClassFile();
 
 		new JavaClassVisitor().visit(cu, fm);
-		new JavaFieldVisitor().visit(cu, fm.model);
+		new JavaFieldVisitor().visit(cu, fm.javaClass);
 
 		generateJavaFileFromModel(fm);
 	}
 
-	public void generateJavaFileFromModel(JavaClassFile fm) throws IOException {
-		JavaClass cm = fm.model;
+	public JavaFile generateJavaFileFromModel(JavaClassFile fm) throws IOException {
+		JavaClass cm = fm.javaClass;
 		Modifier[] classModifiers = getModifiers(cm.modifiers);
 		List<FieldSpec> fieldSpecs = generateFieldSpecs(cm.fields);
 		List<MethodSpec> methodSpecs = generateMethodSpecs(cm.methods);
@@ -45,10 +45,8 @@ public class JavaClassGenerator {
 				.addMethods(constructorSpecs)
 				.build();
 
-		JavaFile javaFile = JavaFile.builder("com.example.helloworld", generatedClass)
+		return JavaFile.builder(fm.packageName, generatedClass)
 				.build();
-
-		javaFile.writeTo(System.out);
 	}
 
 	private List<FieldSpec> generateFieldSpecs(List<JavaField> modelFields) {

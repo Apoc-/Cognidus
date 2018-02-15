@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 
 public class BuilderGenerator {
 	private static BuilderGenerator instance;
-	private final List<AnnotationModel> models;
+	private List<AnnotationModel> models;
 
 	public static BuilderGenerator getInstance() {
 		if(instance == null)
@@ -41,10 +41,11 @@ public class BuilderGenerator {
 	}
 
 	private BuilderGenerator() {
-		models = new ArrayList<>();
+
 	}
 
 	public void generateUnitBuilders(String sourcePath, String targetPath, String targetPackage) {
+		this.models = new ArrayList<>();
 		CompilationUnit cu = parseCodeFile(sourcePath);
 		populateAnnotationModels(cu);
 

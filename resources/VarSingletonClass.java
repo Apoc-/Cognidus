@@ -6,8 +6,6 @@
 
 import amber.annotations.CodeUnit;
 import amber.annotations.FixedCodeUnit;
-import amber.annotations.VariableModifier;
-import amber.annotations.VariableType;
 
 @CodeUnit("VarSingleton")
 public class VarSingletonClass {

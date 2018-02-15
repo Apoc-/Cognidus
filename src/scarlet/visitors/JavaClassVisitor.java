@@ -22,7 +22,7 @@ public class JavaClassVisitor extends VoidVisitorAdapter<JavaClassFile> {
 		classModel.identifier = getClassName(coid);
 		classModel.modifiers.addAll(getClassModifiers(coid));
 
-		classFileModel.model = classModel;
+		classFileModel.javaClass = classModel;
 	}
 
 	private String getClassName(ClassOrInterfaceDeclaration coid) {

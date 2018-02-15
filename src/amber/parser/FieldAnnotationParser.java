@@ -10,16 +10,18 @@ import amber.annotations.VariableModifier;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
-import cherry.platform.CodeUnitBuilderUtils;
+import cherry.platform.DefaultCodeUnitProvider;
 import com.github.javaparser.ast.Modifier;
+import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.type.Type;
+import com.github.javaparser.resolution.declarations.ResolvedFieldDeclaration;
+import com.github.javaparser.resolution.declarations.ResolvedTypeDeclaration;
 import com.github.javaparser.resolution.types.ResolvedType;
 
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FieldAnnotationParser extends AnnotationParser {
@@ -39,7 +41,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 			String typeName = resolveVariableType(vd);
 			String identifier = getFieldIdentifier(vd);
 
-			CodeUnit method = CodeUnitBuilderUtils.createGetterCodeUnit(identifier, typeName);
+			CodeUnit method = DefaultCodeUnitProvider.createGetterCodeUnit(identifier, typeName);
 
 			cu.addSubCodeUnit(method);
 		}
@@ -52,7 +54,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 			String identifier = getFieldIdentifier(vd);
 			String typeName = resolveVariableType(vd);
 
-			CodeUnit method = CodeUnitBuilderUtils.createSetterCodeUnit(identifier, typeName);
+			CodeUnit method = DefaultCodeUnitProvider.createSetterCodeUnit(identifier, typeName);
 
 			cu.addSubCodeUnit(method);
 		}
@@ -115,6 +117,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 			VariableDeclarator vd = declaration.getVariable(0);
 			String declaringClassName = resolveDeclaringClassName(vd);
 			String variableTypeName = resolveVariableType(vd);
+			//List<String> variableTypeArguments = resolveVariableTypeArguments(vd);
 
 			CodeUnit subCodeUnit = CodeUnitBuilder
 					.createWithIdentifier(getFieldIdentifier(vd))
@@ -159,4 +162,21 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 		return getTypeName(rt);
 	}
+
+	//todo implement this fully, method is already working, just needs implementation to generator and transformator
+
+	/*private List<String> resolveVariableTypeArguments(VariableDeclarator vd) {
+		List<String> typeArguments = new LinkedList<>();
+
+		Optional<NodeList<Type>> args = vd.getType().asClassOrInterfaceType().getTypeArguments();
+		args.ifPresent(typeArgumentList -> {
+			typeArgumentList
+					.forEach(typeArgument -> {
+						ResolvedType rt = typeArgument.resolve();
+						typeArguments.add(getTypeName(rt));
+					});
+		});
+
+		return typeArguments;
+	}*/
 }

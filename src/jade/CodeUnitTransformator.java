@@ -37,11 +37,15 @@ public class CodeUnitTransformator {
 
 
 	private Set<JavaModifier> transformModifier(CodeUnit cu) {
-		CodeUnitModifier[] cm = (CodeUnitModifier[]) cu.getCodeUnitDatum(CodeUnitDatumType.MODIFIER).getDatumData();
-		return Arrays
-				.stream(cm)
-				.map(m -> JavaModifier.valueOf(m.name()))
-				.collect(Collectors.toSet());
+		if(cu.hasDatum(CodeUnitDatumType.MODIFIER)) {
+			CodeUnitModifier[] cm = (CodeUnitModifier[]) cu.getCodeUnitDatum(CodeUnitDatumType.MODIFIER).getDatumData();
+			return Arrays
+					.stream(cm)
+					.map(m -> JavaModifier.valueOf(m.name()))
+					.collect(Collectors.toSet());
+		} else {
+			return Set.of();
+		}
 	}
 
 	private List<JavaField> transformFields(CodeUnit cu) {
@@ -105,7 +109,11 @@ public class CodeUnitTransformator {
 	}
 
 	private String transformReturnType(CodeUnit cu) {
-		return (String) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
+		if(cu.hasDatum(CodeUnitDatumType.RETURN_TYPE)) {
+			return (String) cu.getCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE).getDatumData();
+		}
+
+		return void.class.getName();
 	}
 
 	private List<JavaMethodParameter> transformParameters(CodeUnit cu) {

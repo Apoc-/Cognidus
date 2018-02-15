@@ -9,7 +9,7 @@ package cherry.generator;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
-import cherry.platform.CodeUnitBuilderUtils;
+import cherry.platform.DefaultCodeUnitProvider;
 import cherry.platform.CodeUnitReferenceResolver;
 import com.squareup.javapoet.*;
 import org.apache.commons.lang3.SerializationUtils;
@@ -88,7 +88,7 @@ public class BuilderMethodFactory {
 				.returns(builderType)
 				.addParameter(String.class, "identifier")
 				.addParameter(String.class, "typeName")
-				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodParameterCodeUnit(identifier, typeName))", CodeUnitBuilderUtils.class)
+				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodParameterCodeUnit(identifier, typeName))", DefaultCodeUnitProvider.class)
 				.addStatement("return this")
 				.build();
 	}
@@ -171,7 +171,7 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(codeUnitType)
-				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", CodeUnitBuilderUtils.class)
+				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", DefaultCodeUnitProvider.class)
 				.addStatement("new $T(this.codeUnit).resolveReferences()", CodeUnitReferenceResolver.class)
 				.addStatement("return codeUnit")
 				.build();
@@ -189,7 +189,7 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier).addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
 				.addParameter(String.class, "code")
-				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodBodyCodeUnit(code))", CodeUnitBuilderUtils.class)
+				.addStatement("this.codeUnit.addSubCodeUnit($T.createMethodBodyCodeUnit(code))", DefaultCodeUnitProvider.class)
 				.addStatement("return this")
 				.build();
 	}

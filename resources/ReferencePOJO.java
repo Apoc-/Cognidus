@@ -4,10 +4,7 @@
  * File last modfied: 17.12.17 20:15
  */
 
-import amber.annotations.CodeUnit;
-import amber.annotations.FixedCodeUnit;
-import amber.annotations.VariableModifier;
-import amber.annotations.VariableType;
+import amber.annotations.*;
 
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
@@ -38,16 +35,16 @@ public abstract class ReferencePOJO {
 
 	@CodeUnit("MethodModParam") @VariableModifier @VariableParams
 	public int foo(int a) {
-		return a * b;
+		return a;
 	}
 
 	@CodeUnit("MethodMod") @VariableModifier
 	public int bar(int n) {
-		return a * b;
+		return 3*n;
 	}
 
-	@CodeUnit("Method")
+	@CodeUnit("Methody")
 	public int bus(int m) {
-		return a * b;
+		return m*m;
 	}
 }

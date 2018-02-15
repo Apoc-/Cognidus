@@ -11,5 +11,5 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD})
 public @interface CodeUnit {
-	String identifier();
+	String value();
 }

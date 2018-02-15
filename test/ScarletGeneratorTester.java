@@ -15,10 +15,10 @@ class ScarletGeneratorTester {
 	@org.junit.jupiter.api.BeforeEach
 	void initializeTestJavaClassFileModel() {
 		fileModel = new JavaClassFile();
-		fileModel.model = new JavaClass();
-		fileModel.model.identifier = "TestClassName";
-		fileModel.model.modifiers.add(JavaModifier.PUBLIC);
-		fileModel.model.modifiers.add(JavaModifier.FINAL);
+		fileModel.javaClass = new JavaClass();
+		fileModel.javaClass.identifier = "TestClassName";
+		fileModel.javaClass.modifiers.add(JavaModifier.PUBLIC);
+		fileModel.javaClass.modifiers.add(JavaModifier.FINAL);
 
 		JavaField field1 = new JavaField();
 		field1.identifier = "testField1";
@@ -31,8 +31,8 @@ class ScarletGeneratorTester {
 		field2.type = "java.lang.String";
 		field2.modifiers.add(JavaModifier.PRIVATE);
 
-		fileModel.model.fields.add(field1);
-		fileModel.model.fields.add(field2);
+		fileModel.javaClass.fields.add(field1);
+		fileModel.javaClass.fields.add(field2);
 
 		JavaMethod method1 = new JavaMethod();
 		method1.identifier = "testMethod1";
@@ -58,8 +58,8 @@ class ScarletGeneratorTester {
 		method2.parameters.add(param2);
 		method2.body.setContentFromString("System.out.println(\"Hello, World!\")");
 
-		fileModel.model.methods.add(method1);
-		fileModel.model.methods.add(method2);
+		fileModel.javaClass.methods.add(method1);
+		fileModel.javaClass.methods.add(method2);
 	}
 
 	@org.junit.jupiter.api.Test
