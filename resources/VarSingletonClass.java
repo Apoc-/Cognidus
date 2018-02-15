@@ -21,6 +21,11 @@ public class VarSingletonClass {
 	private VarSingletonClass() { }
 
 	@FixedCodeUnit
+	public VarSingletonClass(VarSingletonClass source) {
+		VarSingletonClass vsc = new VarSingletonClass();
+	}
+
+	@FixedCodeUnit
 	public static VarSingletonClass getInstance() {
 		if(instance == null)
 			instance = new VarSingletonClass();

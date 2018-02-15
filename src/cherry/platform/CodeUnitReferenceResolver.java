@@ -9,7 +9,6 @@ package cherry.platform;
 import cherry.model.ClassCodeUnit;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitDatumType;
-import cherry.model.CodeUnitType;
 
 public class CodeUnitReferenceResolver {
 	private ClassCodeUnit classCodeUnit;
@@ -26,23 +25,22 @@ public class CodeUnitReferenceResolver {
 
 	//resolves all self references from the reference implementation to the actual class identifier
 	private void resolveClassReferences(CodeUnit codeUnit) {
-		if(!codeUnit.hasDatum(CodeUnitDatumType.PARENT_CLASS_REF)) {
-			return; //early-out, nothing to resolve here
-		}
-
-		switch(codeUnit.getType()) {
-			case METHOD_BODY:
-				resolveMethodBodyReference(codeUnit);
-				break;
-			case METHOD_PARAM:
-			case FIELD:
-				resolveDataTypeReference(codeUnit);
-				break;
-			case METHOD:
-				resolveReturnTypeReference(codeUnit);
-				break;
-			default:
-				break;
+		if (codeUnit.hasDatum(CodeUnitDatumType.PARENT_CLASS_REF)) {
+			switch (codeUnit.getType()) {
+				case METHOD_BODY:
+					resolveMethodBodyReference(codeUnit);
+					break;
+				case METHOD_PARAM:
+				case FIELD:
+					resolveDataTypeReference(codeUnit);
+					break;
+				case METHOD:
+				case CONSTRUCTOR:
+					resolveReturnTypeReference(codeUnit);
+					break;
+				default:
+					break;
+			}
 		}
 
 		codeUnit.getSubCodeUnits().forEach(this::resolveClassReferences);

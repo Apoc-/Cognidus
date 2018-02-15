@@ -8,12 +8,10 @@ package amber.parser;
 
 import amber.annotations.FixedCodeUnit;
 import amber.model.AnnotationModel;
-import cherry.model.CodeUnit;
-import cherry.model.CodeUnitBuilder;
-import cherry.model.CodeUnitModifier;
-import cherry.model.CodeUnitType;
+import cherry.model.*;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
@@ -55,11 +53,15 @@ public class ConstructorAnnotationParser extends AnnotationParser {
 
 		methodBody = methodBody.substring(1,methodBody.length()-1).trim();
 
-		return CodeUnitBuilder
+		CodeUnit codeUnit = CodeUnitBuilder
 				.create()
 				.setCodeUnitType(CodeUnitType.METHOD_BODY)
 				.withMethodBody(methodBody)
 				.end();
+
+		codeUnit.addCodeUnitDatum(CodeUnitDatumType.PARENT_CLASS_REF, resolveDeclaringClassName(declaration));
+
+		return codeUnit;
 	}
 
 	private List<CodeUnit> createMethodParamCodeUnits(ConstructorDeclaration declaration) {
@@ -67,13 +69,25 @@ public class ConstructorAnnotationParser extends AnnotationParser {
 				.getParameters()
 				.stream()
 				.map(Parameter::resolve)
-				.map(p ->
-						CodeUnitBuilder
-								.createWithIdentifier(p.getName())
-								.setCodeUnitType(CodeUnitType.METHOD_PARAM)
-								.withDataType(getTypeName(p.getType()))
-								.end())
+				.map(p -> {
+							String parameterTypeName = getTypeName(p.getType());
+							String declaringClassName = resolveDeclaringClassName(declaration);
+
+							CodeUnit paramCodeUnit = CodeUnitBuilder
+									.createWithIdentifier(p.getName())
+									.setCodeUnitType(CodeUnitType.METHOD_PARAM)
+									.withDataType(getTypeName(p.getType()))
+									.end();
+
+							handleClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
+
+							return paramCodeUnit;
+						})
 				.collect(Collectors.toList());
+	}
+
+	private String resolveDeclaringClassName(ConstructorDeclaration declaration) {
+		return declaration.resolve().declaringType().getQualifiedName();
 	}
 
 	private CodeUnitModifier[] getModifier(ConstructorDeclaration cd) {
