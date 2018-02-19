@@ -42,8 +42,14 @@ public class BuilderMethodFactory {
 			case WITH_METHOD:
 				createdMethodSpec = createWithMethodSpec(builderMethodType.toString(), builderTypeName);
 				break;
+			case WITH_CONSTRUCTOR:
+				createdMethodSpec = createWithConstructorSpec(builderMethodType.toString(), builderTypeName);
+				break;
 			case CREATE_WITH_IDENTIFIER:
 				createdMethodSpec = createCreateWithIdSpec(builderMethodType.toString(), builderTypeName);
+				break;
+			case CREATE:
+				createdMethodSpec = createCreateSpec(builderMethodType.toString(), builderTypeName);
 				break;
 			case WITH_DATA_TYPE:
 				createdMethodSpec = createWithDataTypeSpec(builderMethodType.toString(), builderTypeName);
@@ -115,6 +121,26 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
+	private MethodSpec createCreateSpec(String identifier, TypeName builderType) {
+		MethodSpec.Builder msb = MethodSpec.methodBuilder(identifier);
+
+		msb.addModifiers(Modifier.PUBLIC, Modifier.STATIC)
+				.returns(builderType)
+				.addStatement("$T cub = new $T()", builderType, builderType);
+
+		if(annotationModel.getExtensionAnnotations().contains(AnnotationType.HAS_GETTER)) {
+			msb.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, true)", CodeUnitDatumType.class, "GETTER");
+		}
+
+		if(annotationModel.getExtensionAnnotations().contains(AnnotationType.HAS_SETTER)) {
+			msb.addStatement("cub.codeUnit.addCodeUnitDatum($T.$L, true)", CodeUnitDatumType.class, "SETTER");
+		}
+
+		return msb
+				.addStatement("return cub")
+				.build();
+	}
+
 	private MethodSpec createWithModsSpec(String identifier, TypeName builderType) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
@@ -162,6 +188,16 @@ public class BuilderMethodFactory {
 				.addModifiers(Modifier.PUBLIC)
 				.returns(builderType)
 				.addParameter(MethodCodeUnit.class, "codeUnit")
+				.addStatement("this.codeUnit.addSubCodeUnit(codeUnit)")
+				.addStatement("return this")
+				.build();
+	}
+
+	private MethodSpec createWithConstructorSpec(String identifier, TypeName builderType) {
+		return MethodSpec.methodBuilder(identifier)
+				.addModifiers(Modifier.PUBLIC)
+				.returns(builderType)
+				.addParameter(ConstructorCodeUnit.class, "codeUnit")
 				.addStatement("this.codeUnit.addSubCodeUnit(codeUnit)")
 				.addStatement("return this")
 				.build();

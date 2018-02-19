@@ -9,11 +9,13 @@ import cherry.generated.ReferenceClazz.*;
 import cherry.generated.ReferenceGenerics.GenericUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
 import cherry.generated.SingletonClass.SingletonUnitBuilder;
+import cherry.generated.VarSingletonClass.ConstructorUnitBuilder;
 import cherry.generated.VarSingletonClass.InstanceVarUnitBuilder;
 import cherry.generated.VarSingletonClass.VarSingletonUnitBuilder;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
+import cherry.model.ConstructorCodeUnit;
 import com.squareup.javapoet.JavaFile;
 import jade.CodeUnitTransformator;
 import scarlet.generator.JavaClassGenerator;
@@ -81,10 +83,27 @@ class TransformatorTester {
 	}
 
 	@org.junit.jupiter.api.Test
-	void ConstructorBuilderTest() throws IOException {
+	void FixedConstructorBuilderTest() throws IOException {
 		CodeUnit cu = ClazzUnitBuilder
 				.createWithIdentifier("SimpleClazz")
 				.withModifiers(CodeUnitModifier.PUBLIC)
+				.end();
+
+		System.out.println(cu);
+
+		TransformCodeUnit(cu);
+	}
+
+	@org.junit.jupiter.api.Test
+	void ConstructorBuilderTest() throws IOException {
+		CodeUnit cu = VarSingletonUnitBuilder
+				.createWithIdentifier("ConstructorTestClass")
+					.withConstructor(ConstructorUnitBuilder
+						.create()
+						.withMethodBody("//test")
+						.withModifiers(CodeUnitModifier.PUBLIC)
+						.withParameter("arg",String.class.getName())
+						.end())
 				.end();
 
 		System.out.println(cu);
