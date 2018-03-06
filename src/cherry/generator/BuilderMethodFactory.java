@@ -9,6 +9,7 @@ package cherry.generator;
 import amber.model.AnnotationModel;
 import amber.model.AnnotationType;
 import cherry.model.*;
+import cherry.platform.CodeUnitVariablityChecker;
 import cherry.platform.DefaultCodeUnitProvider;
 import cherry.platform.CodeUnitReferenceResolver;
 import com.squareup.javapoet.*;
@@ -206,6 +207,7 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(codeUnitType)
+				.addStatement("new $T(this.codeUnit).checkVariabilities()", CodeUnitVariablityChecker.class)
 				.addStatement("this.codeUnit.addSubCodeUnits($T.createDefaultMethodCodeUnits(codeUnit))", DefaultCodeUnitProvider.class)
 				.addStatement("new $T(this.codeUnit).resolveReferences()", CodeUnitReferenceResolver.class)
 				.addStatement("return codeUnit")
@@ -216,6 +218,7 @@ public class BuilderMethodFactory {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
 				.returns(codeUnitType)
+				.addStatement("new $T(this.codeUnit).checkVariabilities()", CodeUnitVariablityChecker.class)
 				.addStatement("return codeUnit")
 				.build();
 	}

@@ -3,6 +3,7 @@ package cherry.generated.ReferencePOJO;
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
 import cherry.model.FieldCodeUnit;
+import cherry.platform.CodeUnitVariablityChecker;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
 
@@ -28,6 +29,7 @@ public class StringListUnitBuilder {
   }
 
   public FieldCodeUnit end() {
+    new CodeUnitVariablityChecker(this.codeUnit).checkVariabilities();
     return codeUnit;
   }
 

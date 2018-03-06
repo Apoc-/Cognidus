@@ -47,10 +47,10 @@ class CherryGeneratorTester {
 	}
 
 	@org.junit.jupiter.api.Test
-	void MiniTest() {
+	void ExampleTest() {
 		String targetPath = "src-generated";
-		String sourcePath = "resources/MiniRef.java";
-		String targetPackage = "cherry.generated.MiniRef";
+		String sourcePath = "resources/ExampleRef.java";
+		String targetPackage = "cherry.generated.ExampleRef";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
 }

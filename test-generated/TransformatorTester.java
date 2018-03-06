@@ -5,6 +5,8 @@
  */
 
 
+import cherry.generated.ExampleRef.ExampleClassUnitBuilder;
+import cherry.generated.ExampleRef.intUnitBuilder;
 import cherry.generated.ReferenceClazz.*;
 import cherry.generated.ReferenceGenerics.GenericUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
@@ -19,6 +21,7 @@ import com.squareup.javapoet.JavaFile;
 import jade.transformator.CodeUnitTransformator;
 import scarlet.generator.JavaClassGenerator;
 import scarlet.model.JavaClassFile;
+import violet.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -148,6 +151,22 @@ class TransformatorTester {
 
 		TransformCodeUnit(cu);
 	}
+
+	@org.junit.jupiter.api.Test
+	void ExampleTester() throws IOException {
+		CodeUnit cu = ExampleClassUnitBuilder
+				.createWithIdentifier("ExampleIdentifier")
+				.withField(intUnitBuilder
+						.createWithIdentifier("asd")
+						.end())
+				.end();
+
+		Logger.console().logInfo("Generated: " + cu.toString() + "\n");
+
+		TransformCodeUnit(cu);
+	}
+
+
 
 	@org.junit.jupiter.api.Test
 	void ShowCaseTester() throws IOException {

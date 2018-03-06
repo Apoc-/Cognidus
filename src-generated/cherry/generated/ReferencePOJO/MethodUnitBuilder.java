@@ -2,6 +2,7 @@ package cherry.generated.ReferencePOJO;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.MethodCodeUnit;
+import cherry.platform.CodeUnitVariablityChecker;
 import cherry.platform.DefaultCodeUnitProvider;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
@@ -26,6 +27,7 @@ public class MethodUnitBuilder {
   }
 
   public MethodCodeUnit end() {
+    new CodeUnitVariablityChecker(this.codeUnit).checkVariabilities();
     return codeUnit;
   }
 
