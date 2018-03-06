@@ -11,7 +11,7 @@ import java.util.List;
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
 	@FixedCodeUnit @HasGetter @HasSetter
-	private transient int id;
+	private int id;
 
 	@FixedCodeUnit @HasSetter
 	private String name;

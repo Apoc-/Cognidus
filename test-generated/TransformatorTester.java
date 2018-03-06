@@ -6,7 +6,8 @@
 
 
 import cherry.generated.ExampleRef.ExampleClassUnitBuilder;
-import cherry.generated.ExampleRef.intUnitBuilder;
+
+import cherry.generated.ExampleRef.IntUnitBuilder;
 import cherry.generated.ReferenceClazz.*;
 import cherry.generated.ReferenceGenerics.GenericUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
@@ -156,7 +157,7 @@ class TransformatorTester {
 	void ExampleTester() throws IOException {
 		CodeUnit cu = ExampleClassUnitBuilder
 				.createWithIdentifier("ExampleIdentifier")
-				.withField(intUnitBuilder
+				.withField(IntUnitBuilder
 						.createWithIdentifier("asd")
 						.end())
 				.end();

@@ -10,6 +10,11 @@ import amber.annotations.VariableType;
 
 @CodeUnit("ExampleClass")
 public class ExampleRef {
-	@CodeUnit("int") @FixedCodeUnit @VariableType
+	@CodeUnit("Int")
 	int i;
+
+	@FixedCodeUnit
+	boolean[] name;
+
+
 }
