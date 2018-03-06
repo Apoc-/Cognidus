@@ -60,9 +60,9 @@ public class DefaultCodeUnitProvider {
 		return method;
 	}
 
-	private static CodeUnit createMethodCodeUnit(String identifier, String set, String typeName) {
+	private static CodeUnit createMethodCodeUnit(String identifier, String prefix, String typeName) {
 		return CodeUnitBuilder
-				.createWithIdentifier(set + StringUtils.capitalize(identifier))
+				.createWithIdentifier(prefix + StringUtils.capitalize(identifier))
 				.setCodeUnitType(CodeUnitType.METHOD)
 				.withModifiers(CodeUnitModifier.PUBLIC)
 				.withReturnType(typeName)

@@ -162,7 +162,6 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
-	//todo del
 	private MethodSpec createWithSubCodeUnitSpec(String identifier, TypeName builderType) {
 		return MethodSpec.methodBuilder(identifier)
 				.addModifiers(Modifier.PUBLIC)
@@ -240,7 +239,6 @@ public class BuilderMethodFactory {
 				.build();
 	}
 
-	//Todo: Talk why THIS should be the solution
 	private MethodSpec createInitDefCodeUnitMethod() {
 		CodeUnit sourceCodeUnit = annotationModel.getDefaultCodeUnit();
 

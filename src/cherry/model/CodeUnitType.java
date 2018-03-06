@@ -11,7 +11,7 @@ public enum CodeUnitType {
 	FIELD,
 	CONSTRUCTOR,
 	METHOD,
-	METHOD_BODY, //todo possibly make this a codeunitdatum and not a sub codeunit
+	METHOD_BODY,
 	METHOD_PARAM;
 
 	@Override

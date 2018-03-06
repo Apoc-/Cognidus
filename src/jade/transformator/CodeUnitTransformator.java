@@ -1,10 +1,10 @@
 /*
  * Copyright (c) Apoc- 2018
  *
- * File last modfied: 11.01.18 23:09
+ * File last modfied: 05.03.18 10:56
  */
 
-package jade;
+package jade.transformator;
 
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitDatumType;
@@ -35,19 +35,6 @@ public class CodeUnitTransformator {
 		return (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 	}
 
-
-	private Set<JavaModifier> transformModifier(CodeUnit cu) {
-		if(cu.hasDatum(CodeUnitDatumType.MODIFIER)) {
-			CodeUnitModifier[] cm = (CodeUnitModifier[]) cu.getCodeUnitDatum(CodeUnitDatumType.MODIFIER).getDatumData();
-			return Arrays
-					.stream(cm)
-					.map(m -> JavaModifier.valueOf(m.name()))
-					.collect(Collectors.toSet());
-		} else {
-			return Set.of();
-		}
-	}
-
 	private List<JavaField> transformFields(CodeUnit cu) {
 		 return cu.getSubCodeUnits()
 				 .stream()
@@ -61,6 +48,7 @@ public class CodeUnitTransformator {
 		jField.modifiers = this.transformModifier(cu);
 		jField.identifier = this.transformIdentifier(cu);
 		jField.type = this.transformType(cu);
+		jField.typeParams = this.transformTypeArguments(cu);
 
 		return jField;
 	}
@@ -124,6 +112,28 @@ public class CodeUnitTransformator {
 				.collect(Collectors.toList());
 	}
 
+	private List<String> transformTypeArguments(CodeUnit cu) {
+		if(cu.hasDatum(CodeUnitDatumType.TYPE_ARGUMENTS)) {
+			String[] typeArguments = (String[]) cu.getCodeUnitDatum(CodeUnitDatumType.TYPE_ARGUMENTS).getDatumData();
+
+			return List.of(typeArguments);
+		} else {
+			return List.of();
+		}
+	}
+
+	private Set<JavaModifier> transformModifier(CodeUnit cu) {
+		if(cu.hasDatum(CodeUnitDatumType.MODIFIER)) {
+			CodeUnitModifier[] cm = (CodeUnitModifier[]) cu.getCodeUnitDatum(CodeUnitDatumType.MODIFIER).getDatumData();
+			return Arrays
+					.stream(cm)
+					.map(m -> JavaModifier.valueOf(m.name()))
+					.collect(Collectors.toSet());
+		} else {
+			return Set.of();
+		}
+	}
+
 	private JavaMethodParameter transformParameter(CodeUnit cu) {
 		JavaMethodParameter jParam = new JavaMethodParameter();
 
@@ -134,7 +144,6 @@ public class CodeUnitTransformator {
 		return jParam;
 	}
 
-	//todo METHOD BODY for now is the only 1:1 cardinality of R(CodeUnit, CodeUnit), should this stay?
 	private JavaMethodBody transformBody(CodeUnit cu) {
 		JavaMethodBody jBody = new JavaMethodBody();
 

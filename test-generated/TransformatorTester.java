@@ -8,16 +8,15 @@
 import cherry.generated.ReferenceClazz.*;
 import cherry.generated.ReferenceGenerics.GenericUnitBuilder;
 import cherry.generated.ReferencePOJO.*;
+import cherry.generated.ReferencePOJO.MethodUnitBuilder;
 import cherry.generated.SingletonClass.SingletonUnitBuilder;
 import cherry.generated.VarSingletonClass.ConstructorUnitBuilder;
 import cherry.generated.VarSingletonClass.InstanceVarUnitBuilder;
 import cherry.generated.VarSingletonClass.VarSingletonUnitBuilder;
 import cherry.model.CodeUnit;
-import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
-import cherry.model.ConstructorCodeUnit;
 import com.squareup.javapoet.JavaFile;
-import jade.CodeUnitTransformator;
+import jade.transformator.CodeUnitTransformator;
 import scarlet.generator.JavaClassGenerator;
 import scarlet.model.JavaClassFile;
 
@@ -45,6 +44,9 @@ class TransformatorTester {
 				.withField(PublicIntUnitBuilder
 						.createWithIdentifier("DahDah")
 						.end())
+				.withField(StringListUnitBuilder
+						.createWithIdentifier("ListDah")
+						.end())
 				.end();
 
 		System.out.println(cu);
@@ -56,7 +58,7 @@ class TransformatorTester {
 	void MethodBuilderTest() throws IOException {
 		CodeUnit cu = POJOUnitBuilder
 				.createWithIdentifier("Clazz")
-				.withMethod(MethodyUnitBuilder
+				.withMethod(MethodUnitBuilder
 						.createWithIdentifier("Method")
 						.withMethodBody("//test;")
 						.withReturnType(void.class.getName())
@@ -98,11 +100,11 @@ class TransformatorTester {
 	void ConstructorBuilderTest() throws IOException {
 		CodeUnit cu = VarSingletonUnitBuilder
 				.createWithIdentifier("ConstructorTestClass")
-					.withConstructor(ConstructorUnitBuilder
+				.withConstructor(ConstructorUnitBuilder
 						.create()
 						.withMethodBody("//test")
 						.withModifiers(CodeUnitModifier.PUBLIC)
-						.withParameter("arg",String.class.getName())
+						.withParameter("arg", String.class.getName())
 						.end())
 				.end();
 
@@ -198,10 +200,10 @@ class TransformatorTester {
 				.withMethod(PublicStaticMethodUnitBuilder
 						.createWithIdentifier("main")
 						.withMethodBody("DataLogger logger = DataLogger.getInstance();\n" +
-										"logger.logInfo(\"Hello, World!\");\n" +
-										"logger.logError(\"Don't Panic!\");\n" +
-										"int c = logger.getLogCount();\n" +
-										"logger.logInfo(\"Logged Messages: \" + c);")
+								"logger.logInfo(\"Hello, World!\");\n" +
+								"logger.logError(\"Don't Panic!\");\n" +
+								"int c = logger.getLogCount();\n" +
+								"logger.logInfo(\"Logged Messages: \" + c);")
 						.end())
 				.end();
 	}

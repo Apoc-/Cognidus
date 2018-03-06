@@ -9,10 +9,15 @@ import amber.annotations.FixedCodeUnit;
 import amber.annotations.VariableModifier;
 import amber.annotations.VariableParams;
 
+import java.util.List;
+
 @CodeUnit("VarSingleton")
 public class VarSingletonClass {
 	@FixedCodeUnit
 	private static VarSingletonClass instance;
+
+	@FixedCodeUnit
+	private List<String> things;
 
 	@CodeUnit("InstanceVar")
 	private static VarSingletonClass varInstance;

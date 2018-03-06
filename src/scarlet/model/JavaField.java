@@ -6,6 +6,7 @@
 package scarlet.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class JavaField {
@@ -13,6 +14,7 @@ public class JavaField {
 	public String type;
 	public String identifier;
 	public Boolean isArray;
+	public List<String> typeParams;
 
 	public JavaField() {
 		modifiers = new HashSet<>();

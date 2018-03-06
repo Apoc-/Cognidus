@@ -35,7 +35,8 @@ public class AnnotationParser {
 		return type;
 	}
 
-	void handleClassReference(CodeUnit codeUnit, String declaringClassName, String typeName) {
+	//todo maybe its just class ref?
+	void addParentClassReference(CodeUnit codeUnit, String declaringClassName, String typeName) {
 		if(declaringClassName.equals(typeName)) {
 			codeUnit.addCodeUnitDatum(CodeUnitDatumType.PARENT_CLASS_REF, declaringClassName);
 		}

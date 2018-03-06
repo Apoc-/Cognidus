@@ -17,17 +17,18 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.type.Type;
-import com.github.javaparser.resolution.declarations.ResolvedFieldDeclaration;
-import com.github.javaparser.resolution.declarations.ResolvedTypeDeclaration;
 import com.github.javaparser.resolution.types.ResolvedType;
 
-import java.util.*;
+import java.util.EnumSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class FieldAnnotationParser extends AnnotationParser {
 	private void parseVariableModifierAnnotation(FieldDeclaration declaration, AnnotationModel model) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(VariableModifier.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			model.addVariabilityAnnotation(AnnotationType.VARIABLE_MODIFIERS);
 		} else {
 			model.getDefaultCodeUnit().addCodeUnitDatum(CodeUnitDatumType.MODIFIER, getModifier(declaration));
@@ -36,7 +37,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 	private void parseFixedCodeUnitHasGetterAnnotation(FieldDeclaration declaration, CodeUnit cu) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.HasGetter.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			VariableDeclarator vd = declaration.getVariable(0);
 			String typeName = resolveVariableType(vd);
 			String identifier = getFieldIdentifier(vd);
@@ -49,7 +50,7 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 	private void parseFixedCodeUnitHasSetterAnnotation(FieldDeclaration declaration, CodeUnit cu) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.HasSetter.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			VariableDeclarator vd = declaration.getVariable(0);
 			String identifier = getFieldIdentifier(vd);
 			String typeName = resolveVariableType(vd);
@@ -62,18 +63,25 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 	private void parseVariableTypeAnnotation(FieldDeclaration declaration, AnnotationModel model) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.VariableType.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			model.addVariabilityAnnotation(AnnotationType.VARIABLE_DATATYPE);
 		} else {
-			//todo refactor
 			CodeUnit codeUnit = model.getDefaultCodeUnit();
 			VariableDeclarator vd = declaration.getVariable(0);
 			String declaringClassName = resolveDeclaringClassName(vd);
 			String variableTypeName = resolveVariableType(vd);
 
+			// TODO For now removed, but correctly adds information to CodeUnit, but needs more processing on the transformators side
+			/*
+			String[] typeArguments = getTypeArguments(vd);
+			if(typeArguments.length > 0) {
+				codeUnit.addCodeUnitDatum(CodeUnitDatumType.TYPE_ARGUMENTS, typeArguments);
+			}*/
+
 			codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, variableTypeName);
 
-			handleClassReference(codeUnit, declaringClassName, variableTypeName);
+
+			addParentClassReference(codeUnit, declaringClassName, variableTypeName);
 		}
 	}
 
@@ -97,14 +105,14 @@ public class FieldAnnotationParser extends AnnotationParser {
 
 	private void parseHasGetterAnnotation(FieldDeclaration declaration, AnnotationModel model) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.HasGetter.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			model.addExtensionAnnotation(AnnotationType.HAS_GETTER);
 		}
 	}
 
 	private void parseHasSetterAnnotation(FieldDeclaration declaration, AnnotationModel model) {
 		Optional<AnnotationExpr> anno = declaration.getAnnotationByClass(amber.annotations.HasSetter.class);
-		if(anno.isPresent()) {
+		if (anno.isPresent()) {
 			model.addExtensionAnnotation(AnnotationType.HAS_SETTER);
 		}
 	}
@@ -117,16 +125,16 @@ public class FieldAnnotationParser extends AnnotationParser {
 			VariableDeclarator vd = declaration.getVariable(0);
 			String declaringClassName = resolveDeclaringClassName(vd);
 			String variableTypeName = resolveVariableType(vd);
-			//List<String> variableTypeArguments = resolveVariableTypeArguments(vd);
 
 			CodeUnit subCodeUnit = CodeUnitBuilder
 					.createWithIdentifier(getFieldIdentifier(vd))
 					.setCodeUnitType(CodeUnitType.FIELD)
 					.withModifiers(getModifier(declaration))
 					.withDataType(variableTypeName)
+					.withTypeArguments(getTypeArguments(vd))
 					.end();
 
-			handleClassReference(subCodeUnit, declaringClassName, variableTypeName);
+			addParentClassReference(subCodeUnit, declaringClassName, variableTypeName);
 
 			parseFixedCodeUnitHasGetterAnnotation(declaration, cu);
 			parseFixedCodeUnitHasSetterAnnotation(declaration, cu);
@@ -142,7 +150,6 @@ public class FieldAnnotationParser extends AnnotationParser {
 				.getQualifiedName();
 	}
 
-	//todo refactor NodeWithModifier!
 	private CodeUnitModifier[] getModifier(FieldDeclaration fd) {
 		EnumSet<Modifier> mods = fd.getModifiers();
 
@@ -163,20 +170,20 @@ public class FieldAnnotationParser extends AnnotationParser {
 		return getTypeName(rt);
 	}
 
-	//todo implement this fully, method is already working, just needs implementation to generator and transformator
-
-	/*private List<String> resolveVariableTypeArguments(VariableDeclarator vd) {
+	private String[] getTypeArguments(VariableDeclarator vd) {
 		List<String> typeArguments = new LinkedList<>();
+		Type type = vd.getType();
 
-		Optional<NodeList<Type>> args = vd.getType().asClassOrInterfaceType().getTypeArguments();
-		args.ifPresent(typeArgumentList -> {
-			typeArgumentList
-					.forEach(typeArgument -> {
-						ResolvedType rt = typeArgument.resolve();
-						typeArguments.add(getTypeName(rt));
-					});
-		});
+		if (type.isClassOrInterfaceType()) {
+			Optional<NodeList<Type>> args = type.asClassOrInterfaceType().getTypeArguments();
+			args.ifPresent(typeArgumentList ->
+					typeArgumentList
+							.forEach(typeArgument -> {
+								ResolvedType rt = typeArgument.resolve();
+								typeArguments.add(getTypeName(rt));
+							}));
+		}
 
-		return typeArguments;
-	}*/
+		return typeArguments.toArray(new String[typeArguments.size()]);
+	}
 }

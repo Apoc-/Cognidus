@@ -9,8 +9,8 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.squareup.javapoet.*;
 import scarlet.model.*;
-import scarlet.visitors.JavaFieldVisitor;
-import scarlet.visitors.JavaClassVisitor;
+import scarlet.visitor.JavaFieldVisitor;
+import scarlet.visitor.JavaClassVisitor;
 
 import javax.lang.model.element.Modifier;
 import java.io.File;
@@ -77,7 +77,14 @@ public class JavaClassGenerator {
 	}
 
 	private FieldSpec generateFieldSpec(JavaField field) {
-		TypeName type = JavaPoetTypeMapper.typeName(field.type);
+		TypeName type;
+
+		if(field.typeParams.isEmpty()) {
+			type = JavaPoetTypeMapper.typeName(field.type);
+		} else {
+			type = JavaPoetTypeMapper.parameterizedTypeName(field.type, field.typeParams);
+		}
+
 		String name = field.identifier;
 		Modifier[] modifiers = getModifiers(field.modifiers);
 

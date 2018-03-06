@@ -6,6 +6,8 @@
 
 import amber.annotations.*;
 
+import java.util.List;
+
 @CodeUnit("POJO")
 public abstract class ReferencePOJO {
 	@FixedCodeUnit @HasGetter @HasSetter
@@ -17,8 +19,8 @@ public abstract class ReferencePOJO {
 	@CodeUnit("PublicInt") @HasGetter @HasSetter
 	public int number;
 
-	@CodeUnit("String") @VariableModifier
-	public String s;
+	@CodeUnit("StringList") @VariableModifier @HasSetter @HasGetter
+	public List<String> s;
 
 	@CodeUnit("Var") @VariableModifier @VariableType
 	public float f;
@@ -43,7 +45,7 @@ public abstract class ReferencePOJO {
 		return 3*n;
 	}
 
-	@CodeUnit("Methody")
+	@CodeUnit("Method")
 	public int bus(int m) {
 		return m*m;
 	}

@@ -14,12 +14,10 @@ import amber.model.AnnotationType;
 import cherry.model.*;
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 
-import java.lang.annotation.Annotation;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
@@ -118,7 +116,7 @@ public class ConstructorAnnotationParser extends AnnotationParser {
 									.withDataType(getTypeName(p.getType()))
 									.end();
 
-							handleClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
+							addParentClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
 
 							return paramCodeUnit;
 						})

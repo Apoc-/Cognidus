@@ -48,11 +48,10 @@ public class MethodAnnotationParser extends AnnotationParser {
 			CodeUnit cu = model.getDefaultCodeUnit();
 			CodeUnit methodCodeUnit = createMethodCodeUnitFromDeclaration(declaration);
 
-			//todo refactor
 			String declaringClassName = resolveDeclaringClassName(declaration);
 			String methodReturnTypeName = resolveMethodReturnType(declaration);
 
-			handleClassReference(methodCodeUnit, declaringClassName, methodReturnTypeName);
+			addParentClassReference(methodCodeUnit, declaringClassName, methodReturnTypeName);
 
 			cu.addSubCodeUnit(methodCodeUnit);
 		});
@@ -140,7 +139,7 @@ public class MethodAnnotationParser extends AnnotationParser {
 									.withDataType(parameterTypeName)
 									.end();
 
-							handleClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
+							addParentClassReference(paramCodeUnit, declaringClassName, parameterTypeName);
 
 							return paramCodeUnit;
 						})

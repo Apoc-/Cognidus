@@ -47,6 +47,14 @@ public class CodeUnitBuilder {
 		return this;
 	}
 
+	public CodeUnitBuilder withTypeArguments(String... typeArgs) {
+		if(typeArgs.length > 0) {
+			this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.TYPE_ARGUMENTS, typeArgs);
+		}
+
+		return this;
+	}
+
 	public CodeUnit end() {
 		return codeUnit;
 	}

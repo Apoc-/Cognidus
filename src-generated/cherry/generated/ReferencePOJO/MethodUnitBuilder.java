@@ -6,10 +6,10 @@ import cherry.platform.DefaultCodeUnitProvider;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
 
-public class MethodyUnitBuilder {
+public class MethodUnitBuilder {
   private MethodCodeUnit codeUnit;
 
-  private MethodyUnitBuilder() {
+  private MethodUnitBuilder() {
     initializeDefaultCodeUnit();
   }
 
@@ -19,8 +19,8 @@ public class MethodyUnitBuilder {
     this.codeUnit = SerializationUtils.deserialize(serializedCodeUnit);
   }
 
-  public static MethodyUnitBuilder createWithIdentifier(String identifier) {
-    MethodyUnitBuilder cub = new MethodyUnitBuilder();
+  public static MethodUnitBuilder createWithIdentifier(String identifier) {
+    MethodUnitBuilder cub = new MethodUnitBuilder();
     cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
     return cub;
   }
@@ -29,12 +29,12 @@ public class MethodyUnitBuilder {
     return codeUnit;
   }
 
-  public MethodyUnitBuilder withMethodBody(String code) {
+  public MethodUnitBuilder withMethodBody(String code) {
     this.codeUnit.addSubCodeUnit(DefaultCodeUnitProvider.createMethodBodyCodeUnit(code));
     return this;
   }
 
-  public MethodyUnitBuilder withReturnType(String typeName) {
+  public MethodUnitBuilder withReturnType(String typeName) {
     this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, typeName);
     return this;
   }

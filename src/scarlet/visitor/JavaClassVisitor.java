@@ -3,7 +3,7 @@
  *
  * File last modfied: 24.12.17 00:35
  */
-package scarlet.visitors;
+package scarlet.visitor;
 
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
