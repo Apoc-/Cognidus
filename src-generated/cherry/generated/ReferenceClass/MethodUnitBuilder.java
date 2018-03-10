@@ -1,4 +1,4 @@
-package cherry.generated.ReferencePOJO;
+package cherry.generated.ReferenceClass;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;
@@ -8,10 +8,10 @@ import cherry.platform.DefaultCodeUnitProvider;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
 
-public class MethodModParamUnitBuilder {
+public class MethodUnitBuilder {
   private MethodCodeUnit codeUnit;
 
-  private MethodModParamUnitBuilder() {
+  private MethodUnitBuilder() {
     initializeDefaultCodeUnit();
   }
 
@@ -21,8 +21,8 @@ public class MethodModParamUnitBuilder {
     this.codeUnit = SerializationUtils.deserialize(serializedCodeUnit);
   }
 
-  public static MethodModParamUnitBuilder createWithIdentifier(String identifier) {
-    MethodModParamUnitBuilder cub = new MethodModParamUnitBuilder();
+  public static MethodUnitBuilder createWithIdentifier(String identifier) {
+    MethodUnitBuilder cub = new MethodUnitBuilder();
     cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
     return cub;
   }
@@ -32,22 +32,22 @@ public class MethodModParamUnitBuilder {
     return codeUnit;
   }
 
-  public MethodModParamUnitBuilder withMethodBody(String code) {
+  public MethodUnitBuilder withMethodBody(String code) {
     this.codeUnit.addSubCodeUnit(DefaultCodeUnitProvider.createMethodBodyCodeUnit(code));
     return this;
   }
 
-  public MethodModParamUnitBuilder withReturnType(String typeName) {
+  public MethodUnitBuilder withReturnType(String typeName) {
     this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.RETURN_TYPE, typeName);
     return this;
   }
 
-  public MethodModParamUnitBuilder withModifiers(CodeUnitModifier... modifiers) {
+  public MethodUnitBuilder withModifiers(CodeUnitModifier... modifiers) {
     this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.MODIFIER, modifiers);
     return this;
   }
 
-  public MethodModParamUnitBuilder withParameter(String identifier, String typeName) {
+  public MethodUnitBuilder withParameter(String identifier, String typeName) {
     this.codeUnit.addSubCodeUnit(DefaultCodeUnitProvider.createMethodParameterCodeUnit(identifier, typeName));
     return this;
   }

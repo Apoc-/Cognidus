@@ -49,7 +49,7 @@ public class BuilderGenerator {
 		CompilationUnit cu = parseCodeFile(sourcePath);
 		populateAnnotationModels(cu);
 
-		models.forEach(m -> generateUnitBuilder(m, targetPath, targetPackage));
+		this.models.forEach(m -> generateUnitBuilder(m, targetPath, targetPackage));
 	}
 
 	private CompilationUnit parseCodeFile(String path) {

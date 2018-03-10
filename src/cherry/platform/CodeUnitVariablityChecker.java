@@ -40,8 +40,8 @@ public class CodeUnitVariablityChecker {
 		if(!codeUnit.hasDatum(CodeUnitDatumType.DATA_TYPE)) {
 			String identifier = (String) codeUnit.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 
-			Logger.console().logError("CodeUnit for " + identifier + " had no data type set, setting default datatype int");
-			codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, "int");
+			Logger.console().logError("CodeUnit for " + identifier + " had no data type set, setting default datatype to Object");
+			codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, "Object");
 		}
 	}
 

@@ -1,4 +1,4 @@
-package cherry.generated.ReferenceClazz;
+package cherry.generated.ReferenceClass;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.FieldCodeUnit;

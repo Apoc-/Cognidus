@@ -5,17 +5,11 @@
  */
 
 
-import cherry.generated.ExampleRef.ExampleClassUnitBuilder;
+import cherry.generated.ExampleRef.ConstructorUnitBuilder;
 
-import cherry.generated.ExampleRef.IntUnitBuilder;
-import cherry.generated.ReferenceClazz.*;
-import cherry.generated.ReferenceGenerics.GenericUnitBuilder;
-import cherry.generated.ReferencePOJO.*;
-import cherry.generated.ReferencePOJO.MethodUnitBuilder;
+import cherry.generated.ExampleRef.ExampleClassUnitBuilder;
+import cherry.generated.ReferenceClass.*;
 import cherry.generated.SingletonClass.SingletonUnitBuilder;
-import cherry.generated.VarSingletonClass.ConstructorUnitBuilder;
-import cherry.generated.VarSingletonClass.InstanceVarUnitBuilder;
-import cherry.generated.VarSingletonClass.VarSingletonUnitBuilder;
 import cherry.model.CodeUnit;
 import cherry.model.CodeUnitModifier;
 import com.squareup.javapoet.JavaFile;
@@ -28,66 +22,6 @@ import java.io.File;
 import java.io.IOException;
 
 class TransformatorTester {
-	@org.junit.jupiter.api.Test
-	void ClassAndFieldBuilderTest() throws IOException {
-		CodeUnit cu = POJOUnitBuilder
-				.createWithIdentifier("Foo")
-				.withField(VarUnitBuilder
-						.createWithIdentifier("Fus")
-						.withDataType(float.class.getName())
-						.withModifiers(CodeUnitModifier.PRIVATE)
-						.end())
-				.withField(VarUnitBuilder
-						.createWithIdentifier("Ro")
-						.withDataType(String.class.getName())
-						.withModifiers(CodeUnitModifier.PUBLIC, CodeUnitModifier.TRANSIENT)
-						.end())
-				.withField(PublicIntUnitBuilder
-						.createWithIdentifier("Dah")
-						.end())
-				.withField(PublicIntUnitBuilder
-						.createWithIdentifier("DahDah")
-						.end())
-				.withField(StringListUnitBuilder
-						.createWithIdentifier("ListDah")
-						.end())
-				.end();
-
-		System.out.println(cu);
-
-		TransformCodeUnit(cu);
-	}
-
-	@org.junit.jupiter.api.Test
-	void MethodBuilderTest() throws IOException {
-		CodeUnit cu = POJOUnitBuilder
-				.createWithIdentifier("Clazz")
-				.withMethod(MethodUnitBuilder
-						.createWithIdentifier("Method")
-						.withMethodBody("//test;")
-						.withReturnType(void.class.getName())
-						.end())
-				.withMethod(MethodModUnitBuilder
-						.createWithIdentifier("MethodM")
-						.withModifiers(CodeUnitModifier.PRIVATE)
-						.withMethodBody("//test2;")
-						.withReturnType(void.class.getName())
-						.end())
-				.withMethod(MethodModParamUnitBuilder
-						.createWithIdentifier("MethodMP")
-						.withModifiers(CodeUnitModifier.PRIVATE, CodeUnitModifier.STATIC)
-						.withParameter("a", int.class.getName())
-						.withParameter("b", int.class.getName())
-						.withMethodBody("return a + b;")
-						.withReturnType(int.class.getName())
-						.end())
-				.end();
-
-		System.out.println(cu);
-
-		TransformCodeUnit(cu);
-	}
-
 	@org.junit.jupiter.api.Test
 	void FixedConstructorBuilderTest() throws IOException {
 		CodeUnit cu = ClazzUnitBuilder
@@ -102,7 +36,7 @@ class TransformatorTester {
 
 	@org.junit.jupiter.api.Test
 	void ConstructorBuilderTest() throws IOException {
-		CodeUnit cu = VarSingletonUnitBuilder
+		CodeUnit cu = ClazzUnitBuilder
 				.createWithIdentifier("ConstructorTestClass")
 				.withConstructor(ConstructorUnitBuilder
 						.create()
@@ -129,36 +63,27 @@ class TransformatorTester {
 	}
 
 	@org.junit.jupiter.api.Test
-	void VarSingletonBuilderTest() throws IOException {
-		CodeUnit cu = VarSingletonUnitBuilder
-				.createWithIdentifier("DataManager")
-				.withField(InstanceVarUnitBuilder
-						.createWithIdentifier("varInstance")
-						.end())
-				.end();
-
-		System.out.println(cu);
-
-		TransformCodeUnit(cu);
-	}
-
-	@org.junit.jupiter.api.Test
-	void GenericBuilderTest() throws IOException {
-		CodeUnit cu = GenericUnitBuilder
-				.createWithIdentifier("ClassWithGenerics")
-				.end();
-
-		System.out.println(cu);
-
-		TransformCodeUnit(cu);
-	}
-
-	@org.junit.jupiter.api.Test
 	void ExampleTester() throws IOException {
 		CodeUnit cu = ExampleClassUnitBuilder
 				.createWithIdentifier("ExampleIdentifier")
-				.withField(IntUnitBuilder
-						.createWithIdentifier("asd")
+				.withModifiers(CodeUnitModifier.PROTECTED)
+				.withField(GetVarUnitBuilder
+						.createWithIdentifier("exampleField")
+						//.withModifiers(CodeUnitModifier.PRIVATE)
+						.withDataType(Object.class.getName())
+						.end())
+				.withMethod(MethodUnitBuilder
+					.createWithIdentifier("exampleMethod")
+						.withModifiers(CodeUnitModifier.PUBLIC)
+						.withParameter("param", String.class.getName())
+						.withMethodBody("return param")
+						.withReturnType(String.class.getName())
+					.end())
+				.withConstructor(ConstructorUnitBuilder
+					.create()
+						.withParameter("param", String.class.getName())
+						.withModifiers(CodeUnitModifier.PUBLIC)
+						.withMethodBody("//body als String")
 						.end())
 				.end();
 
@@ -183,7 +108,6 @@ class TransformatorTester {
 
 	private void WriteToFile(CodeUnit cu) throws IOException {
 		JavaFile jf = TransformToJavaFile(cu, "scarlet.generated");
-		//String fileName = (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
 		jf.writeTo(new File("src-generated/"));
 	}
 
@@ -209,7 +133,7 @@ class TransformatorTester {
 						.withParameter("prefix", String.class.getName())
 						.withParameter("message", String.class.getName())
 						.withMethodBody("System.out.println(prefix + \" \" + message);\n" +
-								"logCount++;")
+										"logCount++;")
 						.end())
 				.end();
 	}

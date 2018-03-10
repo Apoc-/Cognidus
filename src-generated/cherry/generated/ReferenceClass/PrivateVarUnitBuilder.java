@@ -1,4 +1,4 @@
-package cherry.generated.ReferenceClazz;
+package cherry.generated.ReferenceClass;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.FieldCodeUnit;
@@ -6,10 +6,10 @@ import cherry.platform.CodeUnitVariablityChecker;
 import java.lang.String;
 import org.apache.commons.lang3.SerializationUtils;
 
-public class GetSetVarUnitBuilder {
+public class PrivateVarUnitBuilder {
   private FieldCodeUnit codeUnit;
 
-  private GetSetVarUnitBuilder() {
+  private PrivateVarUnitBuilder() {
     initializeDefaultCodeUnit();
   }
 
@@ -19,11 +19,9 @@ public class GetSetVarUnitBuilder {
     this.codeUnit = SerializationUtils.deserialize(serializedCodeUnit);
   }
 
-  public static GetSetVarUnitBuilder createWithIdentifier(String identifier) {
-    GetSetVarUnitBuilder cub = new GetSetVarUnitBuilder();
+  public static PrivateVarUnitBuilder createWithIdentifier(String identifier) {
+    PrivateVarUnitBuilder cub = new PrivateVarUnitBuilder();
     cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.IDENTIFIER, identifier);
-    cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.GETTER, true);
-    cub.codeUnit.addCodeUnitDatum(CodeUnitDatumType.SETTER, true);
     return cub;
   }
 
@@ -32,7 +30,7 @@ public class GetSetVarUnitBuilder {
     return codeUnit;
   }
 
-  public GetSetVarUnitBuilder withDataType(String typeName) {
+  public PrivateVarUnitBuilder withDataType(String typeName) {
     this.codeUnit.addCodeUnitDatum(CodeUnitDatumType.DATA_TYPE, typeName);
     return this;
   }

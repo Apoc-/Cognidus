@@ -23,7 +23,7 @@ public class CodeUnitDatum<T> implements Serializable {
 	@Override
 	public String toString() {
 		if(datumData.getClass().isArray())
-			return Arrays.toString((Object[]) datumData); //smelly smell is smelly
+			return Arrays.toString((Object[]) datumData);
 
 		return datumData.toString();
 	}

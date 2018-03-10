@@ -138,7 +138,6 @@ public class CodeUnitTransformator {
 		JavaMethodParameter jParam = new JavaMethodParameter();
 
 		jParam.identifier = (String) cu.getCodeUnitDatum(CodeUnitDatumType.IDENTIFIER).getDatumData();
-
 		jParam.type = (String) cu.getCodeUnitDatum(CodeUnitDatumType.DATA_TYPE).getDatumData();
 
 		return jParam;

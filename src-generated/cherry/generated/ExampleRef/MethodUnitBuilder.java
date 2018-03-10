@@ -1,4 +1,4 @@
-package cherry.generated.ReferenceClazz;
+package cherry.generated.ExampleRef;
 
 import cherry.model.CodeUnitDatumType;
 import cherry.model.CodeUnitModifier;

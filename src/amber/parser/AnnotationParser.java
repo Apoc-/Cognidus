@@ -25,16 +25,16 @@ public class AnnotationParser {
 	}
 
 	String getTypeName(ResolvedType rt) {
-		String type = "";
+		String type;
 
-		//todo if is array -> make non array, must be removed as array support is implemented
-		if(rt.isArray()) {
+		//todo if is array -> make non array: must be removed as array support is implemented
+		if(rt.isReferenceType()) {
+			type = rt.asReferenceType().getQualifiedName();
+		} else if(rt.isArray()) {
 			type = rt.describe();
 			type = type.replace("[]", "");
-		} else if(rt.isPrimitive()) {
+		} else {
 			type = rt.describe();
-		} else if(rt.isReferenceType()) {
-			type = rt.asReferenceType().getQualifiedName();
 		}
 
 		return type;
