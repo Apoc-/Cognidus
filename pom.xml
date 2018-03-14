@@ -12,7 +12,7 @@
 
     <groupId>de.fhws.applab.apoc</groupId>
     <artifactId>Spectrum</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-Proof-of-Concept</version>
     <build>
         <plugins>
             <plugin>

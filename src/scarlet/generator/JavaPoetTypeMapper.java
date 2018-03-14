@@ -71,7 +71,7 @@ class JavaPoetTypeMapper {
 				}
 		}
 
-		return type;
+ 		return type;
 	}
 
 	private static TypeName getDefaultTypeName(String typeName) {

@@ -9,7 +9,7 @@ class CherryGeneratorTester {
 	@org.junit.jupiter.api.Test
 	void GenReferenceClazzBuilders() {
 		String targetPath = "src-generated";
-		String sourcePath = "resources/ReferenceClass.java";
+		String sourcePath = "resources-example/ReferenceClass.java";
 		String targetPackage = "cherry.generated.ReferenceClass";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
@@ -17,7 +17,7 @@ class CherryGeneratorTester {
 	@org.junit.jupiter.api.Test
 	void GenSingletonBuilder() {
 		String targetPath = "src-generated";
-		String sourcePath = "resources/SingletonClass.java";
+		String sourcePath = "resources-example/SingletonClass.java";
 		String targetPackage = "cherry.generated.SingletonClass";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}
@@ -25,7 +25,7 @@ class CherryGeneratorTester {
 	@org.junit.jupiter.api.Test
 	void ExampleTest() {
 		String targetPath = "src-generated";
-		String sourcePath = "resources/ExampleRef.java";
+		String sourcePath = "resources-example/ExampleRef.java";
 		String targetPackage = "cherry.generated.ExampleRef";
 		BuilderGenerator.getInstance().generateUnitBuilders(sourcePath, targetPath, targetPackage);
 	}

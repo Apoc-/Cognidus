@@ -31,15 +31,18 @@ public class ReferenceClass {
 	@CodeUnit("SetVar") @HasSetter @VariableType
 	private int setvar;
 
+	@CodeUnit("Var") @VariableModifier @VariableType
+	public int var;
+
 	@CodeUnit("Method") @VariableParams @VariableModifier
-	public void Method() {}
+	public void method() {}
 
 	@CodeUnit("PrivateMethod") @VariableParams
-	private void PrivateMethod() {}
+	private void privateMethod() {}
 
 	@CodeUnit("PublicMethod") @VariableParams
-	public void PublicMethod() {}
+	public void publicMethod() {}
 
 	@CodeUnit("PublicStaticMethod") @VariableParams
-	public static void PublicStaticMethod() {}
+	public static void publicStaticMethod() {}
 }

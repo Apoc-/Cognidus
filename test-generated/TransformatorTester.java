@@ -8,6 +8,7 @@
 import cherry.generated.ExampleRef.ConstructorUnitBuilder;
 
 import cherry.generated.ExampleRef.ExampleClassUnitBuilder;
+import cherry.generated.ExampleRef.VariableUnitBuilder;
 import cherry.generated.ReferenceClass.*;
 import cherry.generated.SingletonClass.SingletonUnitBuilder;
 import cherry.model.CodeUnit;
@@ -67,9 +68,9 @@ class TransformatorTester {
 		CodeUnit cu = ExampleClassUnitBuilder
 				.createWithIdentifier("ExampleIdentifier")
 				.withModifiers(CodeUnitModifier.PROTECTED)
-				.withField(GetVarUnitBuilder
+				.withField(VarUnitBuilder
 						.createWithIdentifier("exampleField")
-						//.withModifiers(CodeUnitModifier.PRIVATE)
+						.withModifiers(CodeUnitModifier.PRIVATE)
 						.withDataType(Object.class.getName())
 						.end())
 				.withMethod(MethodUnitBuilder
@@ -106,11 +107,6 @@ class TransformatorTester {
 		WriteToFile(dataLoggerTester);
 	}
 
-	private void WriteToFile(CodeUnit cu) throws IOException {
-		JavaFile jf = TransformToJavaFile(cu, "scarlet.generated");
-		jf.writeTo(new File("src-generated/"));
-	}
-
 	private CodeUnit BuildDataLogger() {
 		return SingletonUnitBuilder
 				.createWithIdentifier("DataLogger")
@@ -133,7 +129,7 @@ class TransformatorTester {
 						.withParameter("prefix", String.class.getName())
 						.withParameter("message", String.class.getName())
 						.withMethodBody("System.out.println(prefix + \" \" + message);\n" +
-										"logCount++;")
+								"logCount++;")
 						.end())
 				.end();
 	}
@@ -152,14 +148,9 @@ class TransformatorTester {
 				.end();
 	}
 
-	private void TransformCodeUnit(CodeUnit cu) throws IOException {
-		CodeUnitTransformator cut = new CodeUnitTransformator();
-		JavaClassFile j = new JavaClassFile();
-		j.javaClass = cut.transformClassCodeUnit(cu);
-
-		JavaClassGenerator jcg = new JavaClassGenerator();
-		JavaFile javaFile = jcg.generateJavaFileFromModel(j);
-		javaFile.writeTo(System.out);
+	private void WriteToFile(CodeUnit cu) throws IOException {
+		JavaFile jf = TransformToJavaFile(cu, "scarlet.generated");
+		jf.writeTo(new File("src-generated/"));
 	}
 
 	private JavaFile TransformToJavaFile(CodeUnit cu, String packageName) throws IOException {
@@ -170,5 +161,15 @@ class TransformatorTester {
 
 		JavaClassGenerator jcg = new JavaClassGenerator();
 		return jcg.generateJavaFileFromModel(j);
+	}
+
+	private void TransformCodeUnit(CodeUnit cu) throws IOException {
+		CodeUnitTransformator cut = new CodeUnitTransformator();
+		JavaClassFile j = new JavaClassFile();
+		j.javaClass = cut.transformClassCodeUnit(cu);
+
+		JavaClassGenerator jcg = new JavaClassGenerator();
+		JavaFile javaFile = jcg.generateJavaFileFromModel(j);
+		javaFile.writeTo(System.out);
 	}
 }
